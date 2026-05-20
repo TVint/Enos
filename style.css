@@ -1,0 +1,880 @@
+/* =========================================
+   VARIABILI E RESET
+   ========================================= */
+:root {
+    --bg-cream: #F9F7F2;
+    --brand-green: #268265;
+    --premium-navy: #0B1736;
+    --premium-orange: #DE6A23; /* Usato per il tasto solido ad alta attenzione */
+    --premium-gold: #E0C638;
+    --white: #FFFFFF;
+    
+    /* Nuova impostazione tipografica intelligente */
+    --font-heading: 'Comfortaa', sans-serif;
+    --font-body: 'Lora', serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-cream);
+    color: var(--premium-navy);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* =========================================
+   HEADER OVERLAY
+   ========================================= */
+.main-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 35px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+
+.area-clienti-link {
+    font-family: var(--font-heading); /* Coerenza visiva con i titoli dell'header */
+    color: var(--white);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.hover-line::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--premium-gold);
+    transition: width 0.3s ease-in-out;
+}
+
+.hover-line:hover::after {
+    width: 100%;
+}
+
+.logo-svg {
+    height: 75px;
+    width: auto;
+    display: block;
+}
+
+.hamburger-menu {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 5px;
+}
+
+.hamburger-menu .bar {
+    width: 30px;
+    height: 2px;
+    background-color: var(--white);
+    transition: all 0.3s ease;
+}
+
+.hamburger-menu:hover .bar {
+    background-color: var(--premium-gold);
+}
+
+/* =========================================
+   HERO SECTION
+   ========================================= */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: linear-gradient(180deg, #1A2A4A 0%, #3B5A8A 100%); 
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    color: var(--white);
+    max-width: 750px; /* Allargato leggermente per accomodare meglio la doppia CTA in orizzontale */
+    padding: 0 20px;
+    margin-top: -10vh;
+}
+
+/* Titolo con Comfortaa */
+.hero-content h1 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: clamp(36px, 5vw, 62px); /* Adattamento fluido */
+    line-height: 1.2;
+    margin-bottom: 22px;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+/* Testo secondario prestigioso con Lora (Serif) */
+.hero-content p {
+    font-family: var(--font-body);
+    font-style: italic; /* L'italico sui font serif aumenta il senso di cura editoriale */
+    font-size: clamp(18px, 2vw, 24px);
+    font-weight: 400;
+    margin-bottom: 45px;
+    opacity: 0.95;
+}
+
+/* =========================================
+   GESTIONE DOPPIO PULSANTE (CTA GROUP)
+   ========================================= */
+.hero-cta-group {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Ottimale per il wrapping automatico su mobile */
+}
+
+/* Struttura base condivisa delle CTA */
+.btn-cta {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 14px;
+    padding: 18px 36px;
+    border-radius: 50px;
+    text-decoration: none;
+    text-transform: uppercase; /* Forza il testo in maiuscolo */
+    letter-spacing: 1px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: inline-block;
+    text-align: center;
+    min-width: 240px; /* Garantisce simmetria visiva tra i due tasti */
+}
+
+/* Tasto 1: Colore Pieno (Primary) */
+.btn-solid {
+    background-color: var(--premium-orange);
+    color: var(--white);
+    border: 2px solid var(--premium-orange);
+    box-shadow: 0 4px 15px rgba(222, 106, 35, 0.3);
+}
+
+.btn-solid:hover {
+    background-color: transparent;
+    color: var(--white);
+    border-color: var(--white);
+    box-shadow: none;
+}
+
+/* Animazione Pulsazione/Glow calibrata per il tasto principale */
+.btn-glow {
+    animation: premiumGlow 3.5s infinite ease-in-out;
+}
+
+@keyframes premiumGlow {
+    0% { box-shadow: 0 0 10px rgba(222, 106, 35, 0.3); transform: scale(1); }
+    50% { box-shadow: 0 0 25px rgba(222, 106, 35, 0.6); transform: scale(1.03); }
+    100% { box-shadow: 0 0 10px rgba(222, 106, 35, 0.3); transform: scale(1); }
+}
+
+/* Tasto 2: Solo Outline (Secondary) */
+.btn-outline {
+    background-color: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+    backdrop-filter: blur(5px);
+}
+
+.btn-outline:hover {
+    background-color: var(--white);
+    color: var(--premium-navy);
+}
+
+/* =========================================
+   ASSETS E TRANSIZIONI
+   ========================================= */
+.hero-house {
+    position: absolute;
+    bottom: 150px;
+    right: 6%;
+    height: clamp(200px, 30vh, 320px);
+    width: auto;
+    z-index: 5;
+}
+
+.hero-green-floor {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background-color: var(--brand-green);
+    z-index: 2;
+}
+
+.transition-fade-green-to-cream {
+    width: 100%;
+    height: 550px;
+    background: linear-gradient(to bottom, var(--brand-green) 0%, var(--bg-cream) 100%);
+}
+
+.next-section {
+    min-height: 60vh;
+    padding: 60px 8%;
+}
+
+/* =========================================
+   OVERLAY MENU FULLSCREEN (EFFETTO WOW)
+   ========================================= */
+.overlay-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--premium-navy);
+    color: var(--white);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    padding: 35px 5%;
+    
+    /* EFFETTO WOW: Espansione circolare partendo dall'angolo in alto a destra */
+    visibility: hidden;
+    clip-path: circle(0px at calc(100% - 5%) 50px);
+    transition: clip-path 0.7s cubic-bezier(0.7, 0, 0.2, 1), visibility 0.7s;
+}
+
+.overlay-menu.active {
+    visibility: visible;
+    /* Si espande fino a coprire il 150% dello schermo per sicurezza */
+    clip-path: circle(150% at calc(100% - 5%) 50px);
+    transition: clip-path 0.7s cubic-bezier(0.7, 0, 0.2, 1);
+}
+
+.overlay-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+.overlay-logo {
+    height: 75px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    /* Aggiunta dell'animazione di fade vincolata allo stato active */
+    opacity: 0;
+    transition: opacity 0.5s ease 0.2s; /* Ritardo leggero in entrata */
+}
+
+.overlay-menu.active .overlay-logo {
+    opacity: 1;
+}
+
+.close-btn {
+    background: transparent;
+    border: none;
+    color: var(--white);
+    font-size: 45px;
+    cursor: pointer;
+    line-height: 1;
+    margin-left: auto;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.close-btn:hover {
+    color: var(--premium-gold);
+    transform: rotate(90deg); /* Piccolo tocco extra per la chiusura */
+}
+
+.overlay-content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    gap: 50px;
+}
+
+/* --- ANIMAZIONI A CASCATA (STAGGERED SLIDE UP) --- */
+/* Imposto lo stato iniziale invisibile e spostato in basso */
+.main-nav a, 
+.secondary-nav a, 
+.overlay-footer { 
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Quando il menu è attivo, tornano su */
+.overlay-menu.active .main-nav a, 
+.overlay-menu.active .secondary-nav a,
+.overlay-menu.active .overlay-footer {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- COLONNA SINISTRA E HOVER GIALLO --- */
+.overlay-left { flex: 1; }
+
+.main-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.main-nav a {
+    font-family: var(--font-heading);
+    font-size: clamp(40px, 5vw, 64px);
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 700;
+    width: fit-content;
+}
+
+/* Effetto hover giallo a sinistra e piccolo spostamento */
+.main-nav a:hover {
+    color: var(--premium-gold);
+    transform: translateX(15px) !important; /* Forza lo spostamento ignorando il translateY */
+}
+
+/* --- COLONNA DESTRA E HOVER LINEETTA --- */
+.overlay-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.secondary-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: right;
+}
+
+.secondary-nav a {
+    font-family: var(--font-body);
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 5px;
+    width: fit-content;
+    margin-left: auto; /* Mantiene l'allineamento a destra per l'outline */
+}
+
+/* Effetto Lineetta sotto per i link di destra */
+.hover-line-right::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    right: 0; /* Fa partire la linea da destra */
+    background-color: var(--premium-gold);
+    transition: width 0.3s ease-in-out;
+}
+
+.secondary-nav a:hover {
+    color: var(--white);
+}
+
+.secondary-nav a:hover::after {
+    width: 100%;
+}
+
+.overlay-footer {
+    width: 100%;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.overlay-footer .btn-cta:hover {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+    transition-delay: 0s !important;
+}
+
+/* --- DELAY DELLE ANIMAZIONI (IL SEGRETO DELL'EFFETTO CASCATA) --- */
+.overlay-menu.active .main-nav a:nth-child(1) { transition-delay: 0.3s; }
+.overlay-menu.active .main-nav a:nth-child(2) { transition-delay: 0.4s; }
+.overlay-menu.active .main-nav a:nth-child(3) { transition-delay: 0.5s; }
+
+.overlay-menu.active .secondary-nav a:nth-child(1) { transition-delay: 0.4s; }
+.overlay-menu.active .secondary-nav a:nth-child(2) { transition-delay: 0.45s; }
+.overlay-menu.active .secondary-nav a:nth-child(3) { transition-delay: 0.5s; }
+.overlay-menu.active .secondary-nav a:nth-child(4) { transition-delay: 0.55s; }
+.overlay-menu.active .secondary-nav a:nth-child(5) { transition-delay: 0.6s; }
+.overlay-menu.active .secondary-nav a:nth-child(6) { transition-delay: 0.65s; }
+.overlay-menu.active .secondary-nav a:nth-child(7) { transition-delay: 0.7s; }
+.overlay-menu.active .secondary-nav a:nth-child(8) { transition-delay: 0.75s; }
+.overlay-menu.active .secondary-nav a:nth-child(9) { transition-delay: 0.8s; }
+.overlay-menu.active .overlay-footer { transition-delay: 0.9s; }
+
+/* =========================================
+   PRELOADER E ANIMAZIONE BATTERIA
+   ========================================= */
+.preloader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--premium-orange); /* Il nostro arancione */
+    z-index: 9999; /* Livello massimo, sopra anche all'header e all'overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.8s cubic-bezier(0.7, 0, 0.2, 1), opacity 0.8s ease;
+}
+
+.preloader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.preloader-logo {
+    height: 45px; /* Leggermente più grande che nell'header */
+    width: auto;
+}
+
+/* Disegno della Batteria in puro CSS */
+.battery-icon {
+    width: 60px;
+    height: 24px;
+    border: 2px solid var(--white);
+    border-radius: 4px;
+    position: relative;
+    padding: 2px;
+}
+
+/* Il "Polo Positivo" della batteria */
+.battery-icon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -6px;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 10px;
+    background-color: var(--white);
+    border-radius: 0 2px 2px 0;
+}
+
+/* Il livello di carica animato */
+.battery-level {
+    height: 100%;
+    background-color: var(--white);
+    border-radius: 2px;
+    width: 0%;
+    animation: chargeBattery 1.5s ease-in-out forwards;
+}
+
+/* Keyframes: Caricamento a scatti per un effetto realistico */
+@keyframes chargeBattery {
+    0% { width: 0%; opacity: 0.5; }
+    20% { width: 20%; opacity: 1; }
+    40% { width: 20%; } /* Pausa fisiologica */
+    60% { width: 70%; }
+    80% { width: 100%; }
+    100% { width: 100%; }
+}
+
+/* Classe aggiunta da JS per far scorrere via il preloader verso l'alto */
+.preloader-hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* =========================================================================
+   SCROLLBAR CUSTOM
+   ========================================================================= */
+
+/* Classe che spegne la scrollbar durante il caricamento (senza ritardi JS) */
+body.is-loading {
+    overflow: hidden !important;
+}
+
+/* Rimuoviamo i vecchi fallback per Firefox altrimenti Chrome si blocca! */
+
+::-webkit-scrollbar {
+    width: 20px; /* Larghezza estrema */
+}
+
+/* Il binario di scorrimento (Track) */
+::-webkit-scrollbar-track {
+    background-color: #EBE8E0; /* Un bianco/panna leggermente più scuro per dare profondità */
+    border-left: 1px solid #DEDEDE; /* Stacco visivo netto dalla pagina */
+}
+
+/* Il cursore (Slider) */
+::-webkit-scrollbar-thumb {
+    background-color: var(--premium-orange);
+    border-radius: 0px; /* Rigorosamente quadrato */
+    
+    /* Il bordo dello stesso colore del binario crea uno stacco grafico netto */
+    border: 3px solid #EBE8E0; 
+}
+
+/* Effetto active (quando clicchi e tieni premuto) */
+::-webkit-scrollbar-thumb:active {
+    background-color: var(--premium-orange);
+}
+
+/* =========================================================================
+   CUSTOM CURSOR PREMIUM
+   ========================================================================= */
+body {
+    cursor: none; /* Nasconde il cursore di default su schermi grandi */
+}
+
+/* Mostra il cursore standard solo su dispositivi touch/mobile per sicurezza */
+@media (max-width: 768px) {
+    body { cursor: auto; }
+    #custom-cursor { display: none !important; }
+}
+
+#custom-cursor {
+    width: 30px;
+    height: 30px;
+    border: 3px solid var(--premium-gold); /* L'anello dorato */
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none; /* Fondamentale: permette di cliccare gli elementi sottostanti */
+    z-index: 10000;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
+}
+
+/* Di default il cursore custom è completamente invisibile */
+#custom-cursor {
+    width: 30px;
+    height: 30px;
+    border: 3px solid var(--premium-gold);
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 10000;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease, opacity 0.3s ease;
+    
+    opacity: 0; /* Nasconde il cursore all'avvio */
+}
+
+body:not(.is-loading) #custom-cursor {}
+
+/* Quando si passa sopra a link o bottoni, l'anello si riempie o si allarga */
+body:has(a:hover, button:hover, .btn-cta:hover) #custom-cursor {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(224, 198, 56, 0.1); /* Gold semi-trasparente */
+    backdrop-filter: blur(2px);
+}
+
+/* =========================================================================
+   NOISE OVERLAY DINAMICO PREMIUM
+   ========================================================================= */
+
+.noise-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1500 1500' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='hdNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23hdNoise)'/%3E%3C/svg%3E");
+
+    opacity: 0.15; 
+    
+    /* Disabilita qualsiasi interazione per non bloccare i click sottostanti */
+    pointer-events: none; 
+    
+    /* Sopra al layout e sotto al cursore custom/preloader */
+    z-index: 9998; 
+}
+
+/* =========================================================================
+   ANIMAZIONE DAY-TO-NIGHT (15s Loop)
+   ========================================================================= */
+
+:root {
+    --dawn: #ff9d6c;
+    --day: #4fa9ff;
+    --sunset: #DE6A23;
+    --night: #060b19;
+}
+
+/* 1. Lo Sky Background */
+.sky-background {
+    position: absolute;
+    inset: 0;
+    animation: skyCycle 15s infinite linear;
+    z-index: 1;
+}
+
+@keyframes skyCycle {
+    0% { background-color: var(--dawn); }
+    15% { background-color: var(--day); }
+    45% { background-color: var(--day); }
+    /* Il cielo inizia a scaldarsi mentre il sole scende */
+    55% { background-color: #fca34d; } 
+    /* Esplosione del tramonto arancione ESATTAMENTE quando il sole tocca la casa */
+    68% { background-color: var(--sunset); } 
+    /* Transizione rapida verso l'imbrunire e la notte profonda */
+    75%, 93% { background-color: var(--night); }
+    100% { background-color: var(--dawn); }
+}
+
+/* 2. Il Sole */
+.sun {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: #ffce54;
+    border-radius: 50%;
+    box-shadow: 0 0 40px #ffce54;
+    z-index: 2;
+    bottom: -100px;
+    left: 10%;
+    animation: sunPath 15s infinite ease-in-out;
+}
+
+@keyframes sunPath {
+    0% { 
+        transform: translate(0, 0); 
+        opacity: 1; 
+    }
+    30% { 
+        transform: translate(35vw, -75vh); 
+        opacity: 1; 
+    } 
+    55% { 
+        transform: translate(72vw, -35vh); 
+        opacity: 1; 
+    }
+    70% { 
+        transform: translate(84vw, 15vh); 
+        opacity: 1;
+    } 
+    72%, 100% { 
+        transform: translate(86vw, 30vh);
+        opacity: 0; 
+    }
+}
+
+/* 3. La Luna e le Stelle */
+.moon {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: #fdfdfd;
+    border-radius: 50%;
+    box-shadow: 0 0 20px #ffffff;
+    z-index: 2;
+    top: 15%;
+    right: 15%;
+    opacity: 0;
+    animation: moonFade 15s infinite linear;
+}
+
+.stars-container {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    opacity: 0;
+    animation: moonFade 15s infinite linear;
+}
+
+.star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 6px #ffffff;
+}
+
+.star-fast {
+    animation: starTwinkle 1.8s infinite ease-in-out;
+}
+
+.star-slow {
+    animation: starTwinkle 2.8s infinite ease-in-out;
+    animation-delay: 0.5s;
+}
+
+@keyframes starTwinkle {
+    0%, 100% { transform: scale(1); opacity: 0.4; }
+    50% { transform: scale(1.4); opacity: 1; box-shadow: 0 0 10px #ffffff; }
+}
+
+@keyframes moonFade {
+    0%, 75% { opacity: 0; transform: translateY(20px); }
+    80%, 95% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; }
+}
+
+/* 4. Le Finestre della Casa */
+.house-window {
+    transition: fill 0.5s ease, filter 0.5s ease;
+    fill: #caebff; /* Colore Giorno */
+}
+
+@keyframes windowGlow {
+    0%, 73% { 
+        fill: #caebff; 
+        filter: none; 
+    }
+    75%, 93% { 
+        fill: #ffdb15; 
+        filter: drop-shadow(0 0 12px #ffdb15); 
+    }
+    100% { 
+        fill: #caebff; 
+        filter: none; 
+    }
+}
+
+.hero-house .house-window {
+    animation: windowGlow 15s infinite linear;
+}
+
+/* 5. Le Nuvole */
+.cloud {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.85);
+    z-index: 3;
+    animation: cloudMove 25s infinite linear;
+    
+    /* Il segreto delle nuvole in CSS: curve asimmetriche che creano la "coppia" di cumuli */
+    width: 180px;
+    height: 60px;
+    border-radius: 100px;
+    
+    /* Ombre sovrapposte: creano la tridimensionalità e la luce soffusa sui bordi */
+    box-shadow: 
+        inset -15px -10px 20px rgba(0, 0, 0, 0.05), 
+        0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Creiamo i rigonfiamenti superiori tipici delle nuvole usando i pesonaggi ::before e ::after */
+.cloud::before, .cloud::after {
+    content: '';
+    position: absolute;
+    background: inherit;
+    border-radius: 50%;
+}
+
+/* Il cumulo più grande in alto */
+.cloud::before {
+    width: 80px;
+    height: 80px;
+    top: -40px;
+    left: 30px;
+}
+
+/* Il secondo cumulo laterale */
+.cloud::after {
+    width: 60px;
+    height: 60px;
+    top: -25px;
+    right: 25px;
+}
+
+/* Configurazione altezze, velocità e opacità dei 3 strati di nuvole */
+.cloud-1 { 
+    top: 15%; 
+    transform: scale(0.85);
+    opacity: 0.75;
+    animation-duration: 28s; 
+    filter: blur(10px)
+}
+
+.cloud-2 { 
+    top: 28%; 
+    transform: scale(1.1);
+    opacity: 0.9;
+    animation-duration: 20s;
+    animation-delay: -5s;
+    filter: blur(10px)
+}
+
+.cloud-3 { 
+    top: 38%; 
+    transform: scale(0.65);
+    opacity: 0.6;
+    animation-duration: 35s;
+    animation-delay: -12s;
+    filter: blur(10px)
+}
+
+@keyframes cloudMove {
+    from { left: -250px; }
+    to { left: 110%; }
+}
+
+/* Fix per sovrapposizione House */
+.hero-house-container {
+    position: absolute;
+    bottom: -1px;
+    right: 50px;
+    z-index: 10; /* Sopra al sole e al cielo */
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .overlay-content { flex-direction: column; justify-content: center; gap: 40px; }
+    .overlay-right { justify-content: center; }
+    .secondary-nav { text-align: center; }
+    .secondary-nav a { margin-left: auto; margin-right: auto; } /* Centra su mobile */
+    .hover-line-right::after { left: 0; right: 0; margin: 0 auto; } /* Centra la lineetta su mobile */
+    .overlay-logo { position: static; transform: none; }
+    .overlay-header { justify-content: center; }
+    .close-btn { position: absolute; right: 0; }
+
+    .hero-house {
+        right: 50%;
+        transform: translateX(50%);
+        bottom: 150px;
+        height: 180px;
+    }
+    .hero-content {
+        margin-top: -22vh;
+    }
+    .hero-cta-group {
+        flex-direction: column;
+        width: 100%;
+    }
+    .btn-cta {
+        width: 100%;
+    }
+}
+

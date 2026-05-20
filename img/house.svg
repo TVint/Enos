@@ -1,0 +1,102 @@
+<svg id="OBJECTS" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 625.4 261.97">
+  <!-- Generator: Adobe Illustrator 30.4.0, SVG Export Plug-In . SVG Version: 2.1.4 Build 226)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: #268265;
+      }
+
+      .st1 {
+        stroke: #222249;
+      }
+
+      .st1, .st2 {
+        fill: none;
+        stroke-miterlimit: 10;
+        stroke-width: 1.32px;
+      }
+
+      .st3 {
+        fill: #d66643;
+      }
+
+      .st4 {
+        fill: #3a83bf;
+      }
+
+      .st5 {
+        clip-path: url(#clippath-1);
+      }
+
+      .st6 {
+        fill: #abbd3a;
+      }
+
+      .st2 {
+        stroke: #fff;
+      }
+
+      .st7 {
+        fill: #222249;
+      }
+
+      .st8 {
+        fill: #caebff;
+      }
+
+      .st9 {
+        clip-path: url(#clippath);
+      }
+    </style>
+    <clipPath id="clippath">
+      <polygon class="st3" points="525.05 1.09 349.51 1.09 349.51 261.97 437.28 261.97 525.05 261.97 612.82 261.97 612.82 86.43 525.05 1.09"/>
+    </clipPath>
+    <clipPath id="clippath-1">
+      <polygon class="st4" points="524.32 18.76 544.13 38.02 572.07 65.19 476.58 65.19 428.83 18.76 524.32 18.76"/>
+    </clipPath>
+  </defs>
+  <g>
+    <g>
+      <polygon class="st3" points="525.05 1.09 349.51 1.09 349.51 261.97 437.28 261.97 525.05 261.97 612.82 261.97 612.82 86.43 525.05 1.09"/>
+      <g class="st9">
+        <rect class="st7" x="321.39" y="-44.34" width="319.55" height="130.27"/>
+      </g>
+    </g>
+    <polygon class="st4" points="261.74 261.97 437.28 261.97 437.28 86.43 349.51 1.09 261.74 86.43 261.74 261.97"/>
+    <g>
+      <polygon class="st4" points="524.32 18.76 544.13 38.02 572.07 65.19 476.58 65.19 428.83 18.76 524.32 18.76"/>
+      <g class="st5">
+        <polyline class="st2" points="445.48 14.2 469.17 37.24 502.61 69.75"/>
+        <polyline class="st2" points="465.39 14.2 489.09 37.24 522.52 69.75"/>
+        <polyline class="st2" points="486.21 14.2 509.91 37.24 543.35 69.75"/>
+        <polyline class="st2" points="507.43 14.2 531.13 37.24 564.56 69.75"/>
+        <line class="st2" x1="545.2" y1="30.91" x2="425.59" y2="30.91"/>
+        <line class="st2" x1="570.42" y1="48.89" x2="450.8" y2="48.89"/>
+      </g>
+    </g>
+    <g>
+      <rect class="st8 house-window" x="463.12" y="131.53" width="116.26" height="116.26"/>
+      <rect class="st7" x="566.28" y="131.53" width="13.1" height="116.26"/>
+    </g>
+    <g>
+      <rect class="st8 house-window" x="351.61" y="148.21" width="69.7" height="99.58"/>
+      <rect class="st7" x="351.61" y="148.21" width="7.85" height="99.58"/>
+    </g>
+    <rect class="st7" x="293.59" y="175.04" width="37.44" height="86.93"/>
+    <rect class="st7" x="234.86" y="248.41" width="390.14" height="13.56"/>
+    <g>
+      <rect class="st7" x="298.9" y="123.39" width="92.87" height="7.5"/>
+      <rect class="st7" x="323.58" y="57.02" width="49.19" height="66.37"/>
+      <rect class="st8 house-window" x="358.03" y="88.09" width="29.47" height="35.31"/>
+    </g>
+    <line class="st1" x1="461.29" y1="93.07" x2="612.82" y2="93.07"/>
+    <line class="st1" x1="461.29" y1="112.3" x2="526.35" y2="112.3"/>
+    <line class="st1" x1="563.36" y1="121.46" x2="599.66" y2="121.46"/>
+  </g>
+  <g>
+    <path class="st6" d="M107.98,261.96s-20.75-44.55-53.88-44.55S0,261.97,0,261.97h107.98Z"/>
+    <path class="st6" d="M207.52,261.96s-22.21-47.7-57.69-47.7-57.92,47.71-57.92,47.71h115.61Z"/>
+    <path class="st6" d="M307.39,261.96s-34.18-73.39-88.76-73.39-89.12,73.4-89.12,73.4h177.88Z"/>
+    <path class="st0" d="M215.77,261.96s-19.35-41.54-50.24-41.54-50.45,41.55-50.45,41.55h100.69Z"/>
+  </g>
+</svg>
