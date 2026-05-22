@@ -74,6 +74,21 @@
         </div>
     </div>
 
+    <div class="wind-turbine-container">
+        <svg class="wind-turbine" viewBox="0 0 100 200" xmlns="http://www.w3.org/2000/svg">
+            <path d="M46 200 L48 60 L52 60 L54 200 Z" fill="#EBE8E0" />
+            <path d="M48 60 L50 60 L52 200 L46 200 Z" fill="#DCD9D0" opacity="0.5" /> <circle class="turbine-light" cx="50" cy="58" r="1.5" />
+
+            <g class="turbine-blades">
+                <circle cx="50" cy="60" r="4" fill="#DCD9D0" />
+                
+                <path d="M48.5 60 C48.5 35, 49 10, 50 5 C51 10, 51.5 35, 51.5 60 Z" fill="#FFFFFF" />
+                <path d="M50 60 C71.5 72.5, 93.5 85, 96 81 C92 79, 70 66.5, 50 60 Z" fill="#FFFFFF" />
+                <path d="M50 60 C28.5 72.5, 6.5 85, 4 81 C8 79, 30 66.5, 50 60 Z" fill="#EBE8E0" /> <circle cx="50" cy="60" r="1.5" fill="#FFFFFF" />
+            </g>
+        </svg>
+    </div>
+
     <div class="hero-house-container">
         <svg id="OBJECTS" class="hero-house" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 625.4 261.97">
             <defs>
@@ -178,15 +193,391 @@
         </svg>
     </div>
 
-    <div class="hero-green-floor"></div>
+    <div class="hero-green-floor">
+        <div class="scroll-indicator-wrapper">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span class="scroll-text">Scorri per esplorare</span>
+        </div>
+    </div>
+
 </section>
 
-    <div class="transition-fade-green-to-cream"></div>
+<section class="why-enos-section">
+    <div class="fade-bg-top"></div>
 
-    <section class="next-section">
-        </section>
+    <div class="why-enos-header">
+        <h2>Perché scegliere <br> <span>Enos Energia?</span></h2>
+    </div>
 
-    <div id="fullscreen-menu" class="overlay-menu">
+    <div class="why-grid-wide">
+        <div class="bento-row reveal-item">
+            <div class="bento-card bento-text size-1rd">
+                <div class="bento-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </div>
+                <h3>Chiarezza Totale</h3>
+                <p>In base ai tuoi consumi, trovi subito la soluzione più conveniente. Trasparenza senza penali, chiari e senza sorprese.</p>
+            </div>
+            <div class="bento-card bento-image size-2rd">
+                <div class="bento-img-wrapper">
+                    <img src="img/foto-1.webp" alt="Un primo piano stilizzato e minimalista che mostra una tazza di caffè in ceramica artigianale e uno smartphone moderno appoggiati su un tavolo di cemento materico e grezzo, illuminati da una luce naturale morbida e calda." loading="lazy">
+                </div>
+            </div>
+        </div>
+
+        <div class="bento-row reveal-item">
+            <div class="bento-card bento-image size-2rd">
+                <div class="bento-img-wrapper">
+                    <img src="img/foto-2.webp" alt="Una fotografia d'atmosfera di una persona rilassata seduta su un divano di design color panna, con gli occhi chiusi e un'espressione serena, baciata da un raggio di sole caldo che entra da una grande finestra." loading="lazy">
+                </div>
+            </div>
+            <div class="bento-card bento-text size-1rd">
+                <div class="bento-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polyline></svg>
+                </div>
+                <h3>Attivazione Veloce</h3>
+                <p>Zero burocrazia, attivazione rapida e zero scartoffie. Tutto online in meno di 5 minutes.</p>
+            </div>
+        </div>
+
+        <div class="bento-row reveal-item">
+            <div class="bento-card bento-text size-1rd">
+                <div class="bento-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12l4 6-10 13L2 9z"></path></svg>
+                </div>
+                <h3>Convenienza Reale</h3>
+                <p>Offerte vantaggiose studiate per farti risparmiare sul serio, con prezzi bloccati o indicizzati senza costi nascosti.</p>
+            </div>
+            <div class="bento-card bento-image size-2rd">
+                <div class="bento-img-wrapper">
+                    <img src="img/foto-3.webp" alt="Un raggio di sole netto che attraversa una camera da letto dal design minimalista e scandinavo, illuminando pavimenti in legno grezzo e un letto con lenzuola di lino organico color panna e accenti verde bosco." loading="lazy">
+                </div>
+            </div>
+        </div>
+
+        <div class="bento-row reveal-item">
+            <div class="bento-card bento-image size-2rd">
+                <div class="bento-img-wrapper">
+                    <img src="img/foto-4.webp" alt="Un primo piano testuale che mostra un tablet moderno con un'interfaccia digitale pulita e colorata, appoggiato direttamente su una superficie ruvida e materica di cemento grezzo grigio." loading="lazy">
+                </div>
+            </div>
+            <div class="bento-card bento-text size-1rd">
+                <div class="bento-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><line x1="2" y1="12" x2="22" y2="12"></line></svg>
+                </div>
+                <h3>Tutto Digitale</h3>
+                <p>Tutto 100% digitale: gestisci luce e gas completamente online, dove e quando vuoi tu, senza file o attese.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="why-footer-cta animate-premium-glow-trigger">
+        <div class="cta-content">
+            <a href="#preventivo" class="btn-cta btn-solid btn-glow">Scopri quanto puoi risparmiare</a>
+        </div>
+    </div>
+
+</section>
+
+<section class="faq-section-wrapper">
+
+    <div class="scroll-indicator-wrapper">
+        <div class="scroll-mouse">
+            <div class="scroll-wheel"></div>
+        </div>
+        <span class="scroll-text">Scorri per le FAQ</span>
+    </div>
+
+    <div class="fade-bg-bottom"></div>
+    
+    <div class="faq-header">
+        <h2>Domande <span>Frequenti</span></h2>
+    </div>
+
+    <div class="faq-grid">
+        
+        <div class="faq-card">
+            <button class="faq-trigger">Che cos’è Enos Energia?</button>
+            <div class="faq-content">
+                <p>Enos Energia è un fornitore di energia elettrica e gas naturale pensato per offrire un’esperienza semplice, digitale e trasparente, dall’attivazione alla bolletta.</p>
+            </div>
+        </div>
+
+        <div class="faq-card">
+            <button class="faq-trigger">A chi si rivolge Enos?</button>
+            <div class="faq-content">
+                <p>Enos è pensato per chi cerca un fornitore chiaro e accessibile, senza complessità inutili e con costi sempre comprensibili.</p>
+            </div>
+        </div>
+
+        <div class="faq-card">
+            <button class="faq-trigger">Che tipo di offerte propone Enos?</button>
+            <div class="faq-content">
+                <p>Proponiamo offerte luce e gas con condizioni chiare e senza costi nascosti, pensate per aiutarti a gestire meglio i consumi.</p>
+            </div>
+        </div>
+
+        <div class="faq-card">
+            <button class="faq-trigger">Come sceglierete l’offerta più adatta?</button>
+            <div class="faq-content">
+                <p>In base alle informazioni che inserisci e ai tuoi consumi, ti mostriamo in modo guidato l’offerta più adatta alle tue esigenze.</p>
+            </div>
+        </div>
+
+        <div class="faq-card">
+            <button class="faq-trigger">Il risparmio è garantito?</button>
+            <div class="faq-content">
+                <p>Il risparmio dipende dai consumi e dall’offerta scelta. Il nostro impegno è offrire tariffe competitive e costi sempre trasparenti.</p>
+            </div>
+        </div>
+
+        <div class="faq-card">
+            <button class="faq-trigger">Come attivo Enos Energia?</button>
+            <div class="faq-content">
+                <p>Puoi attivare Enos online in pochi passaggi: inserisci i dati essenziali, confermi l’offerta e al resto pensiamo noi.</p>
+            </div>
+        </div>
+
+        <div class="faq-card">
+            <button class="faq-trigger">Quali dati servono per l’attivazione?</button>
+            <div class="faq-content">
+                <p>Ti chiediamo solo poche informazioni presenti nella bolletta, necessarie per completare l’attivazione in modo corretto.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="pre-footer">
+        <div class="scroll-indicator-wrapper">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span class="scroll-text">Grazie per la visita!</span>
+        </div>
+    </div>
+
+</section>
+
+<footer class="footer">
+
+    <div class="footer-container">
+        
+        <div class="footer-top-row">
+            
+            <div class="footer-brand-col">
+                <img src="img/logo_enos.svg" alt="Enos Energia" class="footer-logo-white">
+                <p class="footer-brand-text">
+                    Enos Energia è un marchio registrato di ENOS ENERGIA S.R.L.<br>
+                    partita IVA n° 13575280964
+                </p>
+                <div class="footer-socials">
+                    <a href="#" class="social-icon-link" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                    </a>
+                    <a href="#" class="social-icon-link" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="#" class="social-icon-link" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    </a>
+                    <a href="#" class="social-icon-link" aria-label="TikTok">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-nav-col">
+                <h4 class="footer-heading">Chi siamo</h4>
+                <ul class="footer-links-list">
+                    <li><a href="#" class="footer-nav-link">Homepage</a></li>
+                    <li><a href="#" class="footer-nav-link">Scopri di più</a></li>
+                    <li><a href="#sponsor" class="footer-nav-link">Sponsor</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-nav-col">
+                <h4 class="footer-heading">Link utili</h4>
+                <ul class="footer-links-list">
+                    <li><a href="#wiki" class="footer-nav-link">Wiki</a></li>
+                    <li><a href="#offerte" class="footer-nav-link">Tutte le offerte</a></li>
+                    <li><a href="#lavora-con-noi" class="footer-nav-link">Lavora con noi</a></li>
+                    <li><a href="#reclami" class="footer-nav-link">Modulo reclami</a></li>
+                    <li><a href="#glossario-luce" class="footer-nav-link">Glossario dell'energia elettrica</a></li>
+                    <li><a href="#glossario-gas" class="footer-nav-link">Glossario del gas naturale</a></li>
+                    <li><a href="#brand-guidelines" class="footer-nav-link">Brand guidelines</a></li>
+                </ul>
+            </div>
+
+        </div>
+        
+        <div class="footer-bottom-row">
+            <div class="footer-legal-col">
+                <h4 class="footer-heading">Cose legali</h4>
+                <div class="footer-legal-links">
+                    <a href="#privacy" class="footer-nav-link">Informativa privacy</a>
+                    <a href="#termini" class="footer-nav-link">Termini di servizio</a>
+                    <a href="#legali" class="footer-nav-link">Informazioni legali</a>
+                    <a href="#cookie" class="footer-nav-link">Preferenze cookie</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</footer>
+
+<script>
+    // =========================================
+    // 1. LOGICA PRELOADER
+    // =========================================
+    window.addEventListener("load", function() {
+        setTimeout(function() {
+            const preloader = document.getElementById("preloader");
+            
+            if (preloader) {
+                preloader.classList.add("preloader-hidden");
+                
+                setTimeout(function() {
+                    preloader.style.display = "none";
+                    
+                    const overlayMenu = document.getElementById("fullscreen-menu");
+                    if (!overlayMenu.classList.contains("active")) {
+                        document.body.classList.remove("is-loading");
+                        document.body.style.overflow = "auto";
+                    }
+                }, 800); 
+            }
+        }, 1500); 
+    });
+
+    // =========================================
+    // 2. LOGICA MENU HAMBURGER E OVERLAY
+    // =========================================
+    document.addEventListener("DOMContentLoaded", function() {
+        const openBtn = document.getElementById("open-menu-btn");
+        const closeBtn = document.getElementById("close-menu-btn");
+        const overlayMenu = document.getElementById("fullscreen-menu");
+
+        if (openBtn && closeBtn && overlayMenu) {
+            openBtn.addEventListener("click", function() {
+                overlayMenu.classList.add("active");
+                document.body.style.overflow = "hidden";
+            });
+
+            closeBtn.addEventListener("click", function() {
+                overlayMenu.classList.remove("active");
+                document.body.style.overflow = "auto";
+            });
+        }
+    });
+
+// =========================================
+// 3. LOGICA CUSTOM CURSOR
+// =========================================
+document.addEventListener("DOMContentLoaded", function() {
+    const cursor = document.getElementById("custom-cursor");
+    
+    if (cursor) {
+        document.addEventListener("mousemove", function(e) {
+            if (document.body.classList.contains("is-loading")) {
+                cursor.style.opacity = "0";
+                return;
+            }
+
+            cursor.style.left = e.clientX + "px";
+            cursor.style.top = e.clientY + "px";
+            
+            if (e.clientX >= window.innerWidth - 30) {
+                cursor.style.opacity = "0";
+                document.body.style.cursor = "auto";
+            } else {
+                cursor.style.opacity = "1";
+                document.body.style.cursor = "none";
+            }
+        });
+    }
+});
+// =========================================
+// 4. SCROLL-TELLING INTERSECTION OBSERVER
+// =========================================
+document.addEventListener("DOMContentLoaded", function() {
+    const revealRows = document.querySelectorAll('.reveal-item');
+    
+    const observerOptions = {
+        root: null,
+        rootMargin: "0px 0px -80px 0px", 
+        threshold: 0.01
+    };
+    
+    const rowObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    revealRows.forEach(row => {
+        rowObserver.observe(row);
+    });
+});
+
+// =========================================
+// 5. LOGICA INTERATTIVA FAQ BENTO SQUARES
+// =========================================
+document.addEventListener("DOMContentLoaded", function() {
+    const faqCards = document.querySelectorAll('.faq-card');
+
+    faqCards.forEach(card => {
+        const trigger = card.querySelector('.faq-trigger');
+        const content = card.querySelector('.faq-content');
+
+        trigger.addEventListener('click', function() {
+            const isActive = card.classList.contains('active');
+
+            faqCards.forEach(otherCard => {
+                if (otherCard !== card && otherCard.classList.contains('active')) {
+                    otherCard.classList.remove('active');
+                    otherCard.querySelector('.faq-content').style.maxHeight = null;
+                }
+            });
+
+            if (isActive) {
+                card.classList.remove('active');
+                content.style.maxHeight = null;
+            } else {
+                card.classList.add('active');
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        });
+    });
+});
+
+// =========================================
+// 6. LOGICA STICKY MENU
+// =========================================
+document.addEventListener("DOMContentLoaded", function() {
+    const header = document.querySelector('.main-header');
+    const hero = document.querySelector('.hero-section');
+    
+    if (header && hero) {
+        window.addEventListener('scroll', function() {
+            const heroHeight = hero.offsetHeight;
+            
+            if (window.scrollY >= heroHeight) {
+                header.classList.add('is-sticky');
+            } else {
+                header.classList.remove('is-sticky');
+            }
+        });
+    }
+});
+
+</script>
+
+<div id="fullscreen-menu" class="overlay-menu">
     <div class="overlay-header">
         <img src="img/logo_enos.svg" alt="Enos Energia" class="overlay-logo">
         <button id="close-menu-btn" class="close-btn" aria-label="Chiudi menu">&times;</button>
@@ -198,6 +589,7 @@
                 <a href="#chi-siamo" class="hover-line">Chi siamo</a>
                 <a href="#contatti" class="hover-line">Contatti</a>
                 <a href="#blog" class="hover-line">Blog</a>
+                <a href="#area-clienti" class="hover-line">Area Clienti</a>
             </nav>
         </div>
 
@@ -223,89 +615,6 @@
         </div>
     </div>
 </div>
-
-<script>
-    // =========================================
-    // 1. LOGICA PRELOADER
-    // =========================================
-    window.addEventListener("load", function() {
-        // Aspettiamo 1.5s per far finire l'animazione della batteria
-        setTimeout(function() {
-            const preloader = document.getElementById("preloader");
-            
-            if (preloader) {
-                // Avvia la transizione CSS (scivola in alto)
-                preloader.classList.add("preloader-hidden");
-                
-                // Dopo 0.8s (durata della transizione), rimuoviamo l'elemento
-                setTimeout(function() {
-                    preloader.style.display = "none";
-                    
-                    // Riveliamo la scrollbar rimuovendo la classe di blocco
-                    const overlayMenu = document.getElementById("fullscreen-menu");
-                    if (!overlayMenu.classList.contains("active")) {
-                        document.body.classList.remove("is-loading");
-                        document.body.style.overflow = "auto"; // Fallback di sicurezza
-                    }
-                }, 800); 
-            }
-        }, 1500); 
-    });
-
-    // =========================================
-    // 2. LOGICA MENU HAMBURGER E OVERLAY
-    // =========================================
-    document.addEventListener("DOMContentLoaded", function() {
-        const openBtn = document.getElementById("open-menu-btn");
-        const closeBtn = document.getElementById("close-menu-btn");
-        const overlayMenu = document.getElementById("fullscreen-menu");
-
-        if (openBtn && closeBtn && overlayMenu) {
-            // Apre il menu
-            openBtn.addEventListener("click", function() {
-                overlayMenu.classList.add("active");
-                document.body.style.overflow = "hidden"; // Blocca lo scroll
-            });
-
-            // Chiude il menu
-            closeBtn.addEventListener("click", function() {
-                overlayMenu.classList.remove("active");
-                document.body.style.overflow = "auto"; // Riabilita lo scroll
-            });
-        }
-    });
-
-   // =========================================
-// 3. LOGICA CUSTOM CURSOR (CON RITARDO LOADER & FIX SCROLLBAR)
-// =========================================
-document.addEventListener("DOMContentLoaded", function() {
-    const cursor = document.getElementById("custom-cursor");
-    
-    if (cursor) {
-        document.addEventListener("mousemove", function(e) {
-            // Se il sito sta ancora caricando, non fare nulla e mantieni invisibile
-            if (document.body.classList.contains("is-loading")) {
-                cursor.style.opacity = "0";
-                return;
-            }
-
-            // Muove il cursore
-            cursor.style.left = e.clientX + "px";
-            cursor.style.top = e.clientY + "px";
-            
-            // Gestione della visibilità vicino alla scrollbar da 30px
-            if (e.clientX >= window.innerWidth - 30) {
-                cursor.style.opacity = "0";
-                document.body.style.cursor = "auto";
-            } else {
-                cursor.style.opacity = "1"; // Ricompare magicamente solo sul sito
-                document.body.style.cursor = "none";
-            }
-        });
-    }
-});
-
-</script>
 
 <div id="custom-cursor"></div>
 

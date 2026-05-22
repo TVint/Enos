@@ -30,6 +30,7 @@ body {
 /* =========================================
    HEADER OVERLAY
    ========================================= */
+
 .main-header {
     position: absolute;
     top: 0;
@@ -40,10 +41,35 @@ body {
     justify-content: space-between;
     align-items: center;
     z-index: 100;
+    transition: padding 0.3s ease, background-color 0.3s ease;
+}
+
+.main-header.is-sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 18px 5%;
+    background-color: rgba(11, 23, 54, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--premium-gold); 
+    box-shadow: 0 10px 30px rgba(11, 23, 54, 0.25);
+    z-index: 150;
+    animation: headerSlideDown 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+.is-sticky .logo-svg{
+    height: 40px;
+}
+
+@keyframes headerSlideDown {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
 }
 
 .area-clienti-link {
-    font-family: var(--font-heading); /* Coerenza visiva con i titoli dell'header */
+    font-family: var(--font-heading);
     color: var(--white);
     text-decoration: none;
     font-size: 15px;
@@ -115,25 +141,23 @@ body {
     z-index: 10;
     text-align: center;
     color: var(--white);
-    max-width: 750px; /* Allargato leggermente per accomodare meglio la doppia CTA in orizzontale */
+    max-width: 750px;
     padding: 0 20px;
     margin-top: -10vh;
 }
 
-/* Titolo con Comfortaa */
 .hero-content h1 {
     font-family: var(--font-heading);
     font-weight: 700;
-    font-size: clamp(36px, 5vw, 62px); /* Adattamento fluido */
+    font-size: clamp(36px, 5vw, 62px);
     line-height: 1.2;
     margin-bottom: 22px;
     text-shadow: 0 4px 20px rgba(0,0,0,0.15);
 }
 
-/* Testo secondario prestigioso con Lora (Serif) */
 .hero-content p {
     font-family: var(--font-body);
-    font-style: italic; /* L'italico sui font serif aumenta il senso di cura editoriale */
+    font-style: italic;
     font-size: clamp(18px, 2vw, 24px);
     font-weight: 400;
     margin-bottom: 45px;
@@ -148,10 +172,9 @@ body {
     gap: 20px;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap; /* Ottimale per il wrapping automatico su mobile */
+    flex-wrap: wrap;
 }
 
-/* Struttura base condivisa delle CTA */
 .btn-cta {
     font-family: var(--font-heading);
     font-weight: 700;
@@ -159,15 +182,14 @@ body {
     padding: 18px 36px;
     border-radius: 50px;
     text-decoration: none;
-    text-transform: uppercase; /* Forza il testo in maiuscolo */
+    text-transform: uppercase;
     letter-spacing: 1px;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     display: inline-block;
     text-align: center;
-    min-width: 240px; /* Garantisce simmetria visiva tra i due tasti */
+    min-width: 240px;
 }
 
-/* Tasto 1: Colore Pieno (Primary) */
 .btn-solid {
     background-color: var(--premium-orange);
     color: var(--white);
@@ -182,7 +204,6 @@ body {
     box-shadow: none;
 }
 
-/* Animazione Pulsazione/Glow calibrata per il tasto principale */
 .btn-glow {
     animation: premiumGlow 3.5s infinite ease-in-out;
 }
@@ -228,17 +249,6 @@ body {
     z-index: 2;
 }
 
-.transition-fade-green-to-cream {
-    width: 100%;
-    height: 550px;
-    background: linear-gradient(to bottom, var(--brand-green) 0%, var(--bg-cream) 100%);
-}
-
-.next-section {
-    min-height: 60vh;
-    padding: 60px 8%;
-}
-
 /* =========================================
    OVERLAY MENU FULLSCREEN (EFFETTO WOW)
    ========================================= */
@@ -254,8 +264,6 @@ body {
     display: flex;
     flex-direction: column;
     padding: 35px 5%;
-    
-    /* EFFETTO WOW: Espansione circolare partendo dall'angolo in alto a destra */
     visibility: hidden;
     clip-path: circle(0px at calc(100% - 5%) 50px);
     transition: clip-path 0.7s cubic-bezier(0.7, 0, 0.2, 1), visibility 0.7s;
@@ -281,9 +289,8 @@ body {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    /* Aggiunta dell'animazione di fade vincolata allo stato active */
     opacity: 0;
-    transition: opacity 0.5s ease 0.2s; /* Ritardo leggero in entrata */
+    transition: opacity 0.5s ease 0.2s;
 }
 
 .overlay-menu.active .overlay-logo {
@@ -303,7 +310,7 @@ body {
 
 .close-btn:hover {
     color: var(--premium-gold);
-    transform: rotate(90deg); /* Piccolo tocco extra per la chiusura */
+    transform: rotate(90deg);
 }
 
 .overlay-content {
@@ -318,7 +325,6 @@ body {
 }
 
 /* --- ANIMAZIONI A CASCATA (STAGGERED SLIDE UP) --- */
-/* Imposto lo stato iniziale invisibile e spostato in basso */
 .main-nav a, 
 .secondary-nav a, 
 .overlay-footer { 
@@ -327,7 +333,6 @@ body {
     transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* Quando il menu è attivo, tornano su */
 .overlay-menu.active .main-nav a, 
 .overlay-menu.active .secondary-nav a,
 .overlay-menu.active .overlay-footer {
@@ -353,10 +358,9 @@ body {
     width: fit-content;
 }
 
-/* Effetto hover giallo a sinistra e piccolo spostamento */
 .main-nav a:hover {
     color: var(--premium-gold);
-    transform: translateX(15px) !important; /* Forza lo spostamento ignorando il translateY */
+    transform: translateX(15px) !important;
 }
 
 /* --- COLONNA DESTRA E HOVER LINEETTA --- */
@@ -381,17 +385,16 @@ body {
     position: relative;
     padding-bottom: 5px;
     width: fit-content;
-    margin-left: auto; /* Mantiene l'allineamento a destra per l'outline */
+    margin-left: auto;
 }
 
-/* Effetto Lineetta sotto per i link di destra */
 .hover-line-right::after {
     content: '';
     position: absolute;
     width: 0;
     height: 1px;
     bottom: 0;
-    right: 0; /* Fa partire la linea da destra */
+    right: 0;
     background-color: var(--premium-gold);
     transition: width 0.3s ease-in-out;
 }
@@ -416,10 +419,11 @@ body {
     transition-delay: 0s !important;
 }
 
-/* --- DELAY DELLE ANIMAZIONI (IL SEGRETO DELL'EFFETTO CASCATA) --- */
+/* --- DELAY DELLE ANIMAZIONI --- */
 .overlay-menu.active .main-nav a:nth-child(1) { transition-delay: 0.3s; }
 .overlay-menu.active .main-nav a:nth-child(2) { transition-delay: 0.4s; }
 .overlay-menu.active .main-nav a:nth-child(3) { transition-delay: 0.5s; }
+.overlay-menu.active .main-nav a:nth-child(4) { transition-delay: 0.6s; }
 
 .overlay-menu.active .secondary-nav a:nth-child(1) { transition-delay: 0.4s; }
 .overlay-menu.active .secondary-nav a:nth-child(2) { transition-delay: 0.45s; }
@@ -441,8 +445,8 @@ body {
     left: 0;
     width: 100%;
     height: 100vh;
-    background-color: var(--premium-orange); /* Il nostro arancione */
-    z-index: 9999; /* Livello massimo, sopra anche all'header e all'overlay */
+    background-color: var(--premium-orange);
+    z-index: 9999;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -457,11 +461,10 @@ body {
 }
 
 .preloader-logo {
-    height: 45px; /* Leggermente più grande che nell'header */
+    height: 45px;
     width: auto;
 }
 
-/* Disegno della Batteria in puro CSS */
 .battery-icon {
     width: 60px;
     height: 24px;
@@ -471,7 +474,6 @@ body {
     padding: 2px;
 }
 
-/* Il "Polo Positivo" della batteria */
 .battery-icon::after {
     content: '';
     position: absolute;
@@ -484,7 +486,6 @@ body {
     border-radius: 0 2px 2px 0;
 }
 
-/* Il livello di carica animato */
 .battery-level {
     height: 100%;
     background-color: var(--white);
@@ -493,17 +494,15 @@ body {
     animation: chargeBattery 1.5s ease-in-out forwards;
 }
 
-/* Keyframes: Caricamento a scatti per un effetto realistico */
 @keyframes chargeBattery {
     0% { width: 0%; opacity: 0.5; }
     20% { width: 20%; opacity: 1; }
-    40% { width: 20%; } /* Pausa fisiologica */
+    40% { width: 20%; }
     60% { width: 70%; }
     80% { width: 100%; }
     100% { width: 100%; }
 }
 
-/* Classe aggiunta da JS per far scorrere via il preloader verso l'alto */
 .preloader-hidden {
     transform: translateY(-100%);
     opacity: 0;
@@ -514,33 +513,24 @@ body {
    SCROLLBAR CUSTOM
    ========================================================================= */
 
-/* Classe che spegne la scrollbar durante il caricamento (senza ritardi JS) */
 body.is-loading {
     overflow: hidden !important;
 }
 
-/* Rimuoviamo i vecchi fallback per Firefox altrimenti Chrome si blocca! */
-
 ::-webkit-scrollbar {
-    width: 20px; /* Larghezza estrema */
+    width: 20px;
 }
-
-/* Il binario di scorrimento (Track) */
 ::-webkit-scrollbar-track {
-    background-color: #EBE8E0; /* Un bianco/panna leggermente più scuro per dare profondità */
-    border-left: 1px solid #DEDEDE; /* Stacco visivo netto dalla pagina */
+    background-color: #EBE8E0;
+    border-left: 1px solid #DEDEDE;
 }
 
-/* Il cursore (Slider) */
 ::-webkit-scrollbar-thumb {
     background-color: var(--premium-orange);
-    border-radius: 0px; /* Rigorosamente quadrato */
-    
-    /* Il bordo dello stesso colore del binario crea uno stacco grafico netto */
+    border-radius: 0px;
     border: 3px solid #EBE8E0; 
 }
 
-/* Effetto active (quando clicchi e tieni premuto) */
 ::-webkit-scrollbar-thumb:active {
     background-color: var(--premium-orange);
 }
@@ -549,30 +539,14 @@ body.is-loading {
    CUSTOM CURSOR PREMIUM
    ========================================================================= */
 body {
-    cursor: none; /* Nasconde il cursore di default su schermi grandi */
+    cursor: none;
 }
 
-/* Mostra il cursore standard solo su dispositivi touch/mobile per sicurezza */
 @media (max-width: 768px) {
     body { cursor: auto; }
     #custom-cursor { display: none !important; }
 }
 
-#custom-cursor {
-    width: 30px;
-    height: 30px;
-    border: 3px solid var(--premium-gold); /* L'anello dorato */
-    border-radius: 50%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none; /* Fondamentale: permette di cliccare gli elementi sottostanti */
-    z-index: 10000;
-    transform: translate(-50%, -50%);
-    transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
-}
-
-/* Di default il cursore custom è completamente invisibile */
 #custom-cursor {
     width: 30px;
     height: 30px;
@@ -584,18 +558,30 @@ body {
     pointer-events: none;
     z-index: 10000;
     transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
+}
+
+#custom-cursor {
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--premium-gold);
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 10000;
+    transform: translate(-50%, -50%);
     transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease, opacity 0.3s ease;
-    
-    opacity: 0; /* Nasconde il cursore all'avvio */
+    opacity: 0;
 }
 
 body:not(.is-loading) #custom-cursor {}
 
-/* Quando si passa sopra a link o bottoni, l'anello si riempie o si allarga */
 body:has(a:hover, button:hover, .btn-cta:hover) #custom-cursor {
     width: 40px;
     height: 40px;
-    background-color: rgba(224, 198, 56, 0.1); /* Gold semi-trasparente */
+    background-color: rgba(224, 198, 56, 0.1);
     backdrop-filter: blur(2px);
 }
 
@@ -609,15 +595,9 @@ body:has(a:hover, button:hover, .btn-cta:hover) #custom-cursor {
     left: 0;
     width: 100%;
     height: 100%;
-    
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1500 1500' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='hdNoise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23hdNoise)'/%3E%3C/svg%3E");
-
     opacity: 0.15; 
-    
-    /* Disabilita qualsiasi interazione per non bloccare i click sottostanti */
     pointer-events: none; 
-    
-    /* Sopra al layout e sotto al cursore custom/preloader */
     z-index: 9998; 
 }
 
@@ -632,7 +612,6 @@ body:has(a:hover, button:hover, .btn-cta:hover) #custom-cursor {
     --night: #060b19;
 }
 
-/* 1. Lo Sky Background */
 .sky-background {
     position: absolute;
     inset: 0;
@@ -644,16 +623,12 @@ body:has(a:hover, button:hover, .btn-cta:hover) #custom-cursor {
     0% { background-color: var(--dawn); }
     15% { background-color: var(--day); }
     45% { background-color: var(--day); }
-    /* Il cielo inizia a scaldarsi mentre il sole scende */
     55% { background-color: #fca34d; } 
-    /* Esplosione del tramonto arancione ESATTAMENTE quando il sole tocca la casa */
     68% { background-color: var(--sunset); } 
-    /* Transizione rapida verso l'imbrunire e la notte profonda */
     75%, 93% { background-color: var(--night); }
     100% { background-color: var(--dawn); }
 }
 
-/* 2. Il Sole */
 .sun {
     position: absolute;
     width: 80px;
@@ -664,33 +639,28 @@ body:has(a:hover, button:hover, .btn-cta:hover) #custom-cursor {
     z-index: 2;
     bottom: -100px;
     left: 10%;
-    animation: sunPath 15s infinite ease-in-out;
+    animation: sunPath 15s infinite linear;
 }
 
 @keyframes sunPath {
-    0% { 
-        transform: translate(0, 0); 
-        opacity: 1; 
-    }
-    30% { 
-        transform: translate(35vw, -75vh); 
-        opacity: 1; 
-    } 
-    55% { 
-        transform: translate(72vw, -35vh); 
-        opacity: 1; 
-    }
-    70% { 
-        transform: translate(84vw, 15vh); 
-        opacity: 1;
-    } 
-    72%, 100% { 
-        transform: translate(86vw, 30vh);
-        opacity: 0; 
-    }
+    0% { transform: translate(0vw, 0vh); opacity: 1; }
+    5% { transform: translate(5vw, -18vh); opacity: 1; }
+    10% { transform: translate(11vw, -34vh); opacity: 1; }
+    15% { transform: translate(17vw, -48vh); opacity: 1; }
+    20% { transform: translate(23vw, -59vh); opacity: 1; }
+    25% { transform: translate(30vw, -68vh); opacity: 1; }
+    30% { transform: translate(36vw, -73vh); opacity: 1; }
+    35% { transform: translate(43vw, -75vh); opacity: 1; }
+    40% { transform: translate(50vw, -73vh); opacity: 1; }
+    45% { transform: translate(56vw, -68vh); opacity: 1; }
+    50% { transform: translate(63vw, -59vh); opacity: 1; }
+    55% { transform: translate(69vw, -48vh); opacity: 1; }
+    60% { transform: translate(75vw, -34vh); opacity: 1; }
+    65% { transform: translate(81vw, -18vh); opacity: 1; }
+    70% { transform: translate(86vw, 5vh); opacity: 1; }
+    72%, 100% { transform: translate(86vw, 30vh); opacity: 0; }
 }
 
-/* 3. La Luna e le Stelle */
 .moon {
     position: absolute;
     width: 60px;
@@ -742,7 +712,6 @@ body:has(a:hover, button:hover, .btn-cta:hover) #custom-cursor {
     100% { opacity: 0; }
 }
 
-/* 4. Le Finestre della Casa */
 .house-window {
     transition: fill 0.5s ease, filter 0.5s ease;
     fill: #caebff; /* Colore Giorno */
@@ -767,25 +736,19 @@ body:has(a:hover, button:hover, .btn-cta:hover) #custom-cursor {
     animation: windowGlow 15s infinite linear;
 }
 
-/* 5. Le Nuvole */
 .cloud {
     position: absolute;
     background: rgba(255, 255, 255, 0.85);
     z-index: 3;
     animation: cloudMove 25s infinite linear;
-    
-    /* Il segreto delle nuvole in CSS: curve asimmetriche che creano la "coppia" di cumuli */
     width: 180px;
     height: 60px;
     border-radius: 100px;
-    
-    /* Ombre sovrapposte: creano la tridimensionalità e la luce soffusa sui bordi */
     box-shadow: 
         inset -15px -10px 20px rgba(0, 0, 0, 0.05), 
         0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
-/* Creiamo i rigonfiamenti superiori tipici delle nuvole usando i pesonaggi ::before e ::after */
 .cloud::before, .cloud::after {
     content: '';
     position: absolute;
@@ -793,7 +756,6 @@ body:has(a:hover, button:hover, .btn-cta:hover) #custom-cursor {
     border-radius: 50%;
 }
 
-/* Il cumulo più grande in alto */
 .cloud::before {
     width: 80px;
     height: 80px;
@@ -801,7 +763,6 @@ body:has(a:hover, button:hover, .btn-cta:hover) #custom-cursor {
     left: 30px;
 }
 
-/* Il secondo cumulo laterale */
 .cloud::after {
     width: 60px;
     height: 60px;
@@ -809,7 +770,6 @@ body:has(a:hover, button:hover, .btn-cta:hover) #custom-cursor {
     right: 25px;
 }
 
-/* Configurazione altezze, velocità e opacità dei 3 strati di nuvole */
 .cloud-1 { 
     top: 15%; 
     transform: scale(0.85);
@@ -841,40 +801,642 @@ body:has(a:hover, button:hover, .btn-cta:hover) #custom-cursor {
     to { left: 110%; }
 }
 
-/* Fix per sovrapposizione House */
-.hero-house-container {
+.wind-turbine-container {
     position: absolute;
-    bottom: -1px;
-    right: 50px;
-    z-index: 10; /* Sopra al sole e al cielo */
+    bottom: 150px;
+    left: 8%;
+    width: clamp(100px, 15vw, 150px);
+    height: auto;
+    z-index: 9;
     pointer-events: none;
 }
 
-@media (max-width: 768px) {
-    .overlay-content { flex-direction: column; justify-content: center; gap: 40px; }
-    .overlay-right { justify-content: center; }
-    .secondary-nav { text-align: center; }
-    .secondary-nav a { margin-left: auto; margin-right: auto; } /* Centra su mobile */
-    .hover-line-right::after { left: 0; right: 0; margin: 0 auto; } /* Centra la lineetta su mobile */
-    .overlay-logo { position: static; transform: none; }
-    .overlay-header { justify-content: center; }
-    .close-btn { position: absolute; right: 0; }
+.wind-turbine {
+    width: 100%;
+    height: auto;
+    display: block;
+}
 
-    .hero-house {
-        right: 50%;
-        transform: translateX(50%);
-        bottom: 150px;
-        height: 180px;
+.turbine-blades {
+    transform-origin: 50px 60px;
+    animation: turbineRotate 6s infinite linear;
+}
+
+@keyframes turbineRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.turbine-light {
+    fill: #ff3b30;
+    transition: opacity 0.5s ease;
+    opacity: 0;
+    animation: turbineLightCycle 15s infinite linear;
+}
+
+@keyframes turbineLightCycle {
+    /* Spenta di giorno */
+    0%, 74% { opacity: 0; }
+    75% { opacity: 1; }
+    80% { opacity: 0.2; }
+    85% { opacity: 1; }
+    90% { opacity: 0.2; }
+    93% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+.hero-house-container {
+    position: absolute;
+    bottom: -0.5px;
+    right: 50px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* =========================================================================
+   INDICATORE DI SCROLL PREMIUM
+   ========================================================================= */
+.scroll-indicator-wrapper {
+    --scroll-color: #FFFFFF; 
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    z-index: 15;
+    pointer-events: none;
+}
+
+.scroll-mouse {
+    width: 26px;
+    height: 42px;
+    border: 2px solid var(--scroll-color);
+    border-radius: 20px;
+    position: relative;
+    opacity: 0.8;
+}
+
+.scroll-wheel {
+    width: 4px;
+    height: 8px;
+    background-color: var(--scroll-color);
+    border-radius: 2px;
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scrollWheelMove 2s infinite cubic-bezier(0.15, 0.41, 0.69, 0.94);
+}
+
+.scroll-text {
+    color: var(--scroll-color);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.6;
+    font-family: var(--font-heading);
+    font-weight: 500;
+}
+
+.faq-section-wrapper .scroll-indicator-wrapper {
+    --scroll-color: var(--premium-orange);
+    position: relative;
+    bottom: auto;
+    margin-top: 60px;
+}
+
+.pre-footer .scroll-indicator-wrapper {
+    --scroll-color: var(--premium-navy);
+    position: relative;
+    bottom: auto;
+    margin-top: 150px;
+}
+
+@keyframes scrollWheelMove {
+    0% {
+        top: 6px;
+        opacity: 1;
+        height: 8px;
     }
-    .hero-content {
-        margin-top: -22vh;
+    30% {
+        top: 12px;
+        opacity: 1;
+        height: 12px; /* Si allunga mentre scende per dare fluidità */
     }
-    .hero-cta-group {
-        flex-direction: column;
-        width: 100%;
+    70% {
+        top: 22px;
+        opacity: 0;
+        height: 6px;
     }
-    .btn-cta {
-        width: 100%;
+    100% {
+        top: 6px;
+        opacity: 0;
+        height: 8px;
     }
 }
 
+.fade-bg-top {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 700px;
+    background: linear-gradient(
+        to bottom,
+        var(--brand-green) 0%,
+        rgba(38, 130, 101, 0.85) 15%,
+        rgba(38, 130, 101, 0.60) 32%,
+        rgba(38, 130, 101, 0.35) 50%,
+        rgba(38, 130, 101, 0.15) 70%,
+        rgba(38, 130, 101, 0.05) 85%,
+        transparent 100%
+    );
+    z-index: -1;
+    pointer-events: none;
+}
+
+.fade-bg-bottom {
+    position: absolute;
+    bottom: -350px;
+    left: 0;
+    width: 100%;
+    height: 700px;
+    transform: translateY(-350px);
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(249, 247, 242, 0.8) 20%,
+        rgba(139, 147, 169, 0.4) 50%,
+        var(--premium-navy) 100%
+    );
+    z-index: -20;
+    pointer-events: none;
+}
+
+.why-enos-header, .why-grid-wide, .why-footer-cta {
+    position: relative;
+    z-index: 2;
+}
+
+/* =========================================================================
+   GRIGLIA ENOS
+   ========================================================================= */
+
+.why-enos-section {
+    background-color: var(--bg-cream);
+    padding: 140px 6% 0 6%;
+    position: relative;
+    z-index: 10;
+    margin: 0; 
+}
+
+/* Header Centrato */
+.why-enos-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 80px auto;
+}
+
+.why-enos-header h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(36px, 5vw, 54px);
+    color: var(--premium-navy);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -1px;
+}
+
+.why-enos-header h2 span {
+    color: var(--premium-orange);
+}
+
+.why-grid-wide {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    box-shadow: 0 40px 80px rgba(11, 23, 54, 0.03);
+    background:none;
+}
+
+.bento-row {
+    display: flex;
+    width: 100%;
+    height: 420px;
+}
+
+.size-1rd {
+    width: 33.333%;
+}
+
+.size-2rd {
+    width: 66.666%;
+}
+
+.bento-card {
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px;
+    box-sizing: border-box;
+}
+
+.bento-text {
+    background-color: #FFFFFF;
+}
+
+.bento-row:not(:last-child) {
+    border-bottom: 1px solid rgba(11, 23, 54, 0.06);
+}
+.bento-row .bento-card:not(:last-child) {
+    border-right: 1px solid rgba(11, 23, 54, 0.06);
+}
+
+.bento-icon {
+    width: 44px;
+    height: 44px;
+    color: var(--premium-gold);
+    margin-bottom: 30px;
+}
+
+.bento-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.bento-text h3 {
+    font-family: var(--font-heading);
+    font-size: 26px;
+    color: var(--premium-navy);
+    margin-bottom: 18px;
+    font-weight: 600;
+}
+
+.bento-text p {
+    font-size: 15px;
+    color: #555555;
+    line-height: 1.6;
+}
+
+.bento-image {
+    background-color: #F4F1EA;
+    padding: 0;
+}
+
+.bento-img-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.bento-placeholder-text {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgba(11, 23, 54, 0.4);
+    font-weight: 500;
+    padding: 20px;
+}
+
+.bento-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.bento-card:hover .bento-img-wrapper img {
+    transform: scale(1.03);
+}
+
+/* Sezione CTA Finale */
+.why-footer-cta {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.reveal-item {
+    opacity: 0;
+    transform: translateY(60px); 
+    transition: opacity 1s cubic-bezier(0.215, 0.610, 0.355, 1), 
+                transform 1s cubic-bezier(0.215, 0.610, 0.355, 1);
+    will-change: transform, opacity;
+}
+
+.reveal-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================================================
+   FAQ SECTION
+   ========================================================================= */
+.faq-section-wrapper {
+    margin: 120px auto 0 auto;
+    padding-bottom: 300px;
+    position: relative;
+    z-index: 10;
+}
+
+.faq-header {
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 60px;
+}
+
+.faq-header h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(32px, 4vw, 46px);
+    color: var(--premium-navy);
+    font-weight: 700;
+}
+
+.faq-header h2 span {
+    color: var(--premium-orange);
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0px; 
+    border: 1px solid rgba(11, 23, 54, 0.08);
+    box-shadow: 0 30px 60px rgba(11, 23, 54, 0.02);
+    background-color: #FFFFFF;
+}
+
+.faq-card {
+    background-color: #FFFFFF;
+    border: 1px solid rgba(11, 23, 54, 0.04);
+    padding: 45px;
+    box-sizing: border-box;
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.faq-card:last-child:nth-child(odd) {
+    grid-column: span 2;
+    width: 50%;
+    margin: 0 auto;
+    border-top: none;
+}
+
+.faq-trigger {
+    width: 100%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    padding: 0;
+    gap: 20px;
+    color: var(--premium-navy);
+    font-family: var(--font-heading);
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 1.4;
+    transition: color 0.3s ease;
+}
+
+.faq-trigger::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid var(--premium-gold);
+    border-bottom: 2px solid var(--premium-gold);
+    transform: rotate(45deg);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s ease;
+    flex-shrink: 0;
+    margin-top: -4px; 
+}
+
+.faq-card.active {
+    background-color: #FCFAF5;
+}
+
+.faq-card.active .faq-trigger {
+    color: var(--premium-orange);
+}
+
+.faq-card.active .faq-trigger::after {
+    transform: rotate(-135deg); 
+    border-color: var(--premium-orange);
+}
+
+.faq-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
+    opacity: 0;
+}
+
+.faq-card.active .faq-content {
+    opacity: 1;
+}
+
+.faq-content p {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.6;
+    color: #555555;
+    padding-top: 20px;
+    margin: 0;
+}
+
+/* --- RESPONSIVE TABLET & SMARTPHONE --- */
+@media (max-width: 991px) {
+    .faq-grid { grid-template-columns: 1fr; }
+    .faq-card { padding: 35px 25px; }
+    .faq-card:last-child:nth-child(odd) { width: 100%; border-top: 1px solid rgba(11, 23, 54, 0.04); }
+    .faq-trigger { font-size: 17px; }
+}
+
+/* =========================================================================
+   FOOTER
+   ========================================================================= */
+.pre-footer{
+    height: 50px;
+    width: 100%;
+    background: none;
+}
+
+.footer {
+    background-color: var(--premium-navy);
+    padding: 100px 0 60px 0;
+    position: relative;
+    z-index: 10;
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 6%;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.footer-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.footer-brand-col {
+    flex: 1.5;
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.footer-logo-white {
+    height: 65px;
+    width: auto;
+    align-self: flex-start;
+    filter: brightness(0) invert(1);
+    opacity: 0.95;
+}
+
+.footer-brand-text {
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-socials {
+    display: flex;
+    gap: 18px;
+    margin-top: 5px;
+}
+
+.social-icon-link {
+    color: rgba(255, 255, 255, 0.7);
+    width: 22px;
+    height: 22px;
+    transition: color 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.3s ease;
+    display: inline-block;
+}
+
+.social-icon-link svg {
+    width: 100%;
+    height: 100%;
+}
+
+.social-icon-link:hover {
+    color: var(--premium-orange);
+    transform: translateY(-3px);
+}
+
+.footer-nav-col {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-heading {
+    font-family: var(--font-heading);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--premium-gold);
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.footer-links-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.footer-nav-link {
+    font-family: var(--font-body);
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    padding: 0 10px 4px 10px;
+    transition: color 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.footer-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--premium-gold);
+    transition: width 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.footer-nav-link:hover {
+    color: var(--white);
+}
+
+.footer-nav-link:hover::after {
+    width: 100%;
+}
+
+.footer-bottom-row {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 50px;
+}
+
+.footer-legal-col {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.footer-legal-links .footer-nav-link::after {
+    background-color: var(--premium-orange);
+}
+
+.footer-legal-links .footer-nav-link:hover {
+    color: var(--white);
+}
+
+/* --- RESPONSIVE OPTIMIZATION FOR TABLETS & PHONES --- */
+@media (max-width: 768px) {
+    .footer { padding: 70px 0 40px 0; }
+    .footer-container { gap: 50px; }
+    .footer-top-row { flex-direction: column; gap: 40px; }
+    .footer-brand-col { min-width: 100%; }
+    .footer-legal-links { flex-direction: column; gap: 15px; }
+    .footer-heading { margin-bottom: 18px; }
+}
+
+/* =========================================================================
+   MOBILE RESPONSIVE: COMPATTAZIONE LOGICA SUI TELEFONI
+   ========================================================================= */
+@media (max-width: 991px) {
+    .why-enos-header { margin-bottom: 50px; }
+    .bento-row { flex-direction: column; height: auto; }
+    .size-1rd, .size-2rd { width: 100%; }
+    .bento-card { padding: 50px 30px; }
+    .bento-card.bento-image { height: 280px; }
+    .bento-row:nth-child(2) { flex-direction: column-reverse; }
+    .bento-row:nth-child(4) { flex-direction: column-reverse; }
+    .bento-row .bento-card:not(:last-child) { border-right: none; border-bottom: 1px solid rgba(11, 23, 54, 0.06); }
+}
