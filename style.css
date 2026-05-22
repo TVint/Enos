@@ -5,11 +5,10 @@
     --bg-cream: #F9F7F2;
     --brand-green: #268265;
     --premium-navy: #0B1736;
-    --premium-orange: #DE6A23; /* Usato per il tasto solido ad alta attenzione */
+    --premium-orange: #DE6A23;
     --premium-gold: #E0C638;
     --white: #FFFFFF;
     
-    /* Nuova impostazione tipografica intelligente */
     --font-heading: 'Comfortaa', sans-serif;
     --font-body: 'Lora', serif;
 }
