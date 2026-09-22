@@ -137,7 +137,7 @@ body {
 
 .hero-content {
     position: relative;
-    z-index: 10;
+    z-index: 20;
     text-align: center;
     color: var(--white);
     max-width: 750px;
@@ -190,17 +190,19 @@ body {
 }
 
 .btn-solid {
-    background-color: var(--premium-orange);
+    background: linear-gradient(90deg, var(--premium-orange) 0%, var(--premium-gold) 50%, var(--premium-orange) 100%);
+    background-size: 200% auto;
     color: var(--white);
-    border: 2px solid var(--premium-orange);
+    border: none;
     box-shadow: 0 4px 15px rgba(222, 106, 35, 0.3);
+    transition: background-position 0.5s ease, transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;
 }
 
 .btn-solid:hover {
-    background-color: transparent;
+    background-position: right center;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(222, 106, 35, 0.5);
     color: var(--white);
-    border-color: var(--white);
-    box-shadow: none;
 }
 
 .btn-glow {
@@ -229,13 +231,46 @@ body {
 /* =========================================
    ASSETS E TRANSIZIONI
    ========================================= */
-.hero-house {
+
+.app-entrance-wrapper {
     position: absolute;
-    bottom: 150px;
-    right: 6%;
-    height: clamp(200px, 30vh, 320px);
-    width: auto;
-    z-index: 5;
+    bottom: 50px;
+    left: 8%;
+    width: clamp(180px, 18vw, 320px); 
+    z-index: 15;
+    opacity: 0;
+    transform: translateY(60px);
+    animation: appEntrance 1.2s cubic-bezier(0.215, 0.610, 0.355, 1) forwards 1s;
+}
+
+.app-floating-wrapper {
+    display: block;
+    width: 100%;
+    animation: floatApp 5s ease-in-out infinite;
+}
+
+.app-mockup-img {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 20px 30px rgba(11, 23, 54, 0.25));
+}
+
+@keyframes appEntrance {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatApp {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-18px); }
+}
+
+.hero-house-container {
+    position: absolute;
+    bottom: 100px;
+    right: 10%;
+    width: 450px;
+    height: auto;
+    z-index: 15;
 }
 
 .hero-green-floor {
@@ -245,7 +280,7 @@ body {
     width: 100%;
     height: 150px;
     background-color: var(--brand-green);
-    z-index: 2;
+    z-index: 10;
 }
 
 /* =========================================
@@ -549,21 +584,7 @@ body {
 #custom-cursor {
     width: 30px;
     height: 30px;
-    border: 3px solid var(--premium-gold);
-    border-radius: 50%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    z-index: 10000;
-    transform: translate(-50%, -50%);
-    transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
-}
-
-#custom-cursor {
-    width: 30px;
-    height: 30px;
-    border: 1px solid var(--premium-gold);
+    border: 1.5px solid var(--premium-gold);
     border-radius: 50%;
     position: fixed;
     top: 0;
@@ -575,13 +596,12 @@ body {
     opacity: 0;
 }
 
-body:not(.is-loading) #custom-cursor {}
-
-body:has(a:hover, button:hover, .btn-cta:hover) #custom-cursor {
-    width: 40px;
-    height: 40px;
-    background-color: rgba(224, 198, 56, 0.1);
+body:has(a:hover, button:hover, .btn-cta:hover, .faq-trigger:hover) #custom-cursor {
+    width: 45px;
+    height: 45px;
+    background-color: rgba(224, 198, 56, 0.15);
     backdrop-filter: blur(2px);
+    border-color: transparent;
 }
 
 /* =========================================================================
@@ -611,27 +631,62 @@ body:has(a:hover, button:hover, .btn-cta:hover) #custom-cursor {
     --night: #060b19;
 }
 
-.sky-background {
+/* =========================================================================
+   CIELO 
+   ========================================================================= */
+.sky-layer {
     position: absolute;
     inset: 0;
-    animation: skyCycle 15s infinite linear;
     z-index: 1;
+    opacity: 0;
+    will-change: opacity; 
+    backface-visibility: hidden;
 }
 
-@keyframes skyCycle {
-    0% { background-color: var(--dawn); }
-    15% { background-color: var(--day); }
-    45% { background-color: var(--day); }
-    55% { background-color: #fca34d; } 
-    68% { background-color: var(--sunset); } 
-    75%, 93% { background-color: var(--night); }
-    100% { background-color: var(--dawn); }
+.sky-day {
+    background: linear-gradient(to right, #2a75d3, #7bc0ff);
+    animation: fadeDay 15s infinite linear;
+}
+
+.sky-sunset {
+    background: linear-gradient(to right, var(--premium-orange), var(--premium-gold));
+    animation: fadeSunset 15s infinite linear;
+}
+
+.sky-night {
+    background: linear-gradient(to right, #050a14, var(--premium-navy));
+    animation: fadeNight 15s infinite linear;
+}
+
+@keyframes fadeDay {
+    0% { opacity: 1; }
+    30% { opacity: 1; }
+    40% { opacity: 0; }
+    90% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeSunset {
+    0% { opacity: 0; }
+    25% { opacity: 0; }
+    40% { opacity: 1; }
+    60% { opacity: 1; }
+    70% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+@keyframes fadeNight {
+    0% { opacity: 0; }
+    60% { opacity: 0; }
+    70% { opacity: 1; }
+    95% { opacity: 1; }
+    100% { opacity: 0; }
 }
 
 .sun {
     position: absolute;
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 120px;
     background: #ffce54;
     border-radius: 50%;
     box-shadow: 0 0 40px #ffce54;
@@ -677,7 +732,7 @@ body:has(a:hover, button:hover, .btn-cta:hover) #custom-cursor {
 .stars-container {
     position: absolute;
     inset: 0;
-    z-index: 1;
+    z-index: 3;
     opacity: 0;
     animation: moonFade 15s infinite linear;
 }
@@ -711,34 +766,37 @@ body:has(a:hover, button:hover, .btn-cta:hover) #custom-cursor {
     100% { opacity: 0; }
 }
 
-.house-window {
-    transition: fill 0.5s ease, filter 0.5s ease;
-    fill: #caebff; /* Colore Giorno */
+/* =========================================================================
+   LUCI CASA
+   ========================================================================= */
+
+.hero-house-container .hero-house .windowLight {
+    transition: fill 0.8s ease, stroke 0.8s ease;
 }
 
-@keyframes windowGlow {
-    0%, 73% { 
-        fill: #caebff; 
-        filter: none; 
+.hero-section .sky-night ~ .hero-house-container .windowLight {
+    animation: glowWindowsCycle 15s infinite linear !important;
+}
+
+@keyframes glowWindowsCycle {
+    0%, 65% { 
+        fill: #101a3c;
     }
-    75%, 93% { 
-        fill: #ffdb15; 
-        filter: drop-shadow(0 0 12px #ffdb15); 
+    70%, 95% { 
+        fill: #f5c836; 
     }
     100% { 
-        fill: #caebff; 
-        filter: none; 
+        fill: #101a3c;
     }
 }
 
-.hero-house .house-window {
-    animation: windowGlow 15s infinite linear;
+.clouds-container{
+    z-index: 3;
 }
 
 .cloud {
     position: absolute;
     background: rgba(255, 255, 255, 0.85);
-    z-index: 3;
     animation: cloudMove 25s infinite linear;
     width: 180px;
     height: 60px;
@@ -802,18 +860,33 @@ body:has(a:hover, button:hover, .btn-cta:hover) #custom-cursor {
 
 .wind-turbine-container {
     position: absolute;
-    bottom: 150px;
-    left: 8%;
-    width: clamp(100px, 15vw, 150px);
+    width: 120px;
     height: auto;
-    z-index: 9;
     pointer-events: none;
 }
 
-.wind-turbine {
-    width: 100%;
-    height: auto;
-    display: block;
+/* Posizionamento scaglionato a destra per tridimensionalità */
+.turbine-main { 
+    right: 9%; 
+    bottom: 145px; 
+    z-index: 10; 
+}
+
+.turbine-back-1 { 
+    right: 6%; 
+    bottom: 110px; 
+    transform: scale(0.7); 
+    z-index: 12; 
+    opacity: 0.85; 
+}
+
+.turbine-back-2 { 
+    right: 4.5%; 
+    bottom: 81px;  
+    transform: scale(0.45); 
+    z-index: 11; 
+    opacity: 0.65; 
+    filter: blur(0.5px); 
 }
 
 .turbine-blades {
@@ -826,31 +899,24 @@ body:has(a:hover, button:hover, .btn-cta:hover) #custom-cursor {
     to { transform: rotate(360deg); }
 }
 
+/* LUCE ROSSA: Innescata dalla classe notturna sul parent */
 .turbine-light {
     fill: #ff3b30;
     transition: opacity 0.5s ease;
     opacity: 0;
-    animation: turbineLightCycle 15s infinite linear;
+}
+
+.hero-section.is-night .turbine-light {
+    animation: turbineLightCycle 15s infinite ease-in-out;
 }
 
 @keyframes turbineLightCycle {
-    /* Spenta di giorno */
-    0%, 74% { opacity: 0; }
-    75% { opacity: 1; }
-    80% { opacity: 0.2; }
-    85% { opacity: 1; }
-    90% { opacity: 0.2; }
-    93% { opacity: 1; }
-    100% { opacity: 0; }
+    0%, 65% { opacity: 0; }        /* Spenta di giorno */
+    70%, 80%, 90% { opacity: 1; }   /* Pulsazione notturna */
+    75%, 85%, 95% { opacity: 0.1; }
+    100% { opacity: 0; }           /* Spegnimento all'alba */
 }
 
-.hero-house-container {
-    position: absolute;
-    bottom: -0.5px;
-    right: 50px;
-    z-index: 10;
-    pointer-events: none;
-}
 
 /* =========================================================================
    INDICATORE DI SCROLL PREMIUM
