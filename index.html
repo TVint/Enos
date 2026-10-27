@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enos Energia - L'energia semplice,finalmente.</title>
+    <title>Enos Energia - L'energia semplice, finalmente.</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/hero-animations.css">
 </head>
 <body class="is-loading">
 
@@ -16,31 +17,15 @@
     <div id="preloader" class="preloader-container">
         <div class="preloader-content">
             <img src="img/logo_enos_white.svg" alt="Enos Energia" class="preloader-logo">
-            
             <div class="battery-icon">
                 <div class="battery-level"></div>
             </div>
         </div>
     </div>
 
-    <header class="main-header">
-        <div class="header-left">
-            <a href="#" class="area-clienti-link hover-line">Area Clienti</a>
-        </div>
-        
-        <div class="header-center">
-            <img src="img/logo_enos_white.svg" alt="Enos Energia" class="logo-svg">
-        </div>
-        
-        <div class="header-right">
-            <button id="open-menu-btn" class="hamburger-menu" aria-label="Apri menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
-        </div>
-    </header>
+    <div id="header-placeholder"></div>
 
+    <!-- 1. HERO SECTION -->
     <section class="hero-section">
         <div class="sky-layer sky-day"></div>
         <div class="sky-layer sky-sunset"></div>
@@ -53,7 +38,7 @@
             <div class="star star-fast" style="top:12%; left:18%"></div>
             <div class="star star-slow" style="top:28%; left:45%"></div>
             <div class="star star-fast" style="top:15%; left:78%"><div class="star-glow"></div></div>
-            <div class="star style-slow" style="top:38%; left:12%"></div>
+            <div class="star star-slow" style="top:38%; left:12%"></div>
             <div class="star star-fast" style="top:22%; left:65%"></div>
             <div class="star star-slow" style="top:10%; left:88%"></div>
         </div>
@@ -75,11 +60,12 @@
             <p>Luce e gas 100% digitali, chiari e senza sorprese.</p>
             <div class="hero-cta-group">
                 <a href="#passa" class="btn-cta btn-solid btn-glow">Passa a Enos energia</a>
-                <a href="#offerte" class="btn-cta btn-outline">Vai alle offerte</a>
+                <a href="cte.html" class="btn-cta btn-outline">Vai alle offerte</a>
             </div>
         </div>
 
-                <div class="wind-turbine-container turbine-main">
+        <!-- Parco Eolico a 3 profondità asimmetriche a DESTRA (dietro la casa) -->
+        <div class="wind-turbine-container turbine-main">
             <svg class="wind-turbine" viewBox="0 0 100 200" xmlns="http://www.w3.org/2000/svg">
                 <path d="M46 200 L48 60 L52 60 L54 200 Z" fill="#EBE8E0" />
                 <path d="M48 60 L50 60 L52 200 L46 200 Z" fill="#DCD9D0" opacity="0.5" /> 
@@ -124,7 +110,7 @@
             </svg>
         </div>
 
-        <div class="hero-house-container">
+                <div class="hero-house-container">
             <svg id="house" class="hero-house" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1390.24 663.4">
             <defs>
                 <style>
@@ -161,413 +147,170 @@
             </div>
         </div>
     </section>
+  
 
-<section class="why-enos-section">
-    <div class="fade-bg-top"></div>
+    <!-- 2. SEZIONE "PERCHÉ SCEGLIERE ENOS" (BENTO GRID) -->
+    <section class="why-enos-section">
+        <div class="fade-bg-top"></div>
 
-    <div class="why-enos-header">
-        <h2>
-            <span style="color: #ffffff;" scegliere">Perchè scegliere</span> <br>
-            <span>Enos Energia?</span>
-        </h2>
-    </div>
-
-    <div class="why-grid-wide">
-        <div class="bento-row reveal-item">
-            <div class="bento-card bento-text size-1rd">
-                <div class="bento-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                </div>
-                <h3>COMPARATORE AI</h3>
-                <p>Tu inserisci la bolletta. La IA di Enos energia trova l’offerta giusta. Analizziamo i dati, consumi e stile di vita per aiutarti a risparmiare senza dover confrontare decine di tariffe.</p>
-            </div>
-            <div class="bento-card bento-image size-2rd">
-                <div class="bento-img-wrapper">
-                    <img src="img/foto-1.webp" loading="lazy">
-                </div>
-            </div>
+        <div class="why-enos-header">
+            <h2>
+                <span style="color: #ffffff;">Perchè scegliere</span> <br>
+                <span>Enos Energia?</span>
+            </h2>
         </div>
 
-        <div class="bento-row reveal-item">
-            <div class="bento-card bento-image size-2rd">
-                <div class="bento-img-wrapper">
-                    <img src="img/foto-2.webp" loading="lazy">
+        <div class="why-grid-wide">
+            <div class="bento-row reveal-item">
+                <div class="bento-card bento-text size-1rd">
+                    <div class="bento-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    </div>
+                    <h3>COMPARATORE AI</h3>
+                    <p>Tu inserisci la bolletta. La IA di Enos energia trova l’offerta giusta. Analizziamo i dati, consumi e stile di vita per aiutarti a risparmiare senza dover confrontare decine di tariffe.</p>
+                </div>
+                <div class="bento-card bento-image size-2rd">
+                    <div class="bento-img-wrapper">
+                        <img src="img/A.jpg" alt="Comparatore AI Enos Energia" loading="lazy">
+                    </div>
                 </div>
             </div>
-            <div class="bento-card bento-text size-1rd">
-                <div class="bento-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12l4 6-10 13L2 9z"></path></svg>
-                </div>
-                <h3>PREZZI COMPETITIVI OGNI ANNO</h3>
-                <p>L’Intelligenza Artificiale Enos analizza ogni anno i tuoi consumi reali, rivaluta la tua tariffa e adegua automaticamente l’offerta alle tue esigenze. Così continui ad avere condizioni vantaggiose nel tempo, senza aumenti inutili e con una soluzione sempre aggiornata sul tuo stile di consumo ⚡</p>
-            </div>
-        </div>
 
-        <div class="bento-row reveal-item">
-            <div class="bento-card bento-text size-1rd">
-                <div class="bento-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><line x1="2" y1="12" x2="22" y2="12"></line></svg>
+            <div class="bento-row reveal-item">
+                <div class="bento-card bento-image size-2rd">
+                    <div class="bento-img-wrapper">
+                        <img src="img/B.jpg" alt="Prezzi competitivi ogni anno" loading="lazy">
+                    </div>
                 </div>
-                <h3>TUTTO DIGITALE</h3>
-                <p>Crediamo e investiamo in una gestione dell'energia digitale velocizzando i processi e migliorando l'esperienza del cliente</p>
-            </div>
-            <div class="bento-card bento-image size-2rd">
-                <div class="bento-img-wrapper">
-                    <img src="img/foto-3.webp" loading="lazy">
+                <div class="bento-card bento-text size-1rd">
+                    <div class="bento-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h12l4 6-10 13L2 9z"></path></svg>
+                    </div>
+                    <h3>PREZZI COMPETITIVI OGNI ANNO</h3>
+                    <p>L’Intelligenza Artificiale Enos analizza ogni anno i tuoi consumi reali, rivaluta la tua tariffa e adegua automaticamente l’offerta alle tue esigenze. Così continui ad avere condizioni vantaggiose nel tempo, senza aumenti inutili e con una soluzione sempre aggiornata sul tuo stile di consumo.</p>
                 </div>
             </div>
-        </div>
 
-        <div class="bento-row reveal-item">
-            <div class="bento-card bento-image size-2rd">
-                <div class="bento-img-wrapper">
-                    <img src="img/foto-4.webp" loading="lazy">
+            <div class="bento-row reveal-item">
+                <div class="bento-card bento-text size-1rd">
+                    <div class="bento-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><line x1="2" y1="12" x2="22" y2="12"></line></svg>
+                    </div>
+                    <h3>TUTTO DIGITALE</h3>
+                    <p>Crediamo e investiamo in una gestione dell'energia digitale velocizzando i processi e migliorando l'esperienza del cliente.</p>
+                </div>
+                <div class="bento-card bento-image size-2rd">
+                    <div class="bento-img-wrapper">
+                        <img src="img/C.jpg" alt="Gestione 100% digitale" loading="lazy">
+                    </div>
                 </div>
             </div>
-            <div class="bento-card bento-text size-1rd">
-                <div class="bento-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polyline></svg>
+
+            <div class="bento-row reveal-item">
+                <div class="bento-card bento-image size-2rd">
+                    <div class="bento-img-wrapper">
+                        <img src="img/D.jpg" alt="Un'energia che impara da te" loading="lazy">
+                    </div>
                 </div>
-                <h3>UN’ENERGIA CHE IMPARA DA TE</h3>
-                <p>La tua casa, la tua attività, i tuoi consumi cambiano nel tempo. Per questo Enos energia utilizza i dati per comprendere le tue abitudini e offrirti soluzioni sempre più adatte alle tue esigenze. Più conosciamo il tuo modo di consumare, più possiamo aiutarti a gestire meglio la tua energia</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="why-footer-cta animate-premium-glow-trigger">
-        <div class="cta-content">
-            <a href="#preventivo" class="btn-cta btn-solid btn-glow">Scopri quanto puoi risparmiare</a>
-        </div>
-    </div>
-
-</section>
-
-<section class="faq-section-wrapper">
-
-    <div class="scroll-indicator-wrapper">
-        <div class="scroll-mouse">
-            <div class="scroll-wheel"></div>
-        </div>
-        <span class="scroll-text">Scorri per le FAQ</span>
-    </div>
-
-    <div class="fade-bg-bottom"></div>
-    
-    <div class="faq-header">
-        <h2>Domande <span>Frequenti</span></h2>
-    </div>
-
-    <div class="faq-grid">
-        
-        <div class="faq-card">
-            <button class="faq-trigger">Che cos’è Enos Energia?</button>
-            <div class="faq-content">
-                <p>Enos Energia è un fornitore di energia elettrica e gas naturale pensato per offrire un’esperienza semplice, digitale e trasparente, dall’attivazione alla bolletta.</p>
+                <div class="bento-card bento-text size-1rd">
+                    <div class="bento-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polyline></svg>
+                    </div>
+                    <h3>UN’ENERGIA CHE IMPARA DA TE</h3>
+                    <p>La tua casa, la tua attività, i tuoi consumi cambiano nel tempo. Per questo Enos energia utilizza i dati per comprendere le tue abitudini e offrirti soluzioni sempre più adatte alle tue esigenze. Più conosciamo il tuo modo di consumare, più possiamo aiutarti a gestire meglio la tua energia.</p>
+                </div>
             </div>
         </div>
 
-        <div class="faq-card">
-            <button class="faq-trigger">A chi si rivolge Enos?</button>
-            <div class="faq-content">
-                <p>Enos è pensato per chi cerca un fornitore chiaro e accessibile, senza complessità inutili e con costi sempre comprensibili.</p>
+        <div class="why-footer-cta animate-premium-glow-trigger">
+            <div class="cta-content">
+                <a href="#preventivo" class="btn-cta btn-solid btn-glow">Scopri quanto puoi risparmiare</a>
             </div>
         </div>
+    </section>
 
-        <div class="faq-card">
-            <button class="faq-trigger">Che tipo di offerte propone Enos?</button>
-            <div class="faq-content">
-                <p>Proponiamo offerte luce e gas con condizioni chiare e senza costi nascosti, pensate per aiutarti a gestire meglio i consumi.</p>
-            </div>
-        </div>
-
-        <div class="faq-card">
-            <button class="faq-trigger">Come sceglierete l’offerta più adatta?</button>
-            <div class="faq-content">
-                <p>In base alle informazioni che inserisci e ai tuoi consumi, ti mostriamo in modo guidato l’offerta più adatta alle tue esigenze.</p>
-            </div>
-        </div>
-
-        <div class="faq-card">
-            <button class="faq-trigger">Il risparmio è garantito?</button>
-            <div class="faq-content">
-                <p>Il risparmio dipende dai consumi e dall’offerta scelta. Il nostro impegno è offrire tariffe competitive e costi sempre trasparenti.</p>
-            </div>
-        </div>
-
-        <div class="faq-card">
-            <button class="faq-trigger">Come attivo Enos Energia?</button>
-            <div class="faq-content">
-                <p>Puoi attivare Enos online in pochi passaggi: inserisci i dati essenziali, confermi l’offerta e al resto pensiamo noi.</p>
-            </div>
-        </div>
-
-        <div class="faq-card">
-            <button class="faq-trigger">Quali dati servono per l’attivazione?</button>
-            <div class="faq-content">
-                <p>Ti chiediamo solo poche informazioni presenti nella bolletta, necessarie per completare l’attivazione in modo corretto.</p>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="pre-footer">
+    <!-- 3. SEZIONE FAQ -->
+    <section class="faq-section-wrapper">
         <div class="scroll-indicator-wrapper">
             <div class="scroll-mouse">
                 <div class="scroll-wheel"></div>
             </div>
-            <span class="scroll-text">Grazie per la visita!</span>
+            <span class="scroll-text">Scorri per le FAQ</span>
         </div>
-    </div>
 
-</section>
-
-<footer class="footer">
-
-    <div class="footer-container">
+        <div class="fade-bg-bottom"></div>
         
-        <div class="footer-top-row">
-            
-            <div class="footer-brand-col">
-                <img src="img/logo_enos_white.svg" alt="Enos Energia" class="footer-logo-white">
-                <p class="footer-brand-text">
-                    Enos Energia è un marchio registrato di ENOS ENERGIA S.R.L.<br>
-                    partita IVA n° 13575280964
-                </p>
-                <div class="footer-socials">
-                    <a href="#" class="social-icon-link" aria-label="Facebook">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-                    </a>
-                    <a href="#" class="social-icon-link" aria-label="Instagram">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                    </a>
-                    <a href="#" class="social-icon-link" aria-label="LinkedIn">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                    </a>
-                    <a href="#" class="social-icon-link" aria-label="TikTok">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
-                    </a>
+        <div class="faq-header">
+            <h2>Domande <span>Frequenti</span></h2>
+        </div>
+
+        <div class="faq-grid">
+            <div class="faq-card">
+                <button class="faq-trigger">Che cos’è Enos Energia?</button>
+                <div class="faq-content">
+                    <p>Enos Energia è un fornitore di energia elettrica e gas naturale pensato per offrire un’esperienza semplice, digitale e trasparente, dall’attivazione alla bolletta.</p>
                 </div>
             </div>
-            
-            <div class="footer-nav-col">
-                <h4 class="footer-heading">Chi siamo</h4>
-                <ul class="footer-links-list">
-                    <li><a href="#" class="footer-nav-link">Homepage</a></li>
-                    <li><a href="#" class="footer-nav-link">Scopri di più</a></li>
-                    <li><a href="#sponsor" class="footer-nav-link">Sponsor</a></li>
-                </ul>
+
+            <div class="faq-card">
+                <button class="faq-trigger">A chi si rivolge Enos?</button>
+                <div class="faq-content">
+                    <p>Enos è pensato per chi cerca un fornitore chiaro e accessibile, senza complessità inutili e con costi sempre comprensibili.</p>
+                </div>
             </div>
 
-            <div class="footer-nav-col">
-                <h4 class="footer-heading">Link utili</h4>
-                <ul class="footer-links-list">
-                    <li><a href="#wiki" class="footer-nav-link">Wiki</a></li>
-                    <li><a href="#offerte" class="footer-nav-link">Tutte le offerte</a></li>
-                    <li><a href="#lavora-con-noi" class="footer-nav-link">Lavora con noi</a></li>
-                    <li><a href="#reclami" class="footer-nav-link">Modulo reclami</a></li>
-                    <li><a href="#glossario-luce" class="footer-nav-link">Glossario dell'energia elettrica</a></li>
-                    <li><a href="#glossario-gas" class="footer-nav-link">Glossario del gas naturale</a></li>
-                    <li><a href="#brand-guidelines" class="footer-nav-link">Brand guidelines</a></li>
-                </ul>
+            <div class="faq-card">
+                <button class="faq-trigger">Che tipo di offerte propone Enos?</button>
+                <div class="faq-content">
+                    <p>Proponiamo offerte luce e gas con condizioni chiare e senza costi nascosti, pensate per aiutarti a gestire meglio i consumi.</p>
+                </div>
             </div>
 
-        </div>
-        
-        <div class="footer-bottom-row">
-            <div class="footer-legal-col">
-                <h4 class="footer-heading">Cose legali</h4>
-                <div class="footer-legal-links">
-                    <a href="#privacy" class="footer-nav-link">Informativa privacy</a>
-                    <a href="#termini" class="footer-nav-link">Termini di servizio</a>
-                    <a href="#legali" class="footer-nav-link">Informazioni legali</a>
-                    <a href="#cookie" class="footer-nav-link">Preferenze cookie</a>
+            <div class="faq-card">
+                <button class="faq-trigger">Come sceglierete l’offerta più adatta?</button>
+                <div class="faq-content">
+                    <p>In base alle informazioni che inserisci e ai tuoi consumi, ti mostriamo in modo guidato l’offerta più adatta alle tue esigenze.</p>
+                </div>
+            </div>
+
+            <div class="faq-card">
+                <button class="faq-trigger">Il risparmio è garantito?</button>
+                <div class="faq-content">
+                    <p>Il risparmio dipende dai consumi e dall’offerta scelta. Il nostro impegno è offrire tariffe competitive e costi sempre trasparenti.</p>
+                </div>
+            </div>
+
+            <div class="faq-card">
+                <button class="faq-trigger">Come attivo Enos Energia?</button>
+                <div class="faq-content">
+                    <p>Puoi attivare Enos online in pochi passaggi: inserisci i dati essenziali, confermi l’offerta e al resto pensiamo noi.</p>
+                </div>
+            </div>
+
+            <div class="faq-card">
+                <button class="faq-trigger">Quali dati servono per l’attivazione?</button>
+                <div class="faq-content">
+                    <p>Ti chiediamo solo poche informazioni presenti nella bolletta, necessarie per completare l’attivazione in modo corretto.</p>
                 </div>
             </div>
         </div>
 
-    </div>
-</footer>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-    
-    // 1. LOGICA MENU HAMBURGER E OVERLAY
-    const openBtn = document.getElementById("open-menu-btn");
-    const closeBtn = document.getElementById("close-menu-btn");
-    const overlayMenu = document.getElementById("fullscreen-menu");
-
-    if (openBtn && closeBtn && overlayMenu) {
-        openBtn.addEventListener("click", () => {
-            overlayMenu.classList.add("active");
-            document.body.style.overflow = "hidden";
-        });
-        closeBtn.addEventListener("click", () => {
-            overlayMenu.classList.remove("active");
-            document.body.style.overflow = "auto";
-        });
-    }
-
-    // 2. LOGICA CUSTOM CURSOR
-    const cursor = document.getElementById("custom-cursor");
-    if (cursor) {
-        document.addEventListener("mousemove", (e) => {
-            if (document.body.classList.contains("is-loading")) {
-                cursor.style.opacity = "0";
-                return;
-            }
-            cursor.style.left = e.clientX + "px";
-            cursor.style.top = e.clientY + "px";
-            
-            if (e.clientX >= window.innerWidth - 30) {
-                cursor.style.opacity = "0";
-                document.body.style.cursor = "auto";
-            } else {
-                cursor.style.opacity = "1";
-                document.body.style.cursor = "none";
-            }
-        });
-    }
-
-    // 3. SCROLL-TELLING INTERSECTION OBSERVER
-    const revealRows = document.querySelectorAll('.reveal-item');
-    const rowObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { root: null, rootMargin: "0px 0px -80px 0px", threshold: 0.01 });
-    
-    revealRows.forEach(row => rowObserver.observe(row));
-
-    // 4. LOGICA INTERATTIVA FAQ BENTO SQUARES
-    const faqCards = document.querySelectorAll('.faq-card');
-    faqCards.forEach(card => {
-        const trigger = card.querySelector('.faq-trigger');
-        const content = card.querySelector('.faq-content');
-
-        trigger.addEventListener('click', () => {
-            const isActive = card.classList.contains('active');
-            faqCards.forEach(otherCard => {
-                if (otherCard !== card && otherCard.classList.contains('active')) {
-                    otherCard.classList.remove('active');
-                    otherCard.querySelector('.faq-content').style.maxHeight = null;
-                }
-            });
-            if (isActive) {
-                card.classList.remove('active');
-                content.style.maxHeight = null;
-            } else {
-                card.classList.add('active');
-                content.style.maxHeight = content.scrollHeight + "px";
-            }
-        });
-    });
-
-    // 5. SMART LINK APP STORE
-    const appLink = document.getElementById('app-store-link');
-    if (appLink) {
-        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-        if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-            appLink.href = "https://apps.apple.com/it/app/enos-energia";
-        } else if (/android/i.test(userAgent)) {
-            appLink.href = "https://play.google.com/store/apps/details?id=com.enosenergia.app";
-        } else {
-            appLink.href = "#scarica-app"; 
-        }
-    }
-});
-
-// 6. LOGICA PRELOADER (Rimane su Window Load)
-window.addEventListener("load", function() {
-    setTimeout(() => {
-        const preloader = document.getElementById("preloader");
-        if (preloader) {
-            preloader.classList.add("preloader-hidden");
-            setTimeout(() => {
-                preloader.style.display = "none";
-                const overlayMenu = document.getElementById("fullscreen-menu");
-                if (!overlayMenu.classList.contains("active")) {
-                    document.body.classList.remove("is-loading");
-                    document.body.style.overflow = "auto";
-                }
-            }, 800); 
-        }
-    }, 1500); 
-});
-
-// 7. LOGICA STICKY MENU (Fuori dal DOMContentLoaded per performance)
-const header = document.querySelector('.main-header');
-const hero = document.querySelector('.hero-section');
-if (header && hero) {
-    window.addEventListener('scroll', () => {
-        if (window.scrollY >= hero.offsetHeight) {
-            header.classList.add('is-sticky');
-        } else {
-            header.classList.remove('is-sticky');
-        }
-    }, { passive: true }); // Aggiunto passive: true per fluidità di scroll
-}
-
-// 8. ATTIVAZIONE CLASSE NOTTURNA PER LUCI TURBINE
-const heroSec = document.querySelector('.hero-section');
-const nightSky = document.querySelector('.sky-night');
-
-if (heroSec && nightSky) {
-    setInterval(() => {
-        const nightOpacity = parseFloat(window.getComputedStyle(nightSky).opacity);
-        // Quando il layer notte supera il 50% di visibilità
-        if (nightOpacity > 0.5) {
-            heroSec.classList.add('is-night');
-        } else {
-            heroSec.classList.remove('is-night');
-        }
-    }, 400);
-}
-
-</script>
-
-<div id="fullscreen-menu" class="overlay-menu">
-    <div class="overlay-header">
-        <img src="img/logo_enos_white.svg" alt="Enos Energia" class="overlay-logo">
-        <button id="close-menu-btn" class="close-btn" aria-label="Chiudi menu">&times;</button>
-    </div>
-
-    <div class="overlay-content">
-        <div class="overlay-left">
-            <nav class="main-nav">
-                <a href="#chi-siamo" class="hover-line">Chi siamo</a>
-                <a href="#contatti" class="hover-line">Contatti</a>
-                <a href="#blog" class="hover-line">Blog</a>
-                <a href="#area-clienti" class="hover-line">Area Clienti</a>
-            </nav>
+        <div class="pre-footer">
+            <div class="scroll-indicator-wrapper">
+                <div class="scroll-mouse">
+                    <div class="scroll-wheel"></div>
+                </div>
+                <span class="scroll-text">Grazie per la visita!</span>
+            </div>
         </div>
+    </section>
 
-        <div class="overlay-right">
-            <nav class="secondary-nav">
-                <a href="#sponsor" class="hover-line-right">Sponsor</a>
-                <a href="#link-utili" class="hover-line-right">Link utili</a>
-                <a href="#wiki" class="hover-line-right">Wiki</a>
-                <a href="#offerte" class="hover-line-right">Tutte le offerte</a>
-                <a href="#lavora-con-noi" class="hover-line-right">Lavora con noi</a>
-                <a href="#reclami" class="hover-line-right">Modulo reclami</a>
-                <a href="#glossario-luce" class="hover-line-right">Glossario energia elettrica</a>
-                <a href="#glossario-gas" class="hover-line-right">Glossario gas naturale</a>
-                <a href="#brand-guidelines" class="hover-line-right">Brand guidelines</a>
-            </nav>
-        </div>
-    </div>
+    <div id="footer-placeholder"></div>
 
-    <div class="overlay-footer">
-        <div class="hero-cta-group">
-            <a href="#passa" class="btn-cta btn-solid btn-glow">Passa a Enos energia</a>
-            <a href="#offerte" class="btn-cta btn-outline">Vai alle offerte</a>
-        </div>
-    </div>
-</div>
+    <div id="custom-cursor"></div>
 
-<div id="custom-cursor"></div>
-
+    <!-- Script Modulari -->
+    <script src="js/hero-engine.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
