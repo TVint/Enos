@@ -1,8 +1,3 @@
-Created hero-animations.css
-
-Ecco il codice **completo e integrale** per `css/hero-animations.css` (salvato anche in [`css/hero-animations.css`](file:///Users/nicolavianello/.gemini/antigravity/scratch/enos-energia/css/hero-animations.css)):
-
-```css
 /* =========================================================================
    HERO SECTION & ANIMAZIONI DAY-TO-NIGHT 15s (css/hero-animations.css)
    Ciclo cielo 15s, sole/luna/stelle/nuvole, casa vettoriale e 3 pale eoliche a destra
@@ -411,7 +406,8 @@ Ecco il codice **completo e integrale** per `css/hero-animations.css` (salvato a
     opacity: 0;
 }
 
-.hero-section.is-night .turbine-light {
+.hero-section.is-night .turbine-light,
+.about-hero-section.is-night .turbine-light {
     animation: turbineLightCycle 15s infinite ease-in-out;
 }
 
@@ -429,4 +425,3 @@ Ecco il codice **completo e integrale** per `css/hero-animations.css` (salvato a
     .turbine-back-1 { right: 1%; bottom: 110px; width: 90px; }
     .turbine-back-2 { display: none; }
 }
-```

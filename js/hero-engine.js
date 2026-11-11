@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const heroSec = document.querySelector('.hero-section');
+    const heroSec = document.querySelector('.hero-section, .about-hero-section');
     const nightSky = document.querySelector('.sky-night');
 
     if (heroSec && nightSky) {
