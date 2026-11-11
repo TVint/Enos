@@ -220,7 +220,7 @@ body.page-leaving {
     opacity: 0;
 }
 
-body:has(a:hover, button:hover, .btn-cta:hover, .faq-trigger:hover, .size-pill:hover, .filter-tab:hover, .value-card:hover, .service-bento-card:hover, .step-node:hover) #custom-cursor {
+body:has(a:hover, button:hover, .btn-cta:hover, .faq-trigger:hover, .size-pill:hover, .filter-tab:hover, .value-card:hover, .service-bento-card:hover, .step-node:hover, .reason-selector-card:hover, .file-dropzone:hover, .pill-radio:hover, .sidebar-pdf-item:hover) #custom-cursor {
     width: 45px;
     height: 45px;
     background-color: rgba(224, 198, 56, 0.15);
@@ -421,12 +421,12 @@ body:has(a:hover, button:hover, .btn-cta:hover, .faq-trigger:hover, .size-pill:h
 .main-nav {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 22px;
 }
 
 .main-nav a {
     font-family: var(--font-heading);
-    font-size: clamp(40px, 5vw, 64px);
+    font-size: clamp(34px, 4.4vw, 56px);
     color: var(--white);
     text-decoration: none;
     font-weight: 700;
@@ -494,10 +494,11 @@ body:has(a:hover, button:hover, .btn-cta:hover, .faq-trigger:hover, .size-pill:h
     transition-delay: 0s !important;
 }
 
-.overlay-menu.active .main-nav a:nth-child(1) { transition-delay: 0.3s; }
-.overlay-menu.active .main-nav a:nth-child(2) { transition-delay: 0.4s; }
-.overlay-menu.active .main-nav a:nth-child(3) { transition-delay: 0.5s; }
-.overlay-menu.active .main-nav a:nth-child(4) { transition-delay: 0.6s; }
+.overlay-menu.active .main-nav a:nth-child(1) { transition-delay: 0.25s; }
+.overlay-menu.active .main-nav a:nth-child(2) { transition-delay: 0.33s; }
+.overlay-menu.active .main-nav a:nth-child(3) { transition-delay: 0.41s; }
+.overlay-menu.active .main-nav a:nth-child(4) { transition-delay: 0.49s; }
+.overlay-menu.active .main-nav a:nth-child(5) { transition-delay: 0.57s; }
 
 .overlay-menu.active .secondary-nav a:nth-child(1) { transition-delay: 0.4s; }
 .overlay-menu.active .secondary-nav a:nth-child(2) { transition-delay: 0.45s; }
@@ -2921,4 +2922,757 @@ body:has(a:hover, button:hover, .btn-cta:hover, .faq-trigger:hover, .size-pill:h
     .values-cards-grid { grid-template-columns: 1fr; }
     .future-manifesto-card { padding: 50px 24px; }
     .future-signature-block { padding: 24px 20px; }
+}
+
+/* =========================================================================
+   13. PAGINA CONTATTI (contatti.html): SELETTORE MOTIVO, FORM DINAMICO & SIDEBAR
+   ========================================================================= */
+
+.contact-hero-banner {
+    background: linear-gradient(135deg, var(--premium-navy) 0%, #1d274d 52%, #7d3c16 100%);
+    padding: 170px 6% 90px 6%;
+    color: var(--white);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-hero-banner::before {
+    content: '';
+    position: absolute;
+    width: 550px;
+    height: 550px;
+    background: radial-gradient(circle, rgba(224, 198, 56, 0.20) 0%, transparent 70%);
+    top: -170px;
+    right: -100px;
+    pointer-events: none;
+}
+
+.rule-pill-link {
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.rule-pill-link:hover {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: var(--premium-gold);
+    transform: translateY(-2px);
+}
+
+.contact-page-wrapper {
+    background-color: var(--bg-cream);
+    padding: 80px 6% 160px 6%;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+}
+
+/* --- SELETTORE A 3 CARD DEL MOTIVO DI CONTATTO --- */
+.contact-reasons-section {
+    margin-bottom: 65px;
+}
+
+.contact-reasons-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 42px auto;
+}
+
+.contact-reasons-header h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(28px, 3.8vw, 42px);
+    color: var(--premium-navy);
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.contact-reasons-header h2 span {
+    color: var(--premium-orange);
+}
+
+.contact-reasons-header p {
+    font-size: 16.5px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.reason-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.reason-selector-card {
+    background: var(--white);
+    border: 2px solid rgba(11, 23, 54, 0.08);
+    border-radius: 22px;
+    padding: 34px 30px;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.35s var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    font-family: var(--font-body);
+}
+
+.reason-selector-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(222, 106, 35, 0.45);
+    box-shadow: 0 22px 45px rgba(11, 23, 54, 0.07);
+}
+
+.reason-selector-card.active {
+    border-color: var(--premium-orange);
+    background: linear-gradient(180deg, #FFFFFF 0%, #FFFDF9 100%);
+    box-shadow: 0 24px 55px rgba(222, 106, 35, 0.15);
+    transform: translateY(-5px);
+}
+
+.reason-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.reason-icon-wrap {
+    width: 52px;
+    height: 52px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.reason-icon-wrap svg {
+    width: 26px;
+    height: 26px;
+}
+
+.reason-icon-wrap.orange {
+    background: rgba(222, 106, 35, 0.12);
+    color: var(--premium-orange);
+}
+
+.reason-icon-wrap.green {
+    background: rgba(38, 130, 101, 0.12);
+    color: var(--brand-green);
+}
+
+.reason-icon-wrap.navy {
+    background: rgba(11, 23, 54, 0.08);
+    color: var(--premium-navy);
+}
+
+.reason-selector-card.active .reason-icon-wrap {
+    background: var(--premium-orange);
+    color: var(--white);
+}
+
+.reason-step-badge {
+    font-family: var(--font-heading);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #777;
+    background: #F4F1EA;
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+
+.reason-selector-card h3 {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    color: var(--premium-navy);
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.reason-selector-card p {
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 22px;
+    flex-grow: 1;
+}
+
+.reason-active-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-heading);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #888;
+    transition: color 0.3s ease;
+}
+
+.reason-active-indicator::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    transition: all 0.3s ease;
+}
+
+.reason-selector-card.active .reason-active-indicator {
+    color: var(--premium-orange);
+}
+
+.reason-selector-card.active .reason-active-indicator::before {
+    background: var(--premium-orange);
+    border-color: var(--premium-orange);
+    box-shadow: 0 0 0 4px rgba(222, 106, 35, 0.2);
+}
+
+/* --- LAYOUT PRINCIPALE FORM + SIDEBAR --- */
+.contact-main-grid {
+    display: grid;
+    grid-template-columns: 1.45fr 0.85fr;
+    gap: 36px;
+    align-items: start;
+}
+
+.contact-form-card {
+    background: var(--white);
+    border: 1.5px solid rgba(11, 23, 54, 0.08);
+    border-radius: 26px;
+    padding: 52px 48px;
+    box-shadow: 0 25px 65px rgba(11, 23, 54, 0.04);
+}
+
+.form-card-header {
+    margin-bottom: 36px;
+    padding-bottom: 26px;
+    border-bottom: 1px solid rgba(11, 23, 54, 0.08);
+}
+
+.form-dynamic-badge {
+    display: inline-block;
+    font-family: var(--font-heading);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.8px;
+    color: var(--brand-green);
+    background: rgba(38, 130, 101, 0.12);
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+}
+
+.form-card-header h3 {
+    font-family: var(--font-heading);
+    font-size: clamp(22px, 2.8vw, 30px);
+    color: var(--premium-navy);
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.form-card-header p {
+    font-size: 15.5px;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* --- CAMPI FORM --- */
+.enos-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-row-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.form-group label {
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--premium-navy);
+}
+
+.form-group label span {
+    font-weight: 400;
+    color: #777;
+    font-size: 12px;
+}
+
+.form-group label .req,
+.privacy-checkbox-row .req {
+    color: var(--premium-orange);
+    font-weight: 700;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="url"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 15px 18px;
+    border-radius: 14px;
+    border: 1.5px solid rgba(11, 23, 54, 0.14);
+    background-color: #FCFAF5;
+    font-family: var(--font-body);
+    font-size: 15px;
+    color: var(--premium-navy);
+    transition: all 0.25s ease;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--premium-orange);
+    background-color: var(--white);
+    box-shadow: 0 0 0 4px rgba(222, 106, 35, 0.12);
+}
+
+/* --- PANNELLI DINAMICI MOTIVO --- */
+.dynamic-reason-panel {
+    display: none;
+    flex-direction: column;
+    gap: 22px;
+    padding: 24px;
+    background: #FCFAF5;
+    border: 1px solid rgba(11, 23, 54, 0.08);
+    border-radius: 18px;
+    animation: fadePanelIn 0.35s ease;
+}
+
+.dynamic-reason-panel.is-active {
+    display: flex;
+}
+
+@keyframes fadePanelIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- PILL RADIO (CASA VS IMPRESA) --- */
+.pill-radio-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.pill-radio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 14px;
+    border-radius: 12px;
+    border: 1.5px solid rgba(11, 23, 54, 0.14);
+    background: var(--white);
+    cursor: pointer;
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--premium-navy);
+    transition: all 0.25s ease;
+    text-align: center;
+}
+
+.pill-radio input {
+    display: none;
+}
+
+.pill-radio.active {
+    background: var(--premium-navy);
+    color: var(--white);
+    border-color: var(--premium-navy);
+}
+
+/* --- FILE DROPZONE (BOLLETTA & CV) --- */
+.file-dropzone {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 22px 24px;
+    border: 2px dashed rgba(11, 23, 54, 0.2);
+    border-radius: 16px;
+    background: var(--white);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.file-dropzone:hover,
+.file-dropzone.is-dragover {
+    border-color: var(--premium-orange);
+    background: rgba(222, 106, 35, 0.04);
+}
+
+.file-dropzone.has-file {
+    border-style: solid;
+    border-color: var(--brand-green);
+    background: rgba(38, 130, 101, 0.06);
+}
+
+.dropzone-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: rgba(222, 106, 35, 0.12);
+    color: var(--premium-orange);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.file-dropzone.has-file .dropzone-icon {
+    background: var(--brand-green);
+    color: var(--white);
+}
+
+.dropzone-icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+.dropzone-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.dropzone-text strong {
+    font-family: var(--font-heading);
+    font-size: 14px;
+    color: var(--premium-navy);
+}
+
+.dropzone-text span {
+    font-size: 12.5px;
+    color: #666;
+}
+
+/* --- BOX AVVISO RECLAMI NEL PANNELLO ASSISTENZA --- */
+.assistance-notice-box {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 20px;
+    background: var(--white);
+    border-left: 4px solid var(--brand-green);
+    border-radius: 10px;
+    font-size: 14px;
+    color: #444;
+}
+
+.assistance-notice-box svg {
+    width: 22px;
+    height: 22px;
+    color: var(--brand-green);
+    flex-shrink: 0;
+}
+
+.assistance-notice-box a {
+    color: var(--premium-orange);
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+/* --- PRIVACY & SUBMIT --- */
+.privacy-checkbox-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: #555;
+    cursor: pointer;
+}
+
+.privacy-checkbox-row input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    accent-color: var(--premium-orange);
+    flex-shrink: 0;
+}
+
+.form-feedback-msg {
+    font-family: var(--font-heading);
+    font-size: 13px;
+    font-weight: 700;
+    display: none;
+    padding: 12px 16px;
+    border-radius: 10px;
+}
+
+.form-feedback-msg.is-error {
+    display: block;
+    background: rgba(217, 56, 41, 0.1);
+    color: #b82619;
+    border: 1px solid rgba(217, 56, 41, 0.25);
+}
+
+.form-submit-row {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.form-submit-btn {
+    width: 100%;
+    cursor: pointer;
+    font-size: 14.5px;
+    padding: 20px 36px;
+}
+
+/* --- STATO DI CONFERMA INVIO --- */
+.form-success-state {
+    text-align: center;
+    padding: 40px 20px;
+    animation: fadePanelIn 0.4s ease;
+}
+
+.success-check-circle {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: rgba(38, 130, 101, 0.14);
+    color: var(--brand-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 22px auto;
+}
+
+.success-check-circle svg {
+    width: 36px;
+    height: 36px;
+}
+
+.form-success-state h3 {
+    font-family: var(--font-heading);
+    font-size: 28px;
+    color: var(--premium-navy);
+    margin-bottom: 14px;
+}
+
+.form-success-state p {
+    font-size: 16px;
+    line-height: 1.65;
+    color: #555;
+    max-width: 520px;
+    margin: 0 auto 30px auto;
+}
+
+.success-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.btn-outline-dark {
+    background: transparent;
+    color: var(--premium-navy);
+    border: 2px solid var(--premium-navy);
+    cursor: pointer;
+}
+
+.btn-outline-dark:hover {
+    background: var(--premium-navy);
+    color: var(--white);
+}
+
+/* --- COLONNA SIDEBAR DESTRA --- */
+.contact-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.sidebar-info-card {
+    background: var(--white);
+    border: 1.5px solid rgba(11, 23, 54, 0.08);
+    border-radius: 24px;
+    padding: 40px 36px;
+    box-shadow: 0 20px 50px rgba(11, 23, 54, 0.04);
+}
+
+.sidebar-info-card.navy-card {
+    background: linear-gradient(145deg, var(--premium-navy) 0%, #152958 100%);
+    color: var(--white);
+    border-color: rgba(224, 198, 56, 0.25);
+}
+
+.sidebar-info-card h3 {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.sidebar-info-card > p {
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 28px;
+}
+
+.sidebar-info-card.navy-card > p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.direct-contact-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.direct-contact-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.dc-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: rgba(224, 198, 56, 0.15);
+    color: var(--premium-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.dc-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.direct-contact-list strong {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 13px;
+    color: var(--premium-gold);
+    margin-bottom: 3px;
+}
+
+.direct-contact-list span,
+.direct-contact-list a {
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+}
+
+.direct-contact-list a:hover {
+    color: var(--premium-orange);
+    text-decoration: underline;
+}
+
+/* --- LISTA DOCUMENTI PDF NELLA SIDEBAR --- */
+.sidebar-pdf-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sidebar-pdf-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    border-radius: 14px;
+    background: #FCFAF5;
+    border: 1px solid rgba(11, 23, 54, 0.08);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.sidebar-pdf-item:hover {
+    border-color: var(--premium-orange);
+    background: var(--white);
+    transform: translateX(4px);
+    box-shadow: 0 10px 25px rgba(11, 23, 54, 0.06);
+}
+
+.pdf-badge {
+    font-family: var(--font-heading);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 6px 9px;
+    border-radius: 8px;
+    background: var(--premium-navy);
+    color: var(--white);
+    flex-shrink: 0;
+}
+
+.pdf-badge.gold {
+    background: var(--premium-orange);
+    color: var(--white);
+}
+
+.pdf-meta {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.pdf-meta strong {
+    font-family: var(--font-heading);
+    font-size: 13.5px;
+    color: var(--premium-navy);
+}
+
+.pdf-meta span {
+    font-size: 12px;
+    color: #666;
+}
+
+.sidebar-pdf-item svg {
+    width: 18px;
+    height: 18px;
+    color: var(--premium-orange);
+    flex-shrink: 0;
+}
+
+@media (max-width: 991px) {
+    .reason-cards-grid,
+    .contact-main-grid,
+    .form-row-2col {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-form-card {
+        padding: 36px 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-hero-banner { padding: 140px 5% 60px 5%; }
+    .contact-page-wrapper { padding: 50px 5% 100px 5%; }
+    .reason-selector-card { padding: 26px 22px; }
+    .contact-form-card { padding: 28px 20px; }
+    .dynamic-reason-panel { padding: 18px; }
+    .sidebar-info-card { padding: 30px 22px; }
 }

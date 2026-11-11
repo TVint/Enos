@@ -275,11 +275,239 @@ function initAppInteractions() {
         }
     }
 
-       // 7. FILTRI MULTILIVELLO PAGINA CTE
+    // 7. FILTRI MULTILIVELLO PAGINA CTE
     initCteFilters();
 
-    // 8. TRANSIZIONE WOW PORTALE RADIALE DAL CLICK
+    // 8. FORM CONTATTI DINAMICO (Preventivo / Servizio Clienti / Lavora con noi)
+    initContactPage();
+
+    // 9. TRANSIZIONE WOW PORTALE RADIALE DAL CLICK
     initPageTransitions();
+}
+
+/**
+ * Gestisce il selettore motivo e il form interattivo nella pagina Contatti (contatti.html)
+ */
+function initContactPage() {
+    const reasonCards = document.querySelectorAll('.reason-selector-card');
+    const panels = document.querySelectorAll('.dynamic-reason-panel');
+    const contactForm = document.getElementById('enos-contact-form');
+    if (reasonCards.length === 0 || !contactForm) return;
+
+    const reasonInput = document.getElementById('contact-reason-input');
+    const badgeLabel = document.getElementById('form-badge-label');
+    const dynamicTitle = document.getElementById('form-dynamic-title');
+    const dynamicSubtitle = document.getElementById('form-dynamic-subtitle');
+    const msgLabel = document.getElementById('label-messaggio');
+    const msgField = document.getElementById('field-messaggio');
+    const submitBtnText = document.getElementById('submit-btn-text');
+    const feedbackMsg = document.getElementById('form-feedback-msg');
+    const successState = document.getElementById('form-success-state');
+    const successSummary = document.getElementById('success-summary-text');
+    const mailtoFallbackBtn = document.getElementById('mailto-fallback-btn');
+    const resetFormBtn = document.getElementById('reset-contact-form-btn');
+
+    const reasonConfig = {
+        'preventivo': {
+            inputValue: 'Preventivo su misura',
+            badge: 'PREVENTIVO SU MISURA',
+            title: 'Richiedi la tua analisi energetica personalizzata',
+            subtitle: 'Inserisci i tuoi riferimenti e indica il tipo di utenza: un nostro consulente analizzerà il tuo profilo senza alcun impegno.',
+            msgLabel: 'Le tue esigenze o note sui consumi *',
+            msgPlaceholder: 'Raccontaci brevemente le tue necessità o indicaci la fascia oraria preferita per essere ricontattato...',
+            btnText: 'Invia richiesta preventivo'
+        },
+        'servizio-clienti': {
+            inputValue: 'Servizio clienti',
+            badge: 'SERVIZIO CLIENTI & SUPPORTO',
+            title: 'Come possiamo assisterti sulla tua fornitura?',
+            subtitle: 'Indica il motivo della richiesta e, se lo hai a portata di mano, il tuo codice cliente o POD/PdR per velocizzare la gestione.',
+            msgLabel: 'Descrivi la tua richiesta di assistenza *',
+            msgPlaceholder: 'Specifica i dettagli della tua richiesta (es. chiarimenti bolletta, variazione anagrafica, subentro, voltura)...',
+            btnText: 'Invia richiesta al Servizio Clienti'
+        },
+        'lavora-con-noi': {
+            inputValue: 'Lavora con noi',
+            badge: 'CARRIERE & TALENTI ENOS',
+            title: 'Costruiamo insieme il futuro dell\'energia digitale',
+            subtitle: 'Invia la tua candidatura e raccontaci le tue competenze: siamo sempre alla ricerca di persone dinamiche e orientate all\'innovazione.',
+            msgLabel: 'Presentati brevemente *',
+            msgPlaceholder: 'Raccontaci il tuo percorso professionale, le tue aspirazioni e perché vorresti entrare nel team Enos Energia...',
+            btnText: 'Invia la tua candidatura'
+        }
+    };
+
+    function activateReason(reasonKey) {
+        const cfg = reasonConfig[reasonKey] || reasonConfig['preventivo'];
+
+        reasonCards.forEach(card => {
+            const isMatch = card.getAttribute('data-reason') === reasonKey;
+            card.classList.toggle('active', isMatch);
+            card.setAttribute('aria-selected', isMatch ? 'true' : 'false');
+            const indicator = card.querySelector('.reason-active-indicator');
+            if (indicator) indicator.textContent = isMatch ? 'Selezionato' : 'Seleziona';
+        });
+
+        panels.forEach(panel => {
+            panel.classList.toggle('is-active', panel.getAttribute('data-panel') === reasonKey);
+        });
+
+        if (reasonInput) reasonInput.value = cfg.inputValue;
+        if (badgeLabel) badgeLabel.textContent = cfg.badge;
+        if (dynamicTitle) dynamicTitle.textContent = cfg.title;
+        if (dynamicSubtitle) dynamicSubtitle.textContent = cfg.subtitle;
+        if (msgLabel) msgLabel.innerHTML = `${cfg.msgLabel.replace('*', '')} <span class="req">*</span>`;
+        if (msgField) msgField.placeholder = cfg.msgPlaceholder;
+        if (submitBtnText) submitBtnText.textContent = cfg.btnText;
+
+        if (feedbackMsg) {
+            feedbackMsg.textContent = '';
+            feedbackMsg.className = 'form-feedback-msg';
+        }
+    }
+
+    reasonCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const key = card.getAttribute('data-reason');
+            activateReason(key);
+        });
+    });
+
+    // Supporto parametri URL (?motivo=lavora-con-noi) o hash (#lavora-con-noi)
+    const checkUrlReason = () => {
+        const params = new URLSearchParams(window.location.search);
+        const queryReason = (params.get('motivo') || '').toLowerCase();
+        const hashReason = window.location.hash.replace('#', '').toLowerCase();
+        const targetReason = queryReason || hashReason;
+        if (reasonConfig[targetReason]) {
+            activateReason(targetReason);
+        }
+    };
+    checkUrlReason();
+    window.addEventListener('hashchange', checkUrlReason);
+
+    // Gestione Pill Radio (Casa vs Impresa)
+    const pillRadios = contactForm.querySelectorAll('.pill-radio');
+    pillRadios.forEach(pill => {
+        const input = pill.querySelector('input[type="radio"]');
+        if (!input) return;
+        input.addEventListener('change', () => {
+            pillRadios.forEach(p => p.classList.remove('active'));
+            if (input.checked) pill.classList.add('active');
+        });
+    });
+
+    // Gestione File Dropzones (Bolletta & CV)
+    const dropzones = contactForm.querySelectorAll('.file-dropzone');
+    dropzones.forEach(zone => {
+        const fileInput = zone.querySelector('input[type="file"]');
+        const nameDisplay = zone.querySelector('.file-name-display');
+        if (!fileInput || !nameDisplay) return;
+
+        const defaultText = nameDisplay.textContent;
+
+        fileInput.addEventListener('change', () => {
+            if (fileInput.files && fileInput.files.length > 0) {
+                nameDisplay.textContent = `File allegato: ${fileInput.files[0].name}`;
+                zone.classList.add('has-file');
+            } else {
+                nameDisplay.textContent = defaultText;
+                zone.classList.remove('has-file');
+            }
+        });
+
+        zone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            zone.classList.add('is-dragover');
+        });
+
+        zone.addEventListener('dragleave', () => {
+            zone.classList.remove('is-dragover');
+        });
+
+        zone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            zone.classList.remove('is-dragover');
+            if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+                fileInput.files = e.dataTransfer.files;
+                nameDisplay.textContent = `File allegato: ${e.dataTransfer.files[0].name}`;
+                zone.classList.add('has-file');
+            }
+        });
+    });
+
+    // Gestione Invio Form
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const nome = document.getElementById('field-nome').value.trim();
+        const email = document.getElementById('field-email').value.trim();
+        const telefono = document.getElementById('field-telefono').value.trim();
+        const citta = document.getElementById('field-citta').value.trim();
+        const messaggio = document.getElementById('field-messaggio').value.trim();
+        const privacy = document.getElementById('field-privacy').checked;
+        const motivo = reasonInput ? reasonInput.value : 'Contatto';
+
+        if (!nome || !email || !telefono || !messaggio) {
+            feedbackMsg.textContent = 'Compila tutti i campi obbligatori contrassegnati con asterisco (*).';
+            feedbackMsg.className = 'form-feedback-msg is-error';
+            return;
+        }
+
+        if (!privacy) {
+            feedbackMsg.textContent = 'È necessario accettare l\'informativa privacy per procedere con l\'invio.';
+            feedbackMsg.className = 'form-feedback-msg is-error';
+            return;
+        }
+
+        // Costruisce i dettagli specifici in base al motivo selezionato
+        let extraDetails = '';
+        if (motivo === 'Preventivo su misura') {
+            const profilo = contactForm.querySelector('input[name="profilo_utenza"]:checked')?.value || '';
+            const fornitura = document.getElementById('field-fornitura')?.value || '';
+            extraDetails = `Profilo Utenza: ${profilo}\nFornitura d'interesse: ${fornitura}`;
+        } else if (motivo === 'Servizio clienti') {
+            const argomento = document.getElementById('field-argomento-assistenza')?.value || '';
+            const pod = document.getElementById('field-codice-pod')?.value.trim() || 'Non indicato';
+            extraDetails = `Ambito Assistenza: ${argomento}\nCodice Cliente / POD / PdR: ${pod}`;
+        } else if (motivo === 'Lavora con noi') {
+            const area = document.getElementById('field-area-carriera')?.value || '';
+            const linkedin = document.getElementById('field-linkedin')?.value.trim() || 'Non indicato';
+            extraDetails = `Area Candidatura: ${area}\nLinkedIn / Portfolio: ${linkedin}`;
+        }
+
+        const subject = encodeURIComponent(`[Enos Energia Web] ${motivo} - ${nome}`);
+        const body = encodeURIComponent(
+            `Motivo di contatto: ${motivo}\n` +
+            `Nome / Ragione Sociale: ${nome}\n` +
+            `Email: ${email}\n` +
+            `Telefono: ${telefono}\n` +
+            `Città / Provincia: ${citta || 'Non indicata'}\n` +
+            `${extraDetails}\n\n` +
+            `Messaggio:\n${messaggio}`
+        );
+
+        if (mailtoFallbackBtn) {
+            mailtoFallbackBtn.href = `mailto:bolletta@enosenergia.it?subject=${subject}&body=${body}`;
+        }
+
+        if (successSummary) {
+            successSummary.innerHTML = `Grazie <strong>${nome}</strong>! La tua richiesta per <strong>${motivo}</strong> è stata registrata. Un consulente Enos Energia ti risponderà all'indirizzo <strong>${email}</strong> o al numero <strong>${telefono}</strong>.`;
+        }
+
+        contactForm.hidden = true;
+        if (successState) successState.hidden = false;
+    });
+
+    if (resetFormBtn) {
+        resetFormBtn.addEventListener('click', () => {
+            contactForm.reset();
+            contactForm.querySelectorAll('.file-dropzone').forEach(z => z.classList.remove('has-file'));
+            contactForm.hidden = false;
+            if (successState) successState.hidden = true;
+            activateReason('preventivo');
+        });
+    }
 }
 
 /**
@@ -311,10 +539,10 @@ function initPageTransitions() {
     document.querySelectorAll('a[href]').forEach(link => {
         link.addEventListener('click', (e) => {
             const href = link.getAttribute('href');
-            if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto:') || href.endsWith('.pdf') || link.target === '_blank') return;
+            if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:') || href.toLowerCase().includes('.pdf') || link.hasAttribute('download') || link.target === '_blank') return;
 
             const targetUrl = new URL(href, window.location.href);
-            if (targetUrl.pathname === window.location.pathname && targetUrl.hash) return;
+            if (targetUrl.pathname === window.location.pathname && targetUrl.search === window.location.search && targetUrl.hash) return;
 
             e.preventDefault();
             portal.style.setProperty('--click-x', `${e.clientX}px`);

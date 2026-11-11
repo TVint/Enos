@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contatti — Enos Energia | Preventivo, Assistenza &amp; Lavora con noi</title>
+    <meta name="description" content="Contatta Enos Energia: richiedi un preventivo su misura Luce e Gas, parla con il Servizio Clienti o invia la tua candidatura nella sezione Lavora con noi.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="noise-overlay"></div>
+
+    <!-- HEADER GLOBALE E MENU FULLSCREEN INIETTATI DA js/main.js -->
+    <div id="header-placeholder"></div>
+
+    <!-- =====================================================================
+         1. HERO BANNER CONTATTI (STILE COMPACT CON SFONDO DEDICATO)
+         ===================================================================== -->
+    <section class="contact-hero-banner">
+        <div class="cte-hero-inner">
+            <span class="cte-eyebrow">PARLIAMO DELLA TUA ENERGIA &bull; SUPPORTO DIRETT0</span>
+            <h1>Entra in contatto con <span>Enos&nbsp;Energia.</span></h1>
+            <p>
+                Che tu voglia richiedere un <strong>preventivo su misura</strong> con il nostro comparatore brevettato, ricevere supporto dal <strong>servizio clienti</strong> o candidarti per <strong>lavorare con noi</strong>, siamo al tuo&nbsp;fianco.
+            </p>
+
+            <div class="golden-rules-bar">
+                <a href="tel:04211896462" class="rule-pill rule-pill-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <span>Tel: 0421&nbsp;1896462</span>
+                </a>
+                <a href="mailto:bolletta@enosenergia.it" class="rule-pill rule-pill-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <span>bolletta@enosenergia.it</span>
+                </a>
+                <div class="rule-pill">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <span>Via Raffaello Sanzio 18, Cesano Boscone&nbsp;(MI)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         2. SEZIONE PRINCIPALE CONTATTI: SELETTORE MOTIVO + FORM DINAMICO
+         ===================================================================== -->
+    <main class="contact-page-wrapper">
+
+        <!-- SELETTORE A 3 CARD DEL MOTIVO DI CONTATTO -->
+        <section class="contact-reasons-section reveal-item" aria-label="Scegli il motivo di contatto">
+            <div class="contact-reasons-header">
+                <span class="section-kicker">COME POSSIAMO AIUTARTI?</span>
+                <h2>Seleziona il motivo di&nbsp;<span>contatto</span></h2>
+                <p>Il modulo si adatterà automaticamente alla tua esigenza per offrirti una risposta rapida e&nbsp;precisa.</p>
+            </div>
+
+            <div class="reason-cards-grid" role="tablist">
+                <!-- 1. Preventivo su misura -->
+                <button type="button" class="reason-selector-card active" data-reason="preventivo" role="tab" aria-selected="true">
+                    <div class="reason-card-top">
+                        <div class="reason-icon-wrap orange">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                        </div>
+                        <span class="reason-step-badge">Consulenza &amp; Analisi AI</span>
+                    </div>
+                    <h3>Preventivo su&nbsp;misura</h3>
+                    <p>Confrontiamo i tuoi consumi Luce e Gas per individuare la soluzione tariffaria più coerente con le tue&nbsp;abitudini.</p>
+                    <span class="reason-active-indicator">Selezionato</span>
+                </button>
+
+                <!-- 2. Servizio clienti -->
+                <button type="button" class="reason-selector-card" data-reason="servizio-clienti" role="tab" aria-selected="false">
+                    <div class="reason-card-top">
+                        <div class="reason-icon-wrap green">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                        </div>
+                        <span class="reason-step-badge">Assistenza Dedicata</span>
+                    </div>
+                    <h3>Servizio&nbsp;clienti</h3>
+                    <p>Supporto diretto sulla tua fornitura attiva, bollette, pratiche contrattuali, volture o&nbsp;autoletture.</p>
+                    <span class="reason-active-indicator">Seleziona</span>
+                </button>
+
+                <!-- 3. Lavora con noi -->
+                <button type="button" class="reason-selector-card" data-reason="lavora-con-noi" role="tab" aria-selected="false">
+                    <div class="reason-card-top">
+                        <div class="reason-icon-wrap navy">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                        </div>
+                        <span class="reason-step-badge">Carriere &amp; Talenti</span>
+                    </div>
+                    <h3>Lavora con&nbsp;noi</h3>
+                    <p>Entra nel team Enos Energia: cerchiamo persone appassionate di innovazione, energia e relazione col&nbsp;cliente.</p>
+                    <span class="reason-active-indicator">Seleziona</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- GRIGLIA FORM INTERATTIVO + SIDEBAR CONTATTI E DOCUMENTI -->
+        <section class="contact-main-grid reveal-item">
+
+            <!-- COLONNA SINISTRA: FORM DINAMICO -->
+            <div class="contact-form-card">
+                <div class="form-card-header">
+                    <span class="form-dynamic-badge" id="form-badge-label">PREVENTIVO SU MISURA</span>
+                    <h3 id="form-dynamic-title">Richiedi la tua analisi energetica&nbsp;personalizzata</h3>
+                    <p id="form-dynamic-subtitle">Inserisci i tuoi riferimenti e indica il tipo di utenza: un nostro consulente analizzerà il tuo profilo senza alcun&nbsp;impegno.</p>
+                </div>
+
+                <form id="enos-contact-form" class="enos-form" novalidate>
+                    <input type="hidden" id="contact-reason-input" name="motivo" value="Preventivo su misura">
+
+                    <!-- Dati Anagrafici Comuni -->
+                    <div class="form-row-2col">
+                        <div class="form-group">
+                            <label for="field-nome">Nome e Cognome / Ragione Sociale <span class="req">*</span></label>
+                            <input type="text" id="field-nome" name="nome" placeholder="Es. Mario Rossi o Rossi S.r.l." required>
+                        </div>
+                        <div class="form-group">
+                            <label for="field-email">Indirizzo Email <span class="req">*</span></label>
+                            <input type="email" id="field-email" name="email" placeholder="nome@esempio.it" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row-2col">
+                        <div class="form-group">
+                            <label for="field-telefono">Telefono / Cellulare <span class="req">*</span></label>
+                            <input type="tel" id="field-telefono" name="telefono" placeholder="Es. +39 333 1234567" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="field-citta">Città o Provincia</label>
+                            <input type="text" id="field-citta" name="citta" placeholder="Es. Milano (MI)">
+                        </div>
+                    </div>
+
+                    <!-- =========================================================
+                         PANNELLO DINAMICO 1: PREVENTIVO SU MISURA
+                         ========================================================= -->
+                    <div class="dynamic-reason-panel is-active" data-panel="preventivo">
+                        <div class="form-row-2col">
+                            <div class="form-group">
+                                <label>Profilo Utenza</label>
+                                <div class="pill-radio-group">
+                                    <label class="pill-radio active">
+                                        <input type="radio" name="profilo_utenza" value="Casa (Domestico)" checked>
+                                        <span>Casa &bull; Domestico</span>
+                                    </label>
+                                    <label class="pill-radio">
+                                        <input type="radio" name="profilo_utenza" value="Impresa & PMI">
+                                        <span>Impresa &amp; PMI</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="field-fornitura">Fornitura da Analizzare</label>
+                                <select id="field-fornitura" name="fornitura">
+                                    <option value="Luce + Gas Naturale">Luce + Gas Naturale (Completo)</option>
+                                    <option value="Solo Energia Elettrica (Luce)">Solo Energia Elettrica (Luce)</option>
+                                    <option value="Solo Gas Naturale">Solo Gas Naturale</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Allega la tua ultima bolletta per il Comparatore AI <span>(Opzionale &bull; PDF, JPG, PNG)</span></label>
+                            <label for="file-bolletta" class="file-dropzone" id="dropzone-bolletta">
+                                <input type="file" id="file-bolletta" name="allegato_bolletta" accept=".pdf,.jpg,.jpeg,.png" hidden>
+                                <div class="dropzone-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                                </div>
+                                <div class="dropzone-text">
+                                    <strong class="file-name-display">Clicca o trascina qui la tua bolletta</strong>
+                                    <span>Ci permette di elaborare subito il confronto su misura per i tuoi consumi reali</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- =========================================================
+                         PANNELLO DINAMICO 2: SERVIZIO CLIENTI
+                         ========================================================= -->
+                    <div class="dynamic-reason-panel" data-panel="servizio-clienti">
+                        <div class="form-row-2col">
+                            <div class="form-group">
+                                <label for="field-argomento-assistenza">Ambito della Richiesta</label>
+                                <select id="field-argomento-assistenza" name="argomento_assistenza">
+                                    <option value="Informazioni su bolletta e pagamenti">Informazioni su bolletta e pagamenti</option>
+                                    <option value="Stato attivazione / Pratica contrattuale">Stato attivazione / Pratica contrattuale</option>
+                                    <option value="Voltura, Subentro o Modifica potenza">Voltura, Subentro o Modifica potenza</option>
+                                    <option value="Autolettura o Supporto tecnico">Autolettura o Supporto tecnico</option>
+                                    <option value="Reclamo o Segnalazione">Reclamo o Segnalazione</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="field-codice-pod">Codice Cliente o POD / PdR <span>(Se disponibile)</span></label>
+                                <input type="text" id="field-codice-pod" name="codice_pod_pdr" placeholder="Es. IT001E... oppure 14 cifre PdR">
+                            </div>
+                        </div>
+
+                        <div class="assistance-notice-box">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                            <div>
+                                Devi inviare un reclamo scritto formale? Puoi scaricare direttamente il <a href="pdf/reclami.pdf" target="_blank" download>Modulo Reclami Ufficiale (PDF)</a>.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- =========================================================
+                         PANNELLO DINAMICO 3: LAVORA CON NOI
+                         ========================================================= -->
+                    <div class="dynamic-reason-panel" data-panel="lavora-con-noi">
+                        <div class="form-row-2col">
+                            <div class="form-group">
+                                <label for="field-area-carriera">Area di Interesse / Posizione</label>
+                                <select id="field-area-carriera" name="area_carriera">
+                                    <option value="Consulenza Energetica & Commerciale">Consulenza Energetica &amp; Commerciale</option>
+                                    <option value="Customer Care & Gestione Clienti">Customer Care &amp; Gestione Clienti</option>
+                                    <option value="Tecnologia, Data Analysis & AI">Tecnologia, Data Analysis &amp; AI</option>
+                                    <option value="Back Office & Operations Mercato Energia">Back Office &amp; Operations Mercato Energia</option>
+                                    <option value="Candidatura Spontanea">Candidatura Spontanea</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="field-linkedin">Profilo LinkedIn o Portfolio <span>(Opzionale)</span></label>
+                                <input type="url" id="field-linkedin" name="linkedin" placeholder="https://linkedin.com/in/...">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Allega il tuo Curriculum Vitae <span>(PDF, DOC)</span></label>
+                            <label for="file-cv" class="file-dropzone" id="dropzone-cv">
+                                <input type="file" id="file-cv" name="allegato_cv" accept=".pdf,.doc,.docx" hidden>
+                                <div class="dropzone-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                                </div>
+                                <div class="dropzone-text">
+                                    <strong class="file-name-display">Clicca o trascina qui il tuo CV aggiornato</strong>
+                                    <span>Formato PDF consigliato &bull; Ricorda di includere l'autorizzazione al trattamento dati</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Messaggio Comune -->
+                    <div class="form-group">
+                        <label for="field-messaggio" id="label-messaggio">Il tuo messaggio o le tue esigenze <span class="req">*</span></label>
+                        <textarea id="field-messaggio" name="messaggio" rows="4" placeholder="Raccontaci brevemente le tue necessità o indicaci la fascia oraria preferita per essere ricontattato..." required></textarea>
+                    </div>
+
+                    <!-- Consenso Privacy -->
+                    <label class="privacy-checkbox-row">
+                        <input type="checkbox" id="field-privacy" name="privacy" required>
+                        <span>Ho letto l'informativa privacy e acconsento al trattamento dei dati personali da parte di <strong>ENOS ENERGIA S.R.L.</strong> per la gestione della presente&nbsp;richiesta. <span class="req">*</span></span>
+                    </label>
+
+                    <!-- Errore / Feedback -->
+                    <div id="form-feedback-msg" class="form-feedback-msg" aria-live="polite"></div>
+
+                    <!-- Bottone Submit -->
+                    <div class="form-submit-row">
+                        <button type="submit" class="btn-cta btn-solid btn-glow form-submit-btn">
+                            <span id="submit-btn-text">Invia richiesta preventivo</span>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Stato di Conferma Invio -->
+                <div id="form-success-state" class="form-success-state" hidden>
+                    <div class="success-check-circle">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <h3>Richiesta presa in&nbsp;carico!</h3>
+                    <p id="success-summary-text">
+                        Grazie per aver contattato <strong>Enos Energia</strong>. Abbiamo preparato il riepilogo della tua richiesta e il nostro team ti risponderà al più&nbsp;presto.
+                    </p>
+                    <div class="success-actions">
+                        <a href="#" id="mailto-fallback-btn" class="btn-cta btn-solid">Invia anche via Client Email</a>
+                        <button type="button" id="reset-contact-form-btn" class="btn-cta btn-outline-dark">Nuova richiesta</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COLONNA DESTRA: INFO DIRETTE & MODULISTICA UFFICIALE -->
+            <aside class="contact-sidebar">
+                <div class="sidebar-info-card navy-card">
+                    <span class="cte-eyebrow">CONTATTI DIRETTI</span>
+                    <h3>Enos Energia S.R.L.</h3>
+                    <p>Siamo a tua disposizione per offrirti chiarezza, trasparenza e risposte rapide su luce e gas&nbsp;naturale.</p>
+
+                    <ul class="direct-contact-list">
+                        <li>
+                            <div class="dc-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            </div>
+                            <div>
+                                <strong>Sede Legale e Operativa</strong>
+                                <span>Via Raffaello Sanzio 18<br>20090 Cesano Boscone (MI)<br>P.IVA 13575280964</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dc-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            </div>
+                            <div>
+                                <strong>Assistenza Telefonica</strong>
+                                <a href="tel:04211896462">0421 1896462</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="dc-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            </div>
+                            <div>
+                                <strong>Email &amp; Invio Bollette</strong>
+                                <a href="mailto:bolletta@enosenergia.it">bolletta@enosenergia.it</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Card Documenti & Modulistica PDF Scaricabile -->
+                <div class="sidebar-info-card docs-card">
+                    <span class="section-kicker">DOCUMENTI UFFICIALI PDF</span>
+                    <h3>Modulistica &amp; Glossari</h3>
+                    <p>Scarica i documenti informativi ufficiali, il modulo reclami e le linee guida del brand&nbsp;Enos.</p>
+
+                    <div class="sidebar-pdf-links">
+                        <a href="pdf/reclami.pdf" target="_blank" download class="sidebar-pdf-item">
+                            <div class="pdf-badge">PDF</div>
+                            <div class="pdf-meta">
+                                <strong>Modulo Reclami</strong>
+                                <span>Modulo ufficiale segnalazioni e reclami</span>
+                            </div>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        </a>
+
+                        <a href="pdf/GLOSSARIO%20ENERGIA%20ELETTRICA%20ALLEGATO%20A.pdf" target="_blank" download class="sidebar-pdf-item">
+                            <div class="pdf-badge">PDF</div>
+                            <div class="pdf-meta">
+                                <strong>Glossario Energia Elettrica</strong>
+                                <span>Allegato A &bull; Termini bolletta Luce</span>
+                            </div>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        </a>
+
+                        <a href="pdf/GLOSSARIO%20GAS%20NATURALE%20ALLEGATO%20B.pdf" target="_blank" download class="sidebar-pdf-item">
+                            <div class="pdf-badge">PDF</div>
+                            <div class="pdf-meta">
+                                <strong>Glossario Gas Naturale</strong>
+                                <span>Allegato B &bull; Termini bolletta Gas</span>
+                            </div>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        </a>
+
+                        <a href="pdf/ENOS_Brand_Guidelines.pdf" target="_blank" download class="sidebar-pdf-item">
+                            <div class="pdf-badge gold">PDF</div>
+                            <div class="pdf-meta">
+                                <strong>Brand Guidelines Enos</strong>
+                                <span>Manuale identità visiva, logo e colori</span>
+                            </div>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </aside>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER GLOBALE INIETTATO DA js/main.js -->
+    <div id="footer-placeholder"></div>
+
+    <!-- CUSTOM CURSOR -->
+    <div id="custom-cursor"></div>
+
+    <!-- SCRIPT MODULARE PRINCIPALE -->
+    <script src="js/main.js"></script>
+</body>
+</html>
