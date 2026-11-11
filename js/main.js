@@ -156,30 +156,38 @@ function initCteFilters() {
  * i componenti asincroni (Header, Menu Fullscreen e Footer) sono nel DOM.
  */
 function initAppInteractions() {
-    // 1. LOGICA MENU HAMBURGER E OVERLAY FULLSCREEN
+    // 1. LOGICA MENU HAMBURGER E OVERLAY FULLSCREEN (SENZA REFLOW SCROLLBAR E SENZA FLICKER)
     const openBtn = document.getElementById("open-menu-btn");
     const closeBtn = document.getElementById("close-menu-btn");
     const overlayMenu = document.getElementById("fullscreen-menu");
 
     if (openBtn && closeBtn && overlayMenu) {
         openBtn.addEventListener("click", () => {
-            overlayMenu.classList.add("active");
+            document.body.classList.add("menu-open");
             overlayMenu.setAttribute("aria-hidden", "false");
-            document.body.style.overflow = "hidden";
+            requestAnimationFrame(() => {
+                overlayMenu.classList.add("active");
+            });
         });
 
         closeBtn.addEventListener("click", () => {
             overlayMenu.classList.remove("active");
             overlayMenu.setAttribute("aria-hidden", "true");
-            document.body.style.overflow = "auto";
+            document.body.classList.remove("menu-open");
         });
 
-        // Chiude l'overlay cliccando su qualsiasi voce di menu
+        // Gestione click sulle voci del menu:
+        // Se è un link ancora/PDF chiude subito il menu; se è una navigazione interna,
+        // lascia espandere il portale senza sovrapporre due clip-path simultanei.
         overlayMenu.querySelectorAll("a").forEach(link => {
             link.addEventListener("click", () => {
-                overlayMenu.classList.remove("active");
-                overlayMenu.setAttribute("aria-hidden", "true");
-                document.body.style.overflow = "auto";
+                const href = link.getAttribute("href") || "";
+                const isDirectOrHash = href.startsWith("#") || href.toLowerCase().includes(".pdf") || link.hasAttribute("download") || link.target === "_blank";
+                if (isDirectOrHash) {
+                    overlayMenu.classList.remove("active");
+                    overlayMenu.setAttribute("aria-hidden", "true");
+                    document.body.classList.remove("menu-open");
+                }
             });
         });
     }
@@ -685,6 +693,42 @@ function initBlogPage() {
 }
 
 /**
+ * Ripristina istantaneamente portale, menu e preloader (fondamentale quando
+ * l'utente preme il tasto "Indietro" o "Avanti" del browser con bfcache).
+ */
+function resetOverlaysOnBackNavigation(forceInstantReset = false) {
+    const portal = document.querySelector('.page-portal');
+    if (portal) {
+        if (forceInstantReset) {
+            portal.classList.add('is-reset');
+            portal.classList.remove('is-active', 'is-revealing');
+            portal.classList.add('is-done');
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => portal.classList.remove('is-reset'));
+            });
+        } else {
+            portal.classList.remove('is-active', 'is-revealing');
+            portal.classList.add('is-done');
+        }
+    }
+
+    const overlayMenu = document.getElementById('fullscreen-menu');
+    if (overlayMenu) {
+        overlayMenu.classList.remove('active');
+        overlayMenu.setAttribute('aria-hidden', 'true');
+    }
+
+    const preloader = document.getElementById('preloader');
+    if (preloader && forceInstantReset) {
+        preloader.classList.add('preloader-hidden');
+        preloader.style.display = 'none';
+    }
+
+    document.body.classList.remove('is-loading', 'menu-open', 'page-leaving');
+    document.body.style.removeProperty('overflow');
+}
+
+/**
  * Crea un portale circolare Navy che si espande dal punto esatto del click
  * e salta il preloader arancione della batteria nella pagina di arrivo.
  */
@@ -696,14 +740,22 @@ function initPageTransitions() {
         document.body.appendChild(portal);
     }
 
-    // Se arriviamo da un click interno, apriamo subito il portale senza attendere la batteria
-    if (sessionStorage.getItem('enos_portal_nav') === '1') {
+    const navEntry = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+    const isBackForward = navEntry && navEntry.type === 'back_forward';
+
+    // Se l'utente è tornato indietro/avanti col browser, puliamo subito ogni overlay
+    if (isBackForward) {
+        sessionStorage.removeItem('enos_portal_nav');
+        resetOverlaysOnBackNavigation(true);
+    } else if (sessionStorage.getItem('enos_portal_nav') === '1') {
+        // Se arriviamo da un click interno, apriamo subito il portale senza attendere la batteria
         sessionStorage.removeItem('enos_portal_nav');
         const preloader = document.getElementById('preloader');
         if (preloader) preloader.style.display = 'none';
-        document.body.classList.remove('is-loading');
-        document.body.style.overflow = 'auto';
+        document.body.classList.remove('is-loading', 'menu-open');
+        document.body.style.removeProperty('overflow');
 
+        portal.classList.remove('is-reset', 'is-active', 'is-done');
         portal.classList.add('is-revealing');
         requestAnimationFrame(() => {
             requestAnimationFrame(() => portal.classList.add('is-done'));
@@ -719,18 +771,82 @@ function initPageTransitions() {
             if (targetUrl.pathname === window.location.pathname && targetUrl.search === window.location.search && targetUrl.hash) return;
 
             e.preventDefault();
+            portal.classList.remove('is-reset', 'is-revealing', 'is-done');
             portal.style.setProperty('--click-x', `${e.clientX}px`);
             portal.style.setProperty('--click-y', `${e.clientY}px`);
-            portal.classList.remove('is-revealing', 'is-done');
             portal.classList.add('is-active');
 
             sessionStorage.setItem('enos_portal_nav', '1');
             setTimeout(() => {
+                // Chiude silenziosamente il menu dietro il portale prima del cambio pagina
+                const overlayMenu = document.getElementById('fullscreen-menu');
+                if (overlayMenu) {
+                    overlayMenu.classList.remove('active');
+                    overlayMenu.setAttribute('aria-hidden', 'true');
+                }
+                document.body.classList.remove('menu-open');
                 window.location.href = href;
-            }, 520);
+            }, 500);
         });
     });
 }
+
+// Gestione nativa bfcache (Back/Forward Cache del browser) e tasto Indietro
+window.addEventListener('pageshow', function(event) {
+    const navEntry = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+    const isBackForward = navEntry && navEntry.type === 'back_forward';
+    if (event.persisted || isBackForward) {
+        sessionStorage.removeItem('enos_portal_nav');
+        resetOverlaysOnBackNavigation(true);
+    }
+});
+
+window.addEventListener('popstate', function() {
+    resetOverlaysOnBackNavigation(true);
+});
+
+window.addEventListener('pagehide', function() {
+    // Quando la pagina viene salvata nella bfcache del browser, rimuove lo stato attivo del portale
+    const portal = document.querySelector('.page-portal');
+    if (portal && portal.classList.contains('is-active')) {
+        portal.classList.add('is-reset');
+        portal.classList.remove('is-active');
+    }
+});
+
+// Blocco dello scroll durante Preloader o Menu aperto SENZA nascondere la scrollbar (zero layout shift)
+window.addEventListener('wheel', function(e) {
+    if (document.body.classList.contains('menu-open') || document.body.classList.contains('is-loading')) {
+        const insideScrollableToc = e.target.closest && e.target.closest('.privacy-toc-list');
+        if (!insideScrollableToc) {
+            e.preventDefault();
+        }
+    }
+}, { passive: false });
+
+window.addEventListener('touchmove', function(e) {
+    if (document.body.classList.contains('menu-open') || document.body.classList.contains('is-loading')) {
+        e.preventDefault();
+    }
+}, { passive: false });
+
+window.addEventListener('keydown', function(e) {
+    if (document.body.classList.contains('menu-open') || document.body.classList.contains('is-loading')) {
+        const scrollKeys = ['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '];
+        const tag = (e.target && e.target.tagName) ? e.target.tagName.toLowerCase() : '';
+        if (scrollKeys.includes(e.key) && tag !== 'input' && tag !== 'textarea' && tag !== 'select') {
+            e.preventDefault();
+        }
+        if (e.key === 'Escape' && document.body.classList.contains('menu-open')) {
+            const overlayMenu = document.getElementById('fullscreen-menu');
+            if (overlayMenu) {
+                overlayMenu.classList.remove('active');
+                overlayMenu.setAttribute('aria-hidden', 'true');
+            }
+            document.body.classList.remove('menu-open');
+        }
+    }
+});
 
 // 8. LOGICA PRELOADER (Su Window Load)
 window.addEventListener("load", function() {
@@ -743,7 +859,7 @@ window.addEventListener("load", function() {
                 const overlayMenu = document.getElementById("fullscreen-menu");
                 if (!overlayMenu || !overlayMenu.classList.contains("active")) {
                     document.body.classList.remove("is-loading");
-                    document.body.style.overflow = "auto";
+                    document.body.style.removeProperty("overflow");
                 }
             }, 800); 
         }
