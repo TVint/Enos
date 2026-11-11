@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog &amp; Approfondimenti — Enos Energia | Guide Luce, Gas e Innovazione</title>
+    <meta name="description" content="Il blog di Enos Energia: guide pratiche alla lettura della bolletta, novità sul mercato energetico, consigli di risparmio e approfondimenti su tecnologia e intelligenza artificiale.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="noise-overlay"></div>
+
+    <!-- HEADER GLOBALE E MENU FULLSCREEN INIETTATI DA js/main.js -->
+    <div id="header-placeholder"></div>
+
+    <!-- =====================================================================
+         1. HERO BANNER BLOG (STILE COMPACT COERENTE CON IL SITO)
+         ===================================================================== -->
+    <section class="blog-hero-banner">
+        <div class="cte-hero-inner">
+            <span class="cte-eyebrow">ENOS JOURNAL &bull; CULTURA ENERGETICA, GUIDE &amp; INNOVAZIONE</span>
+            <h1>Il Blog di <span>Enos&nbsp;Energia.</span></h1>
+            <p>
+                Approfondimenti chiari e senza tecnicismi inutili per capire il mercato dell'energia, leggere la bolletta con consapevolezza e scoprire come la <strong>tecnologia</strong> semplifica le scelte di casa e&nbsp;impresa.
+            </p>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         2. CONTENUTO PRINCIPALE BLOG: FILTRI, ARTICOLO IN EVIDENZA & GRIGLIA
+         ===================================================================== -->
+    <main class="blog-page-wrapper">
+
+        <!-- BARRA CATEGORIE BLOG -->
+        <section class="blog-filter-bar reveal-item" aria-label="Filtra articoli per categoria">
+            <div class="blog-category-pills" role="tablist">
+                <button type="button" class="blog-cat-pill active" data-blog-filter="all">Tutti gli articoli</button>
+                <button type="button" class="blog-cat-pill" data-blog-filter="bolletta">Guida alla Bolletta</button>
+                <button type="button" class="blog-cat-pill" data-blog-filter="mercato">Mercato &amp; Tariffe</button>
+                <button type="button" class="blog-cat-pill" data-blog-filter="innovazione">Innovazione &amp; AI</button>
+                <button type="button" class="blog-cat-pill" data-blog-filter="risparmio">Consigli di Risparmio</button>
+            </div>
+        </section>
+
+        <!-- ARTICOLO IN EVIDENZA (FEATURED POST BENTO) -->
+        <section class="blog-featured-section reveal-item" aria-label="Articolo in primo piano">
+            <article class="blog-featured-card" data-blog-category="innovazione">
+                <div class="featured-img-col">
+                    <img src="img/A.jpg" alt="Come funziona il comparatore brevettato Enos Energia" loading="lazy">
+                    <span class="featured-ribbon">IN PRIMO PIANO</span>
+                </div>
+                <div class="featured-content-col">
+                    <div class="post-meta-row">
+                        <span class="post-cat-badge orange">Innovazione &amp; AI</span>
+                        <time datetime="2026-11-10">10 Novembre 2026</time>
+                        <span>&bull; 4 min di lettura</span>
+                    </div>
+                    <h2>Come funziona l'analisi intelligente della bolletta: perché non esiste una tariffa uguale per&nbsp;tutti</h2>
+                    <p>
+                        Ogni famiglia e ogni impresa concentra i propri consumi in fasce orarie e stagioni diverse. Scopri come il nostro comparatore brevettato legge i dati reali della tua fornitura per individuare la taglia energetica più coerente con le tue&nbsp;abitudini.
+                    </p>
+                    <div class="featured-footer">
+                        <a href="contatti.html?motivo=preventivo" class="btn-cta btn-solid">Prova l'analisi sulla tua bolletta</a>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- GRIGLIA ARTICOLI DEL BLOG (TEMPLATE MODULARE PRONTO PER FUTURI ARTICOLI) -->
+        <section class="blog-grid-section" aria-label="Ultimi articoli pubblicati">
+            <div class="blog-cards-grid" id="blog-posts-grid">
+
+                <!-- ARTICOLO 1 -->
+                <article class="blog-post-card reveal-item" data-blog-category="bolletta">
+                    <div class="post-card-image">
+                        <img src="img/B.jpg" alt="Guida alla lettura della bolletta Luce e Gas" loading="lazy">
+                        <span class="post-cat-badge green">Guida alla Bolletta</span>
+                    </div>
+                    <div class="post-card-body">
+                        <div class="post-meta-row">
+                            <time datetime="2026-11-04">4 Novembre 2026</time>
+                            <span>&bull; 5 min</span>
+                        </div>
+                        <h3>POD, PdR, fasce F1-F2-F3 e quota fissa: la guida semplice per leggere la&nbsp;bolletta</h3>
+                        <p>
+                            Impariamo a distinguere la spesa per la materia energia dagli oneri di sistema e trasporto, per capire davvero dove possiamo ottimizzare i costi&nbsp;annuali.
+                        </p>
+                        <a href="pdf/GLOSSARIO%20ENERGIA%20ELETTRICA%20ALLEGATO%20A.pdf" target="_blank" class="post-read-link">
+                            <span>Scarica anche il Glossario Ufficiale</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- ARTICOLO 2 -->
+                <article class="blog-post-card reveal-item" data-blog-category="mercato">
+                    <div class="post-card-image">
+                        <img src="img/C.jpg" alt="PUN e PSV: cosa sono gli indici energetici" loading="lazy">
+                        <span class="post-cat-badge navy">Mercato &amp; Tariffe</span>
+                    </div>
+                    <div class="post-card-body">
+                        <div class="post-meta-row">
+                            <time datetime="2026-10-25">25 Ottobre 2026</time>
+                            <span>&bull; 4 min</span>
+                        </div>
+                        <h3>PUN Index GME e PSV Gas: cosa sono e come influenzano le offerte a prezzo&nbsp;variabile</h3>
+                        <p>
+                            Una panoramica chiara sugli indici all'ingrosso dell'energia elettrica e del gas naturale in Italia e sui vantaggi della trasparenza&nbsp;tariffaria.
+                        </p>
+                        <a href="cte.html" class="post-read-link">
+                            <span>Esplora le condizioni tecniche (CTE)</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- ARTICOLO 3 -->
+                <article class="blog-post-card reveal-item" data-blog-category="risparmio">
+                    <div class="post-card-image">
+                        <img src="img/D.jpg" alt="Taglie energetiche S, M, L Enos Energia" loading="lazy">
+                        <span class="post-cat-badge orange">Consigli di Risparmio</span>
+                    </div>
+                    <div class="post-card-body">
+                        <div class="post-meta-row">
+                            <time datetime="2026-10-14">14 Ottobre 2026</time>
+                            <span>&bull; 3 min</span>
+                        </div>
+                        <h3>Taglia S, M o L? Come capire qual è il profilo energetico della tua casa o della tua&nbsp;impresa</h3>
+                        <p>
+                            Proprio come un abito su misura, una fornitura energetica funziona meglio quando è calibrata sui kWh e sugli Smc che consumi realmente durante&nbsp;l'anno.
+                        </p>
+                        <a href="cte.html" class="post-read-link">
+                            <span>Confronta le taglie S, M e L</span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- BANNER CTA FINALE -->
+        <section class="blog-cta-banner reveal-item">
+            <div class="blog-cta-inner">
+                <div>
+                    <span class="cte-eyebrow">DALLE PAROLE AI DATI REALI</span>
+                    <h2>Vuoi sapere quale soluzione è più adatta ai tuoi&nbsp;consumi?</h2>
+                    <p>Inviaci la tua ultima bolletta: il nostro team e il comparatore Enos prepareranno un'analisi chiara e senza&nbsp;impegno.</p>
+                </div>
+                <div class="blog-cta-actions">
+                    <a href="contatti.html?motivo=preventivo" class="btn-cta btn-solid btn-glow">Richiedi preventivo su misura</a>
+                    <a href="cte.html" class="btn-cta btn-outline">Guarda tutte le offerte</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER GLOBALE INIETTATO DA js/main.js -->
+    <div id="footer-placeholder"></div>
+
+    <div id="custom-cursor"></div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

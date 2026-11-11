@@ -284,7 +284,10 @@ function initAppInteractions() {
     // 9. PAGINA PRIVACY INTERATTIVA (Ricerca, Filtri, Accordion, TOC)
     initPrivacyPage();
 
-    // 10. TRANSIZIONE WOW PORTALE RADIALE DAL CLICK
+    // 10. PAGINA BLOG (Filtro categorie)
+    initBlogPage();
+
+    // 11. TRANSIZIONE WOW PORTALE RADIALE DAL CLICK
     initPageTransitions();
 }
 
@@ -657,6 +660,28 @@ function initPrivacyPage() {
             });
         }
     }, { passive: true });
+}
+
+/**
+ * Gestisce il filtro per categoria nella pagina Blog (blog.html)
+ */
+function initBlogPage() {
+    const pills = document.querySelectorAll('.blog-cat-pill');
+    const posts = document.querySelectorAll('.blog-post-card');
+    if (pills.length === 0 || posts.length === 0) return;
+
+    pills.forEach(pill => {
+        pill.addEventListener('click', () => {
+            const filter = pill.getAttribute('data-blog-filter') || 'all';
+            pills.forEach(p => p.classList.remove('active'));
+            pill.classList.add('active');
+
+            posts.forEach(post => {
+                const cat = post.getAttribute('data-blog-category');
+                post.style.display = (filter === 'all' || cat === filter) ? '' : 'none';
+            });
+        });
+    });
 }
 
 /**
