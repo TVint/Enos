@@ -186,7 +186,7 @@ function initAppInteractions() {
 
     // 2. LOGICA STICKY HEADER
     const header = document.querySelector('.main-header');
-    const hero = document.querySelector('.hero-section, .about-hero-section');
+    const hero = document.querySelector('.hero-section');
     if (header && hero) {
         const handleScroll = () => {
             if (window.scrollY >= hero.offsetHeight) {

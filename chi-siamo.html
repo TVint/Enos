@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/hero-animations.css">
 </head>
 <body>
 
@@ -19,110 +18,30 @@
     <div id="header-placeholder"></div>
 
     <!-- =====================================================================
-         1. HERO SECTION "CHI SIAMO" — ATMOSFERA DINAMICA & ECOSISTEMA ENOS
+         1. HERO BANNER PAGINA CHI SIAMO (STILE CTE COMPACT CON SFONDO DEDICATO)
          ===================================================================== -->
-    <section class="about-hero-section">
-        <!-- Cielo dinamico con ciclo fluido e particelle luminose -->
-        <div class="sky-layer sky-day"></div>
-        <div class="sky-layer sky-sunset"></div>
-        <div class="sky-layer sky-night"></div>
-
-        <div class="sun"></div>
-        <div class="moon"></div>
-
-        <!-- Stelle notturne -->
-        <div class="stars-container">
-            <div class="star star-fast" style="top:14%; left:15%"></div>
-            <div class="star star-slow" style="top:25%; left:42%"></div>
-            <div class="star star-fast" style="top:12%; left:76%"><div class="star-glow"></div></div>
-            <div class="star star-slow" style="top:34%; left:22%"></div>
-            <div class="star star-fast" style="top:20%; left:62%"></div>
-            <div class="star star-slow" style="top:11%; left:86%"></div>
-        </div>
-
-        <!-- Nuvole in movimento -->
-        <div class="clouds-container">
-            <div class="cloud cloud-1"></div>
-            <div class="cloud cloud-2"></div>
-            <div class="cloud cloud-3"></div>
-        </div>
-
-        <!-- Stormo illustrativo animato (asset originale Enos) -->
-        <div class="about-sky-bird" aria-hidden="true">
-            <img src="img/bird.svg" alt="">
-        </div>
-
-        <!-- Contenuto Centrale Hero -->
-        <div class="about-hero-content">
-            <div class="about-eyebrow-group">
-                <span class="cte-eyebrow">CHI SIAMO</span>
-                <span class="about-brand-tag">ENOS ENERGIA. ENERGIA DIGITALE.</span>
-            </div>
-
-            <h1>L'energia che<br><span>impara da te.</span></h1>
-
-            <p class="about-hero-lead">
-                Il mercato dell'energia è in continua evoluzione. Le offerte cambiano, i consumi variano e trovare la soluzione più adatta non è sempre semplice.<br>
-                <strong>Enos Energia nasce per cambiare questo modo di vivere l'energia.</strong>
+    <section class="about-hero-banner">
+        <div class="cte-hero-inner">
+            <span class="cte-eyebrow">CHI SIAMO &bull; ENOS ENERGIA. ENERGIA DIGITALE.</span>
+            <h1>L'energia che <span>impara da&nbsp;te.</span></h1>
+            <p>
+                Il mercato dell'energia è in continua evoluzione. Le offerte cambiano, i consumi variano e trovare la soluzione più adatta non è sempre&nbsp;semplice.<br>
+                <strong>Enos Energia nasce per cambiare questo modo di vivere&nbsp;l'energia.</strong>
             </p>
 
-            <div class="hero-cta-group">
-                <a href="#tecnologia" class="btn-cta btn-solid btn-glow">Scopri la nostra tecnologia</a>
-                <a href="cte.html" class="btn-cta btn-outline">Esplora le offerte</a>
-            </div>
-        </div>
-
-        <!-- Parco Eolico a 3 profondità a destra -->
-        <div class="wind-turbine-container turbine-main">
-            <svg class="wind-turbine" viewBox="0 0 100 200" xmlns="http://www.w3.org/2000/svg">
-                <path d="M46 200 L48 60 L52 60 L54 200 Z" fill="#EBE8E0" />
-                <path d="M48 60 L50 60 L52 200 L46 200 Z" fill="#DCD9D0" opacity="0.5" /> 
-                <circle class="turbine-light" cx="50" cy="58" r="1.5" />
-                <g class="turbine-blades">
-                    <circle cx="50" cy="60" r="4" fill="#DCD9D0" />
-                    <path d="M48.5 60 C48.5 35, 49 10, 50 5 C51 10, 51.5 35, 51.5 60 Z" fill="#FFFFFF" />
-                    <path d="M50 60 C71.5 72.5, 93.5 85, 96 81 C92 79, 70 66.5, 50 60 Z" fill="#FFFFFF" />
-                    <path d="M50 60 C28.5 72.5, 6.5 85, 4 81 C8 79, 30 66.5, 50 60 Z" fill="#EBE8E0" /> 
-                    <circle cx="50" cy="60" r="1.5" fill="#FFFFFF" />
-                </g>
-            </svg>
-        </div>
-
-        <div class="wind-turbine-container turbine-back-1">
-            <svg class="wind-turbine" viewBox="0 0 100 200" xmlns="http://www.w3.org/2000/svg">
-                <path d="M46 200 L48 60 L52 60 L54 200 Z" fill="#EBE8E0" />
-                <path d="M48 60 L50 60 L52 200 L46 200 Z" fill="#DCD9D0" opacity="0.5" /> 
-                <circle class="turbine-light" cx="50" cy="58" r="1.5" />
-                <g class="turbine-blades">
-                    <circle cx="50" cy="60" r="4" fill="#DCD9D0" />
-                    <path d="M48.5 60 C48.5 35, 49 10, 50 5 C51 10, 51.5 35, 51.5 60 Z" fill="#FFFFFF" />
-                    <path d="M50 60 C71.5 72.5, 93.5 85, 96 81 C92 79, 70 66.5, 50 60 Z" fill="#FFFFFF" />
-                    <path d="M50 60 C28.5 72.5, 6.5 85, 4 81 C8 79, 30 66.5, 50 60 Z" fill="#EBE8E0" /> 
-                    <circle cx="50" cy="60" r="1.5" fill="#FFFFFF" />
-                </g>
-            </svg>
-        </div>
-
-        <div class="wind-turbine-container turbine-back-2">
-            <svg class="wind-turbine" viewBox="0 0 100 200" xmlns="http://www.w3.org/2000/svg">
-                <path d="M46 200 L48 60 L52 60 L54 200 Z" fill="#EBE8E0" />
-                <path d="M48 60 L50 60 L52 200 L46 200 Z" fill="#DCD9D0" opacity="0.5" /> 
-                <circle class="turbine-light" cx="50" cy="58" r="1.5" />
-                <g class="turbine-blades">
-                    <circle cx="50" cy="60" r="4" fill="#DCD9D0" />
-                    <path d="M48.5 60 C48.5 35, 49 10, 50 5 C51 10, 51.5 35, 51.5 60 Z" fill="#FFFFFF" />
-                    <path d="M50 60 C71.5 72.5, 93.5 85, 96 81 C92 79, 70 66.5, 50 60 Z" fill="#FFFFFF" />
-                    <path d="M50 60 C28.5 72.5, 6.5 85, 4 81 C8 79, 30 66.5, 50 60 Z" fill="#EBE8E0" /> 
-                    <circle cx="50" cy="60" r="1.5" fill="#FFFFFF" />
-                </g>
-            </svg>
-        </div>
-
-        <!-- Prato Verde di raccordo con indicatore di scroll -->
-        <div class="hero-green-floor">
-            <div class="scroll-indicator-wrapper">
-                <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
-                <span class="scroll-text">Scorri la nostra storia</span>
+            <div class="golden-rules-bar">
+                <div class="rule-pill">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <span>Energia Elettrica &amp; Gas&nbsp;Naturale</span>
+                </div>
+                <div class="rule-pill">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    <span>Comparatore Tecnologico&nbsp;Brevettato</span>
+                </div>
+                <div class="rule-pill">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                    <span>Soluzioni su Misura per Casa&nbsp;&amp;&nbsp;Impresa</span>
+                </div>
             </div>
         </div>
     </section>
@@ -131,21 +50,19 @@
          2. SEZIONE IDENTITÀ & APPROCCIO CLIENTE-CENTRICO
          ===================================================================== -->
     <section class="about-identity-section">
-        <div class="fade-bg-top"></div>
-
         <div class="about-container">
             <div class="identity-grid reveal-item">
                 <!-- Colonna Manifesto Principale -->
                 <div class="identity-main-card">
                     <span class="section-kicker">LA NOSTRA IDENTITÀ</span>
-                    <h2>Tecnologia, innovazione e competenza per un'energia più <span>semplice, trasparente e intelligente.</span></h2>
+                    <h2>Tecnologia, innovazione e competenza per un'energia più <span>semplice, trasparente e&nbsp;intelligente.</span></h2>
                     <p class="identity-lead-p">
-                        Siamo una società di vendita di energia elettrica e gas che unisce tecnologia, innovazione e competenza per rendere la gestione delle forniture energetiche più semplice, trasparente e intelligente.
+                        Siamo una società di vendita di energia elettrica e gas che unisce tecnologia, innovazione e competenza per rendere la gestione delle forniture energetiche più semplice, trasparente e&nbsp;intelligente.
                     </p>
                     <div class="identity-pulse-line" aria-hidden="true">
                         <span class="pulse-dot"></span>
                         <span class="pulse-bar"></span>
-                        <span class="pulse-label">100% orientati alle tue reali abitudini</span>
+                        <span class="pulse-label">100% orientati alle tue reali&nbsp;abitudini</span>
                     </div>
                 </div>
 
@@ -155,9 +72,9 @@
                         <div class="sub-card-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                         </div>
-                        <h3>Il cliente al centro</h3>
+                        <h3>Il cliente al&nbsp;centro</h3>
                         <p>
-                            Crediamo che ogni persona, ogni famiglia e ogni azienda abbia esigenze diverse. Per questo abbiamo sviluppato un approccio innovativo che mette al centro il cliente, i suoi consumi e le sue reali abitudini.
+                            Crediamo che ogni persona, ogni famiglia e ogni azienda abbia esigenze diverse. Per questo abbiamo sviluppato un approccio innovativo che mette al centro il cliente, i suoi consumi e le sue reali&nbsp;abitudini.
                         </p>
                     </div>
 
@@ -165,9 +82,9 @@
                         <div class="sub-card-icon orange">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
                         </div>
-                        <h3>Oltre la semplice tariffa</h3>
+                        <h3>Oltre la semplice&nbsp;tariffa</h3>
                         <p>
-                            Non proponiamo semplicemente una tariffa: <strong>analizziamo, confrontiamo e individuiamo</strong> le soluzioni più coerenti con le necessità di ciascuno.
+                            Non proponiamo semplicemente una tariffa: <strong>analizziamo, confrontiamo e individuiamo</strong> le soluzioni più coerenti con le necessità di&nbsp;ciascuno.
                         </p>
                     </div>
                 </div>
@@ -179,7 +96,7 @@
                     <span class="step-num">01</span>
                     <div class="step-info">
                         <strong>Analizziamo</strong>
-                        <span>Bollette, consumi e abitudini reali</span>
+                        <span>Bollette, consumi e abitudini&nbsp;reali</span>
                     </div>
                 </div>
                 <div class="step-connector" aria-hidden="true"><div class="step-signal"></div></div>
@@ -187,7 +104,7 @@
                     <span class="step-num">02</span>
                     <div class="step-info">
                         <strong>Confrontiamo</strong>
-                        <span>Le opportunità del mercato energetico</span>
+                        <span>Le opportunità del mercato&nbsp;energetico</span>
                     </div>
                 </div>
                 <div class="step-connector" aria-hidden="true"><div class="step-signal delay-1"></div></div>
@@ -195,7 +112,7 @@
                     <span class="step-num">03</span>
                     <div class="step-info">
                         <strong>Individuiamo</strong>
-                        <span>La soluzione più coerente per te</span>
+                        <span>La soluzione più coerente per&nbsp;te</span>
                     </div>
                 </div>
             </div>
@@ -212,22 +129,22 @@
 
                 <div class="tech-content-col">
                     <span class="cte-eyebrow">INNOVAZIONE BREVETTATA</span>
-                    <h2>La tecnologia al servizio delle <span>tue scelte</span></h2>
+                    <h2>La tecnologia al servizio delle <span>tue&nbsp;scelte</span></h2>
                     <p class="tech-highlight-claim">
-                        «Non sei tu a dover capire il mercato. Ci pensiamo noi.»
+                        «Non sei tu a dover capire il mercato. Ci pensiamo&nbsp;noi.»
                     </p>
                     <p>
-                        Il cuore dell'innovazione Enos è il nostro <strong>comparatore brevettato</strong>, uno strumento tecnologico progettato per rivoluzionare il modo di scegliere le forniture energetiche.
+                        Il cuore dell'innovazione Enos è il nostro <strong>comparatore brevettato</strong>, uno strumento tecnologico progettato per rivoluzionare il modo di scegliere le forniture&nbsp;energetiche.
                     </p>
                     <p>
-                        Attraverso l'analisi delle bollette, dei consumi e delle abitudini energetiche, il nostro sistema elabora i dati e individua le soluzioni tariffarie più adatte al profilo del cliente.
+                        Attraverso l'analisi delle bollette, dei consumi e delle abitudini energetiche, il nostro sistema elabora i dati e individua le soluzioni tariffarie più adatte al profilo del&nbsp;cliente.
                     </p>
                     <p>
-                        Un processo intelligente che semplifica ciò che spesso appare complicato: niente confronti interminabili, niente informazioni difficili da interpretare.
+                        Un processo intelligente che semplifica ciò che spesso appare complicato: niente confronti interminabili, niente informazioni difficili da&nbsp;interpretare.
                     </p>
                     <div class="tech-bottom-pill">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
-                        <span>La tecnologia lavora per te, trasformando i dati in scelte più consapevoli.</span>
+                        <span>La tecnologia lavora per te, trasformando i dati in scelte più&nbsp;consapevoli.</span>
                     </div>
                 </div>
 
@@ -247,7 +164,7 @@
                         <div class="widget-body">
                             <div class="scan-metric-row">
                                 <div class="metric-label">
-                                    <span>1. Lettura &amp; Analisi Bolletta</span>
+                                    <span>1. Lettura &amp; Analisi&nbsp;Bolletta</span>
                                     <strong>100%</strong>
                                 </div>
                                 <div class="metric-bar-track">
@@ -257,7 +174,7 @@
 
                             <div class="scan-metric-row">
                                 <div class="metric-label">
-                                    <span>2. Profilazione Consumi &amp; Abitudini</span>
+                                    <span>2. Profilazione Consumi &amp;&nbsp;Abitudini</span>
                                     <strong>Ottimizzata</strong>
                                 </div>
                                 <div class="metric-bar-track">
@@ -267,8 +184,8 @@
 
                             <div class="scan-metric-row">
                                 <div class="metric-label">
-                                    <span>3. Matching Tariffario Su Misura</span>
-                                    <strong>Indice &alpha; Ideale</strong>
+                                    <span>3. Matching Tariffario Su&nbsp;Misura</span>
+                                    <strong>Indice &alpha;&nbsp;Ideale</strong>
                                 </div>
                                 <div class="metric-bar-track">
                                     <div class="metric-bar-fill fill-3"></div>
@@ -280,8 +197,8 @@
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
                                 </div>
                                 <div class="result-text">
-                                    <strong>Soluzione Coerente Individuata</strong>
-                                    <span>Zero confronti interminabili &bull; Massima trasparenza</span>
+                                    <strong>Soluzione Coerente&nbsp;Individuata</strong>
+                                    <span>Zero confronti interminabili &bull; Massima&nbsp;trasparenza</span>
                                 </div>
                             </div>
                         </div>
@@ -304,7 +221,7 @@
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                             <div>
                                 <strong>Oggi &amp; Domani</strong>
-                                <span>Al tuo fianco nel tempo</span>
+                                <span>Al tuo fianco nel&nbsp;tempo</span>
                             </div>
                         </div>
                     </div>
@@ -312,22 +229,22 @@
 
                 <div class="learning-text-col">
                     <span class="section-kicker">EVOLUZIONE CONTINUA</span>
-                    <h2>Un'energia che <span>impara da te</span></h2>
+                    <h2>Un'energia che <span>impara da&nbsp;te</span></h2>
 
                     <p class="learning-highlight">
-                        Per noi scegliere un fornitore di energia non dovrebbe essere una decisione da prendere una sola volta.
+                        Per noi scegliere un fornitore di energia non dovrebbe essere una decisione da prendere una sola&nbsp;volta.
                     </p>
 
                     <p>
-                        I consumi cambiano, le esigenze evolvono e il mercato si trasforma. Per questo il nostro rapporto con il cliente non si esaurisce con l'attivazione di un contratto.
+                        I consumi cambiano, le esigenze evolvono e il mercato si trasforma. Per questo il nostro rapporto con il cliente non si esaurisce con l'attivazione di un&nbsp;contratto.
                     </p>
 
                     <p>
-                        Vogliamo accompagnarlo nel tempo, attraverso l'analisi delle condizioni contrattuali e la ricerca di nuove opportunità, per individuare soluzioni sempre più vicine alle sue esigenze.
+                        Vogliamo accompagnarlo nel tempo, attraverso l'analisi delle condizioni contrattuali e la ricerca di nuove opportunità, per individuare soluzioni sempre più vicine alle sue&nbsp;esigenze.
                     </p>
 
                     <blockquote class="learning-quote-box">
-                        «Perché una buona scelta energetica oggi deve continuare ad avere senso anche domani.»
+                        «Perché una buona scelta energetica oggi deve continuare ad avere senso anche&nbsp;domani.»
                     </blockquote>
                 </div>
             </div>
@@ -342,7 +259,7 @@
             <div class="about-section-header reveal-item">
                 <span class="section-kicker">I NOSTRI SERVIZI</span>
                 <h2>Cosa <span>Facciamo</span></h2>
-                <p>Soluzioni integrate di luce, gas, tecnologia di analisi e consulenza continua per famiglie e imprese.</p>
+                <p>Soluzioni integrate di luce, gas, tecnologia di analisi e consulenza continua per famiglie e&nbsp;imprese.</p>
             </div>
 
             <div class="about-services-grid">
@@ -356,10 +273,10 @@
                     </div>
                     <h3>ENERGIA ELETTRICA</h3>
                     <p>
-                        Offriamo soluzioni per la fornitura di energia elettrica, individuate in funzione delle abitudini di consumo e delle necessità di famiglie e imprese.
+                        Offriamo soluzioni per la fornitura di energia elettrica, individuate in funzione delle abitudini di consumo e delle necessità di famiglie e&nbsp;imprese.
                     </p>
                     <a href="cte.html#luce" class="service-card-link">
-                        <span>Scopri le offerte Luce</span>
+                        <span>Scopri le offerte&nbsp;Luce</span>
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                     </a>
                 </article>
@@ -374,10 +291,10 @@
                     </div>
                     <h3>GAS NATURALE</h3>
                     <p>
-                        Proponiamo forniture di gas con particolare attenzione alla scelta delle condizioni economiche e contrattuali più adatte al cliente.
+                        Proponiamo forniture di gas con particolare attenzione alla scelta delle condizioni economiche e contrattuali più adatte al&nbsp;cliente.
                     </p>
                     <a href="cte.html#gas" class="service-card-link">
-                        <span>Scopri le offerte Gas</span>
+                        <span>Scopri le offerte&nbsp;Gas</span>
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                     </a>
                 </article>
@@ -390,12 +307,12 @@
                         </div>
                         <span class="service-number">03</span>
                     </div>
-                    <h3>ANALISI E CONFRONTO DELLE OFFERTE</h3>
+                    <h3>ANALISI E CONFRONTO DELLE&nbsp;OFFERTE</h3>
                     <p>
-                        Grazie alla nostra tecnologia, analizziamo i consumi e confrontiamo le opportunità del mercato per aiutare il cliente a compiere scelte più consapevoli.
+                        Grazie alla nostra tecnologia, analizziamo i consumi e confrontiamo le opportunità del mercato per aiutare il cliente a compiere scelte più&nbsp;consapevoli.
                     </p>
                     <a href="#tecnologia" class="service-card-link">
-                        <span>Il comparatore brevettato</span>
+                        <span>Il comparatore&nbsp;brevettato</span>
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                     </a>
                 </article>
@@ -408,12 +325,12 @@
                         </div>
                         <span class="service-number">04</span>
                     </div>
-                    <h3>ASSISTENZA E CONSULENZA</h3>
+                    <h3>ASSISTENZA E&nbsp;CONSULENZA</h3>
                     <p>
-                        Affianchiamo i clienti nella gestione delle proprie forniture, offrendo supporto e attenzione durante il rapporto contrattuale.
+                        Affianchiamo i clienti nella gestione delle proprie forniture, offrendo supporto e attenzione durante il rapporto&nbsp;contrattuale.
                     </p>
                     <a href="cte.html" class="service-card-link">
-                        <span>Trasparenza contrattuale</span>
+                        <span>Trasparenza&nbsp;contrattuale</span>
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                     </a>
                 </article>
@@ -428,10 +345,10 @@
         <div class="about-container">
             <div class="about-section-header reveal-item">
                 <span class="section-kicker">I NOSTRI PRINCIPI</span>
-                <h2>Il nostro <span>modo di essere</span></h2>
+                <h2>Il nostro <span>modo di&nbsp;essere</span></h2>
                 <p class="values-intro-p">
-                    Crediamo che innovazione significhi soprattutto rendere le cose più semplici per le persone.<br>
-                    I nostri principi sono:
+                    Crediamo che innovazione significhi soprattutto rendere le cose più semplici per le&nbsp;persone.<br>
+                    I nostri principi&nbsp;sono:
                 </p>
             </div>
 
@@ -442,7 +359,7 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
                     </div>
                     <h3>Trasparenza</h3>
-                    <p>Informazioni chiare e scelte consapevoli.</p>
+                    <p>Informazioni chiare e scelte&nbsp;consapevoli.</p>
                 </div>
 
                 <!-- 2. Innovazione -->
@@ -451,7 +368,7 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
                     </div>
                     <h3>Innovazione</h3>
-                    <p>Tecnologia applicata concretamente al mondo dell'energia.</p>
+                    <p>Tecnologia applicata concretamente al mondo&nbsp;dell'energia.</p>
                 </div>
 
                 <!-- 3. Competenza -->
@@ -460,7 +377,7 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
                     </div>
                     <h3>Competenza</h3>
-                    <p>Conoscenza del mercato e attenzione alle esigenze del cliente.</p>
+                    <p>Conoscenza del mercato e attenzione alle esigenze del&nbsp;cliente.</p>
                 </div>
 
                 <!-- 4. Vicinanza -->
@@ -469,7 +386,7 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
                     </div>
                     <h3>Vicinanza</h3>
-                    <p>Un rapporto diretto e un supporto nel tempo.</p>
+                    <p>Un rapporto diretto e un supporto nel&nbsp;tempo.</p>
                 </div>
 
                 <!-- 5. Affidabilità -->
@@ -478,7 +395,7 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                     </div>
                     <h3>Affidabilità</h3>
-                    <p>Attenzione agli impegni presi e alla qualità del servizio.</p>
+                    <p>Attenzione agli impegni presi e alla qualità del&nbsp;servizio.</p>
                 </div>
             </div>
         </div>
@@ -493,19 +410,19 @@
         <div class="about-container">
             <div class="future-manifesto-card reveal-item">
                 <span class="cte-eyebrow">LA NOSTRA VISIONE</span>
-                <h2>Il futuro dell'energia <span>è già qui.</span></h2>
+                <h2>Il futuro dell'energia <span>è già&nbsp;qui.</span></h2>
 
                 <div class="future-manifesto-body">
-                    <p>Non vogliamo essere semplicemente un altro nome nel mercato energetico.</p>
-                    <p>Vogliamo contribuire a costruire un modo nuovo di scegliere e gestire le forniture di energia.</p>
-                    <p>Un modello in cui la tecnologia semplifica le decisioni, i dati diventano strumenti di conoscenza e il cliente torna ad essere il vero protagonista.</p>
+                    <p>Non vogliamo essere semplicemente un altro nome nel mercato&nbsp;energetico.</p>
+                    <p>Vogliamo contribuire a costruire un modo nuovo di scegliere e gestire le forniture di&nbsp;energia.</p>
+                    <p>Un modello in cui la tecnologia semplifica le decisioni, i dati diventano strumenti di conoscenza e il cliente torna ad essere il vero&nbsp;protagonista.</p>
                 </div>
 
                 <div class="future-signature-block">
                     <img src="img/logo_enos_white.svg" alt="Enos Energia" class="future-signature-logo">
-                    <div class="signature-brand-title">ENOS ENERGIA.</div>
-                    <div class="signature-payoff">L'energia che impara da te.</div>
-                    <div class="signature-claim">Confrontiamo il mercato. Tu vivi l'energia.</div>
+                    <div class="signature-brand-title">ENOS&nbsp;ENERGIA.</div>
+                    <div class="signature-payoff">L'energia che impara da&nbsp;te.</div>
+                    <div class="signature-claim">Confrontiamo il mercato. Tu vivi&nbsp;l'energia.</div>
                 </div>
 
                 <div class="hero-cta-group">
@@ -531,8 +448,7 @@
     <!-- CUSTOM CURSOR -->
     <div id="custom-cursor"></div>
 
-    <!-- SCRIPT MODULARI -->
-    <script src="js/hero-engine.js"></script>
+    <!-- SCRIPT MODULARE PRINCIPALE -->
     <script src="js/main.js"></script>
 </body>
 </html>
