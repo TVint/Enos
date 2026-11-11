@@ -220,7 +220,7 @@ body.page-leaving {
     opacity: 0;
 }
 
-body:has(a:hover, button:hover, .btn-cta:hover, .faq-trigger:hover, .size-pill:hover, .filter-tab:hover, .value-card:hover, .service-bento-card:hover, .step-node:hover, .reason-selector-card:hover, .file-dropzone:hover, .pill-radio:hover, .sidebar-pdf-item:hover) #custom-cursor {
+body:has(a:hover, button:hover, .btn-cta:hover, .faq-trigger:hover, .size-pill:hover, .filter-tab:hover, .value-card:hover, .service-bento-card:hover, .step-node:hover, .reason-selector-card:hover, .file-dropzone:hover, .pill-radio:hover, .sidebar-pdf-item:hover, .priv-filter-pill:hover, .priv-article-header:hover, .toc-item:hover) #custom-cursor {
     width: 45px;
     height: 45px;
     background-color: rgba(224, 198, 56, 0.15);
@@ -3675,4 +3675,851 @@ body:has(a:hover, button:hover, .btn-cta:hover, .faq-trigger:hover, .size-pill:h
     .contact-form-card { padding: 28px 20px; }
     .dynamic-reason-panel { padding: 18px; }
     .sidebar-info-card { padding: 30px 22px; }
+}
+
+.privacy-inline-link {
+    color: var(--premium-orange);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.privacy-inline-link:hover {
+    color: var(--brand-green);
+}
+
+/* =========================================================================
+   14. PAGINA PRIVACY & DATA PROTECTION HUB (privacy.html)
+   ========================================================================= */
+
+.privacy-hero-banner {
+    background: linear-gradient(135deg, #09122A 0%, #15313E 52%, #1E5A46 100%);
+    color: var(--white);
+    padding: 165px 5% 80px 5%;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.privacy-hero-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(circle at 18% 22%, rgba(224, 198, 56, 0.16) 0%, transparent 45%),
+        radial-gradient(circle at 84% 78%, rgba(228, 129, 47, 0.18) 0%, transparent 45%),
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+    pointer-events: none;
+}
+
+.privacy-page-wrapper {
+    background: linear-gradient(180deg, #EFECE3 0%, #F6F3EB 50%, #ECE8DD 100%);
+    padding: 70px 5% 130px 5%;
+    position: relative;
+}
+
+/* --- 14.1 CARD PREMESSA EDITORIALE ("Gentile Interessato") --- */
+.privacy-preamble-card {
+    max-width: 1280px;
+    margin: 0 auto 36px auto;
+    background: linear-gradient(140deg, #0B1736 0%, #13254F 65%, #163C3B 100%);
+    color: var(--white);
+    border-radius: 26px;
+    padding: 42px 46px;
+    box-shadow: 0 28px 65px rgba(11, 23, 54, 0.16);
+    border: 1px solid rgba(224, 198, 56, 0.25);
+    position: relative;
+    overflow: hidden;
+}
+
+.privacy-preamble-card::after {
+    content: 'GDPR';
+    position: absolute;
+    right: 32px;
+    bottom: -18px;
+    font-family: var(--font-heading);
+    font-size: 120px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.035);
+    pointer-events: none;
+    line-height: 1;
+}
+
+.preamble-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.preamble-badge-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.preamble-pill {
+    font-family: var(--font-heading);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 7px 14px;
+    border-radius: 50px;
+}
+
+.preamble-pill.gold {
+    background: rgba(224, 198, 56, 0.18);
+    color: var(--premium-gold);
+    border: 1px solid rgba(224, 198, 56, 0.4);
+}
+
+.preamble-pill.green {
+    background: rgba(38, 130, 101, 0.28);
+    color: #9EE8CB;
+    border: 1px solid rgba(158, 232, 203, 0.35);
+}
+
+.age-18-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(228, 129, 47, 0.18);
+    border: 1px solid rgba(228, 129, 47, 0.45);
+    padding: 6px 16px 6px 8px;
+    border-radius: 50px;
+    font-family: var(--font-heading);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--white);
+}
+
+.age-circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--premium-orange);
+    color: var(--white);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.preamble-body h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(22px, 2.5vw, 30px);
+    color: var(--premium-gold);
+    margin-bottom: 14px;
+}
+
+.preamble-body > p {
+    font-size: 16px;
+    line-height: 1.78;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 22px;
+}
+
+.preamble-minor-alert {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    background: rgba(255, 255, 255, 0.07);
+    border-left: 4px solid var(--premium-orange);
+    border-radius: 14px;
+    padding: 18px 22px;
+}
+
+.preamble-minor-alert svg {
+    width: 24px;
+    height: 24px;
+    color: var(--premium-gold);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.preamble-minor-alert p {
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.92);
+    margin: 0;
+}
+
+/* --- 14.2 SINTESI BENTO A 3 CARD --- */
+.privacy-bento-summary {
+    max-width: 1280px;
+    margin: 0 auto 38px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.privacy-bento-card {
+    border-radius: 22px;
+    padding: 32px 30px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.privacy-bento-card:hover {
+    transform: translateY(-5px);
+}
+
+.privacy-bento-card.bento-navy {
+    background: #122147;
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 45px rgba(11, 23, 54, 0.12);
+}
+
+.privacy-bento-card.bento-emerald {
+    background: linear-gradient(145deg, #165B45 0%, #268265 100%);
+    color: var(--white);
+    border: 1px solid rgba(224, 198, 56, 0.28);
+    box-shadow: 0 20px 45px rgba(22, 91, 69, 0.18);
+}
+
+.privacy-bento-card.bento-cream {
+    background: #FFFDF8;
+    color: var(--premium-navy);
+    border: 2px solid rgba(228, 129, 47, 0.3);
+    box-shadow: 0 20px 45px rgba(11, 23, 54, 0.06);
+}
+
+.pb-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+}
+
+.bento-navy .pb-icon {
+    background: rgba(224, 198, 56, 0.16);
+    color: var(--premium-gold);
+}
+
+.bento-emerald .pb-icon {
+    background: rgba(255, 255, 255, 0.16);
+    color: var(--premium-gold);
+}
+
+.bento-cream .pb-icon {
+    background: rgba(228, 129, 47, 0.14);
+    color: var(--premium-orange);
+}
+
+.pb-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.pb-eyebrow {
+    font-family: var(--font-heading);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.bento-navy .pb-eyebrow,
+.bento-emerald .pb-eyebrow {
+    color: var(--premium-gold);
+}
+
+.bento-cream .pb-eyebrow {
+    color: var(--premium-orange);
+}
+
+.privacy-bento-card h3 {
+    font-family: var(--font-heading);
+    font-size: 21px;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+
+.pb-desc {
+    font-size: 14.5px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    opacity: 0.92;
+}
+
+.pb-details {
+    list-style: none;
+    padding: 0;
+    margin: auto 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 13.5px;
+    line-height: 1.5;
+}
+
+.pb-details a {
+    color: var(--premium-gold);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-weight: 700;
+}
+
+.pb-highlight-pill {
+    margin-top: auto;
+    background: rgba(228, 129, 47, 0.12);
+    border: 1px solid rgba(228, 129, 47, 0.35);
+    color: var(--premium-navy);
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 13.5px;
+    line-height: 1.45;
+}
+
+/* --- 14.3 TOOLBAR DI RICERCA E FILTRI MACRO-CATEGORIA --- */
+.privacy-toolbar-card {
+    max-width: 1280px;
+    margin: 0 auto 38px auto;
+    background: rgba(255, 255, 255, 0.86);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(11, 23, 54, 0.1);
+    border-radius: 22px;
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    box-shadow: 0 18px 45px rgba(11, 23, 54, 0.05);
+}
+
+.privacy-search-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.privacy-search-box svg {
+    position: absolute;
+    left: 18px;
+    width: 20px;
+    height: 20px;
+    color: var(--premium-orange);
+    pointer-events: none;
+}
+
+.privacy-search-box input {
+    width: 100%;
+    padding: 15px 20px 15px 50px;
+    border-radius: 14px;
+    border: 1.5px solid rgba(11, 23, 54, 0.14);
+    background: #FCFAF5;
+    font-family: var(--font-body);
+    font-size: 15px;
+    color: var(--premium-navy);
+    transition: all 0.25s ease;
+}
+
+.privacy-search-box input:focus {
+    outline: none;
+    background: var(--white);
+    border-color: var(--premium-orange);
+    box-shadow: 0 0 0 4px rgba(228, 129, 47, 0.12);
+}
+
+.privacy-category-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.priv-filter-pill {
+    font-family: var(--font-heading);
+    font-size: 12.5px;
+    font-weight: 700;
+    padding: 10px 18px;
+    border-radius: 50px;
+    border: 1.5px solid rgba(11, 23, 54, 0.12);
+    background: var(--white);
+    color: var(--premium-navy);
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.priv-filter-pill:hover {
+    border-color: var(--premium-orange);
+    color: var(--premium-orange);
+}
+
+.priv-filter-pill.active {
+    background: var(--premium-navy);
+    border-color: var(--premium-navy);
+    color: var(--premium-gold);
+    box-shadow: 0 8px 20px rgba(11, 23, 54, 0.16);
+}
+
+/* --- 14.4 GRIGLIA ESPLORATORE: SIDEBAR TOC STICKY + ARTICOLI --- */
+.privacy-explorer-grid {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 330px 1fr;
+    gap: 32px;
+    align-items: start;
+}
+
+.toc-sticky-card {
+    position: sticky;
+    top: 110px;
+    background: var(--premium-navy);
+    color: var(--white);
+    border-radius: 24px;
+    padding: 26px 22px;
+    box-shadow: 0 25px 55px rgba(11, 23, 54, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.toc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 14px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.toc-kicker {
+    font-family: var(--font-heading);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    color: var(--premium-gold);
+}
+
+.toc-expand-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 11px;
+}
+
+.toc-action-btn {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.8);
+    font-family: var(--font-heading);
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 2px 4px;
+    transition: color 0.2s ease;
+}
+
+.toc-action-btn:hover {
+    color: var(--premium-gold);
+}
+
+.privacy-toc-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-height: 58vh;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.toc-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.76);
+    font-family: var(--font-heading);
+    font-size: 12.5px;
+    font-weight: 600;
+    transition: all 0.22s ease;
+}
+
+.toc-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--white);
+    transform: translateX(3px);
+}
+
+.toc-item.active {
+    background: rgba(228, 129, 47, 0.22);
+    color: var(--white);
+    border-left: 3px solid var(--premium-gold);
+}
+
+.toc-num {
+    width: 24px;
+    height: 24px;
+    border-radius: 7px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--premium-gold);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10.5px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.toc-item.active .toc-num {
+    background: var(--premium-orange);
+    color: var(--white);
+}
+
+.toc-footer-cta {
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+}
+
+.toc-footer-cta span {
+    font-size: 12.5px;
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.toc-footer-cta .btn-cta {
+    width: 100%;
+    padding: 12px 18px;
+    font-size: 13px;
+}
+
+/* --- 14.5 CARD ARTICOLI DELL'INFORMATIVA --- */
+.privacy-articles-stream {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.privacy-article-card {
+    background: #FFFDF9;
+    border: 1px solid rgba(11, 23, 54, 0.09);
+    border-left: 5px solid var(--premium-navy);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 14px 35px rgba(11, 23, 54, 0.04);
+    transition: all 0.3s ease;
+    scroll-margin-top: 115px;
+}
+
+.privacy-article-card[data-priv-category="fondamenti"] {
+    border-left-color: var(--brand-green);
+}
+
+.privacy-article-card[data-priv-category="basi"] {
+    border-left-color: var(--premium-orange);
+}
+
+.privacy-article-card[data-priv-category="diritti"] {
+    border-left-color: var(--premium-navy);
+}
+
+.privacy-article-card[data-priv-category="tecnico"] {
+    border-left-color: #C79F1B;
+}
+
+.privacy-article-card:hover {
+    box-shadow: 0 20px 45px rgba(11, 23, 54, 0.08);
+}
+
+.priv-article-header {
+    width: 100%;
+    background: linear-gradient(90deg, rgba(244, 241, 234, 0.75) 0%, rgba(255, 253, 249, 0.95) 100%);
+    border: none;
+    padding: 24px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.25s ease;
+}
+
+.priv-article-header:hover {
+    background: rgba(228, 129, 47, 0.07);
+}
+
+.priv-header-left {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.priv-num-badge {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    background: var(--premium-navy);
+    color: var(--premium-gold);
+    font-family: var(--font-heading);
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 8px 18px rgba(11, 23, 54, 0.14);
+}
+
+.privacy-article-card[data-priv-category="fondamenti"] .priv-num-badge {
+    background: var(--brand-green);
+    color: var(--white);
+}
+
+.privacy-article-card[data-priv-category="basi"] .priv-num-badge {
+    background: var(--premium-orange);
+    color: var(--white);
+}
+
+.priv-cat-tag {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--brand-green);
+    margin-bottom: 4px;
+}
+
+.priv-header-left h3 {
+    font-family: var(--font-heading);
+    font-size: clamp(17px, 2vw, 21px);
+    font-weight: 700;
+    color: var(--premium-navy);
+    margin: 0;
+}
+
+.priv-toggle-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(11, 23, 54, 0.06);
+    color: var(--premium-navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.priv-toggle-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+.privacy-article-card.is-open .priv-toggle-icon {
+    transform: rotate(180deg);
+    background: var(--premium-navy);
+    color: var(--premium-gold);
+}
+
+.priv-article-body {
+    padding: 6px 30px 28px 30px;
+    border-top: 1px solid rgba(11, 23, 54, 0.06);
+    display: none;
+}
+
+.privacy-article-card.is-open .priv-article-body {
+    display: block;
+}
+
+.priv-article-body p {
+    font-size: 15.5px;
+    line-height: 1.78;
+    color: #2A334B;
+    margin: 16px 0;
+}
+
+.priv-article-body a {
+    color: var(--brand-green);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.priv-article-body a:hover {
+    color: var(--premium-orange);
+}
+
+/* Sotto-schede Bento interne agli articoli (Art. 2 e Art. 13) */
+.priv-subgrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin: 18px 0;
+}
+
+.priv-subcard {
+    background: #F5F2EA;
+    border: 1px solid rgba(11, 23, 54, 0.08);
+    border-radius: 16px;
+    padding: 20px 22px;
+}
+
+.priv-subcard h4 {
+    font-family: var(--font-heading);
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--premium-navy);
+    margin: 0 0 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.priv-subcard h4::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--premium-orange);
+    display: inline-block;
+}
+
+.priv-subcard p {
+    font-size: 14px;
+    line-height: 1.65;
+    margin: 8px 0 0 0;
+}
+
+.priv-styled-list {
+    margin: 12px 0;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: #2A334B;
+    font-size: 15px;
+    line-height: 1.68;
+}
+
+.priv-styled-list ul {
+    margin-top: 6px;
+    padding-left: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Callout Box Evidenziati */
+.priv-callout-box {
+    margin-top: 18px;
+    padding: 20px 24px;
+    border-radius: 16px;
+}
+
+.priv-callout-box strong {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 13.5px;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+
+.priv-callout-box p {
+    margin: 6px 0 0 0;
+    font-size: 14.5px;
+}
+
+.priv-callout-box.emerald {
+    background: rgba(38, 130, 101, 0.1);
+    border: 1px solid rgba(38, 130, 101, 0.3);
+}
+
+.priv-callout-box.emerald strong {
+    color: var(--brand-green);
+}
+
+.priv-callout-box.navy {
+    background: #101E42;
+    color: var(--white);
+    border: 1px solid rgba(224, 198, 56, 0.35);
+}
+
+.priv-callout-box.navy strong {
+    color: var(--premium-gold);
+}
+
+.priv-callout-box.navy p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.priv-callout-box.orange {
+    background: rgba(228, 129, 47, 0.11);
+    border: 1px solid rgba(228, 129, 47, 0.35);
+}
+
+.priv-callout-box.orange strong {
+    color: var(--premium-orange);
+}
+
+.privacy-empty-search {
+    background: var(--white);
+    border: 1px dashed rgba(11, 23, 54, 0.25);
+    border-radius: 20px;
+    padding: 48px 30px;
+    text-align: center;
+}
+
+.privacy-empty-search h4 {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    color: var(--premium-navy);
+    margin-bottom: 8px;
+}
+
+.privacy-empty-search p {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 1024px) {
+    .privacy-bento-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .privacy-explorer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .toc-sticky-card {
+        position: static;
+    }
+
+    .privacy-toc-list {
+        max-height: 260px;
+    }
+}
+
+@media (max-width: 768px) {
+    .privacy-hero-banner { padding: 140px 5% 60px 5%; }
+    .privacy-page-wrapper { padding: 45px 5% 95px 5%; }
+    .privacy-preamble-card { padding: 28px 22px; }
+    .priv-subgrid { grid-template-columns: 1fr; }
+    .priv-article-header { padding: 18px 20px; }
+    .priv-article-body { padding: 6px 20px 22px 20px; }
 }

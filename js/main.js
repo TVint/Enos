@@ -281,7 +281,10 @@ function initAppInteractions() {
     // 8. FORM CONTATTI DINAMICO (Preventivo / Servizio Clienti / Lavora con noi)
     initContactPage();
 
-    // 9. TRANSIZIONE WOW PORTALE RADIALE DAL CLICK
+    // 9. PAGINA PRIVACY INTERATTIVA (Ricerca, Filtri, Accordion, TOC)
+    initPrivacyPage();
+
+    // 10. TRANSIZIONE WOW PORTALE RADIALE DAL CLICK
     initPageTransitions();
 }
 
@@ -508,6 +511,152 @@ function initContactPage() {
             activateReason('preventivo');
         });
     }
+}
+
+/**
+ * Gestisce l'esploratore interattivo della pagina Privacy (privacy.html):
+ * - Accordion sui singoli articoli + pulsanti Espandi/Comprimi tutto
+ * - Filtro per macro-argomento (pillole) e ricerca full-text istantanea
+ * - Indice laterale sincronizzato con lo scroll
+ */
+function initPrivacyPage() {
+    const articles = document.querySelectorAll('.privacy-article-card');
+    if (articles.length === 0) return;
+
+    const searchInput = document.getElementById('privacy-search-input');
+    const filterPills = document.querySelectorAll('.priv-filter-pill');
+    const tocItems = document.querySelectorAll('.toc-item');
+    const expandAllBtn = document.getElementById('priv-expand-all');
+    const collapseAllBtn = document.getElementById('priv-collapse-all');
+    const emptyState = document.getElementById('privacy-empty-search');
+    const resetSearchBtn = document.getElementById('privacy-reset-search-btn');
+
+    let activeCategory = 'all';
+
+    // 1. Toggle singolo articolo
+    articles.forEach(card => {
+        const headerBtn = card.querySelector('.priv-article-header');
+        if (!headerBtn) return;
+        headerBtn.addEventListener('click', () => {
+            const isOpen = card.classList.toggle('is-open');
+            headerBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+    });
+
+    // 2. Espandi / Comprimi tutti
+    if (expandAllBtn) {
+        expandAllBtn.addEventListener('click', () => {
+            articles.forEach(card => {
+                card.classList.add('is-open');
+                const btn = card.querySelector('.priv-article-header');
+                if (btn) btn.setAttribute('aria-expanded', 'true');
+            });
+        });
+    }
+
+    if (collapseAllBtn) {
+        collapseAllBtn.addEventListener('click', () => {
+            articles.forEach(card => {
+                card.classList.remove('is-open');
+                const btn = card.querySelector('.priv-article-header');
+                if (btn) btn.setAttribute('aria-expanded', 'false');
+            });
+        });
+    }
+
+    // 3. Funzione di filtro combinata (Categoria + Ricerca)
+    function filterArticles() {
+        const query = (searchInput ? searchInput.value : '').trim().toLowerCase();
+        let visibleCount = 0;
+
+        articles.forEach(card => {
+            const cat = card.getAttribute('data-priv-category');
+            const matchesCat = activeCategory === 'all' || cat === activeCategory;
+            const text = card.textContent.toLowerCase();
+            const matchesSearch = !query || text.includes(query);
+
+            if (matchesCat && matchesSearch) {
+                card.style.display = '';
+                if (query) {
+                    card.classList.add('is-open');
+                    const btn = card.querySelector('.priv-article-header');
+                    if (btn) btn.setAttribute('aria-expanded', 'true');
+                }
+                visibleCount++;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        if (emptyState) {
+            emptyState.hidden = visibleCount > 0;
+        }
+    }
+
+    filterPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+            filterPills.forEach(p => p.classList.remove('active'));
+            pill.classList.add('active');
+            activeCategory = pill.getAttribute('data-priv-group') || 'all';
+            filterArticles();
+        });
+    });
+
+    if (searchInput) {
+        searchInput.addEventListener('input', filterArticles);
+    }
+
+    if (resetSearchBtn) {
+        resetSearchBtn.addEventListener('click', () => {
+            if (searchInput) searchInput.value = '';
+            activeCategory = 'all';
+            filterPills.forEach(p => p.classList.toggle('active', p.getAttribute('data-priv-group') === 'all'));
+            filterArticles();
+        });
+    }
+
+    // 4. Click su voce indice TOC -> assicura che l'articolo sia visibile e aperto
+    tocItems.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const targetId = link.getAttribute('data-toc-target');
+            const targetCard = document.getElementById(targetId);
+            if (!targetCard) return;
+
+            e.preventDefault();
+            if (targetCard.style.display === 'none') {
+                if (searchInput) searchInput.value = '';
+                activeCategory = 'all';
+                filterPills.forEach(p => p.classList.toggle('active', p.getAttribute('data-priv-group') === 'all'));
+                filterArticles();
+            }
+
+            targetCard.classList.add('is-open');
+            const btn = targetCard.querySelector('.priv-article-header');
+            if (btn) btn.setAttribute('aria-expanded', 'true');
+
+            tocItems.forEach(item => item.classList.remove('active'));
+            link.classList.add('active');
+
+            targetCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+
+    // 5. Scroll-spy leggero per evidenziare l'articolo corrente nella sidebar
+    window.addEventListener('scroll', () => {
+        let currentId = '';
+        articles.forEach(card => {
+            if (card.style.display === 'none') return;
+            const rect = card.getBoundingClientRect();
+            if (rect.top <= 180) {
+                currentId = card.id;
+            }
+        });
+        if (currentId) {
+            tocItems.forEach(item => {
+                item.classList.toggle('active', item.getAttribute('data-toc-target') === currentId);
+            });
+        }
+    }, { passive: true });
 }
 
 /**
